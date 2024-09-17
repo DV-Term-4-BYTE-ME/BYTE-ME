@@ -68,7 +68,7 @@ header {
     background: rgba(0, 0, 0, 0.7);
 }
 
-.login-form {
+.loginForm {
     background: rgba(255, 255, 255, 0.1);
     padding: 40px;
     border-radius: 20px;
@@ -80,16 +80,16 @@ header {
     max-width: 250px;
 }
 
-.login-form h2 {
+.loginForm h2 {
     margin-bottom: 20px;
 }
 
-.input-box {
+.inputBox {
     position: relative;
     margin-bottom: 30px;
 }
 
-.input-box input {
+.inputBox input {
     width: 100%;
     padding: 10px;
     background: none;
@@ -100,7 +100,7 @@ header {
     font-size: 16px;
 }
 
-.input-box label {
+.inputBox label {
     position: absolute;
     top: 10px;
     left: 0;
@@ -109,15 +109,15 @@ header {
     color: #fff;
 }
 
-.input-box input:focus ~ label,
-.input-box input:valid ~ label {
+.inputBox input:focus ~ label,
+.inputBox input:valid ~ label {
     top: -20px;
     left: 0;
     color: #00aaff;
     font-size: 12px;
 }
 
-.remember-forgot {
+.rememberForgot {
     display: flex;
     justify-content: space-between;
     font-size: 12px;
@@ -125,11 +125,11 @@ header {
     margin-bottom: 30px;
 }
 
-.remember-forgot label input {
+.rememberForgot label input {
     margin-right: 5px;
 }
 
-.login-btn {
+.loginButton {
     background: #00aaff;
     border: none;
     color: #fff;
@@ -139,22 +139,22 @@ header {
     border-radius: 5px;
 }
 
-.login-btn:hover {
+.loginButton:hover {
     background: #0077cc;
 }
 
-.login-form p {
+.loginForm p {
     margin-top: 20px;
     font-size: 14px;
     color: #fff;
 }
 
-.login-form p a {
+.loginForm p a {
     color: #00aaff;
     text-decoration: none;
 }
 
-.login-form p a:hover {
+.loginForm p a:hover {
     text-decoration: underline;
 }
 
@@ -186,7 +186,7 @@ header {
         display: flex; 
     }
 
-    .login-form {
+    .loginForm {
         width: 100%;
         padding: 30px;
         max-width: 350px;
@@ -194,7 +194,7 @@ header {
 }
 
 @media (max-width: 480px) {
-    .login-form {
+    .loginForm {
         padding: 20px;
         max-width: 300px;
     }
