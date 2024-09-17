@@ -1,0 +1,14 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Open signIn.html",
+            "file": "c:\\Users\\wow\\OneDrive\\Documents\\Open Window\\2024 - First Year\\DV 100\\BYTE ME\\BYTE-ME\\pages\\signIn.html"
+        }
+    ]
+}
