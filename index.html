@@ -1,9 +1,86 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trending Movies and TV Shows</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .movie {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .poster {
+      width: 100px;
+      margin-right: 20px;
+    }
+    .movie-info {
+      max-width: 400px;
+    }
+    img {
+      width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
 <body>
+  <h1>Trending Movies and TV Shows</h1>
+  <div id="movie-container"></div>
 
-<h1>My First Heading</h1>
-<p>My first paragraph.</p>
+  <script>
+    const url = "https://api.themoviedb.org/3/trending/all/day?language=en-US";
+    const apiToken = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwMzEyYzg4OTlhMTMyMzM3MjE2NDMxMWQ5MzI3MDg3NyIsIm5iZiI6MTcyNjU1NTk3MS4xMDIzNjUsInN1YiI6IjY2ZTkyNjM3NWMwNTE5YTIzNGQyYjY1OSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.1BwoUhmmHhO4fS3w0FEdoXyfGB8fU-S4LpxX6AFcIyA";
 
-</body>
-</html>
+    // Fetch the trending movies and TV shows
+    fetch(url, {
+      method: "GET",
+      headers: {
+        "accept": "application/json",
+        "Authorization": apiToken,
+      },
+    })
+    .then(response => response.json())
+    .then(data => {
+      const container = document.getElementById('movie-container');
+
+      // Loop through each result and display the info
+      data.results.forEach(item => {
+        const title = item.title || item.name;
+        const releaseDate = item.release_date || item.first_air_date;
+        const posterPath = `https://image.tmdb.org/t/p/w500${item.poster_path}`;
+
+        // Create movie div
+        const movieDiv = document.createElement('div');
+        movieDiv.classList.add('movie');
+
+        // Create image element for the poster
+        const img = document.createElement('img');
+        img.classList.add('poster');
+        img.src = posterPath;
+        img.alt = `${title} poster`;
+
+        // Create div for movie info
+        const infoDiv = document.createElement('div');
+        infoDiv.classList.add('movie-info');
+        infoDiv.innerHTML = `
+          <h2>${title}</h2>
+          <p>Release Date: ${releaseDate}</p>
+        `;
+
+        // Append elements to the movie div
+        movieDiv.appendChild(img);
+        movieDiv.appendChild(infoDiv);
+
+        // Append movie div to the container
+        container.appendChild(movieDiv);
+      });
+    })
+    .catch(error => {
+      console.error("Error fetching data: ", error);
+    });
+  </script>
+
