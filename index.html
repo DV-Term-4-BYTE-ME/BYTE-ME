@@ -49,9 +49,12 @@
 
       // Loop through each result and display the info
       data.results.forEach(item => {
+      
         const title = item.title || item.name;
         const releaseDate = item.release_date || item.first_air_date;
+        
         const posterPath = `https://image.tmdb.org/t/p/w500${item.poster_path}`;
+        
 
         // Create movie div
         const movieDiv = document.createElement('div');
