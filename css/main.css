@@ -1,0 +1,21 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+  .movie {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  .poster {
+    width: 100px;
+    margin-right: 20px;
+  }
+  .movie-info {
+    max-width: 400px;
+  }
+  img {
+    width: 100%;
+    height: auto;
+}
+
