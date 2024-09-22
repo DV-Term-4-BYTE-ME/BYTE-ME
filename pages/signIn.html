@@ -1,14 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Trending Movies and TV Shows</title>
-  <script src="../js/script.js"></script>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Gazing Login</title>
+    <!-- <link rel="stylesheet" href="css/login.css"> -->
+    <link rel="stylesheet" href="../css/login.css">
 </head>
-
 <body>
+    <!-- Navigation Bar -->
+    <header>
+        <div class="navbar">
+            <div class="logo">Logo</div>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Watch List</a></li>
+                    <li><a href="#">Movies</a></li>
+                    <!-- <li><a href="#">Contact</a></li> -->
+                    <li><a href="#" class="loginButton">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Background and Login Form -->
+    <div class="background">
+        <div class="loginForm">
+            <h2>Login</h2>
+            <form>
+                <div class="inputBox">
+                    <input type="email" required>
+                    <label>Email</label>
+                </div>
+                <div class="inputBox">
+                    <input type="password" required>
+                    <label>Password</label>
+                </div>
+                <div class="rememberForgot">
+                    <label><input type="checkbox"> Remember Me</label>
+                    <a href="#">Forgot Password?</a>
+                </div>
+                <button type="submit" class="loginButton">Login</button>
+                <p>Don't have an account? <a href="#">Register</a></p>
+            </form>
+        </div>
+    </div>
 
 </body>
-
 </html>
+
