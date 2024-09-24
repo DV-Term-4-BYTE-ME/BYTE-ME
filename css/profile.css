@@ -53,28 +53,33 @@ h1 {
 }
 
 .addIcon {
-    border: 2px solid #999;
+    border: 2px solid #D554EA;
     width: 150px;
     height: 150px;
-    background-color: #333;
+    background-color: #E6B0F4;
     border-radius: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 60px;
-    color: #999;
+    color: #D554EA;
     margin-bottom: 10px;
 }
 
 .manageButton {
-    background-color: #333;
+    background-color: #D554EA;
     border: none;
     padding: 10px 20px;
-    color: #999;
+    color: #01034B;
     cursor: pointer;
     font-size: 16px;
     border-radius: 5px;
     margin-top: 20px;
+}
+
+.manageButton:hover {
+    background-color: #E6B0F4;
+    color: #01034B;
 }
 
 header {
