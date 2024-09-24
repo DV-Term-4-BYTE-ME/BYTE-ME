@@ -50,7 +50,7 @@ header {
 }
 
 .navbar ul li a:hover {
-    color: #00aaff;
+    color: #56B5B9;
 }
 
 .logo {
@@ -113,7 +113,7 @@ header {
 .inputBox input:valid ~ label {
     top: -20px;
     left: 0;
-    color: #00aaff;
+    color: #56B5B9;
     font-size: 12px;
 }
 
@@ -131,8 +131,16 @@ header {
     gap: 5px;
 }
 
+.rememberForgot a {
+    color: #fff;
+}
+
+.rememberForgot a:hover {
+    color: #56B5B9;
+}
+
 .loginButton2 {
-    background: #00aaff;
+    background: #56B5B9;
     border: none;
     color: #fff;
     padding: 10px 20px;
@@ -142,7 +150,7 @@ header {
 }
 
 .loginButton2:hover {
-    background: #0077cc;
+    background: #1A0D83;
 }
 
 .loginForm p {
@@ -152,7 +160,7 @@ header {
 }
 
 .loginForm p a {
-    color: #00aaff;
+    color: #56B5B9;
     text-decoration: none;
 }
 
