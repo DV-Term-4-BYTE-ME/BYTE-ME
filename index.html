@@ -1,86 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Trending Movies and TV Shows</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-    }
-    .movie {
-      display: flex;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-    .poster {
-      width: 100px;
-      margin-right: 20px;
-    }
-    .movie-info {
-      max-width: 400px;
-    }
-    img {
-      width: 100%;
-      height: auto;
-    }
-  </style>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+        <meta name="viewport" content="width-device-width, initial-scale-1.0">
+        <meta name="keywords" content="">
+        <meta name="author" content="Danae Swart, Cheslin Abrahams, Angie van Rooyen and Gaby Norris">
+        <title>Gazing Home Page</title>
+        
+    
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/login.css">
 </head>
 <body>
+    <!-- Navigation Bar -->
+    <header>
+        <div class="navbar">
+            <div class="logo">Logo</div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../pages/movieWatchlist.html">Watch List</a></li>
+                    <li><a href="../pages/movieLibrary.html">Movies</a></li>
+                    <li><a href="../pages/users.html">User</a></li>
+                    <li><a href="../pages/signIn.html" class="loginButton">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
   <h1>Trending Movies and TV Shows</h1>
   <div id="movie-container"></div>
 
-  <script>
-    const url = "https://api.themoviedb.org/3/trending/all/day?language=en-US";
-    const apiToken = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwMzEyYzg4OTlhMTMyMzM3MjE2NDMxMWQ5MzI3MDg3NyIsIm5iZiI6MTcyNjU1NTk3MS4xMDIzNjUsInN1YiI6IjY2ZTkyNjM3NWMwNTE5YTIzNGQyYjY1OSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.1BwoUhmmHhO4fS3w0FEdoXyfGB8fU-S4LpxX6AFcIyA";
+  <script src = "script.js"></script> 
 
-    // Fetch the trending movies and TV shows
-    fetch(url, {
-      method: "GET",
-      headers: {
-        "accept": "application/json",
-        "Authorization": apiToken,
-      },
-    })
-    .then(response => response.json())
-    .then(data => {
-      const container = document.getElementById('movie-container');
+</body>
 
-      // Loop through each result and display the info
-      data.results.forEach(item => {
-        const title = item.title || item.name;
-        const releaseDate = item.release_date || item.first_air_date;
-        const posterPath = `https://image.tmdb.org/t/p/w500${item.poster_path}`;
-
-        // Create movie div
-        const movieDiv = document.createElement('div');
-        movieDiv.classList.add('movie');
-
-        // Create image element for the poster
-        const img = document.createElement('img');
-        img.classList.add('poster');
-        img.src = posterPath;
-        img.alt = `${title} poster`;
-
-        // Create div for movie info
-        const infoDiv = document.createElement('div');
-        infoDiv.classList.add('movie-info');
-        infoDiv.innerHTML = `
-          <h2>${title}</h2>
-          <p>Release Date: ${releaseDate}</p>
-        `;
-
-        // Append elements to the movie div
-        movieDiv.appendChild(img);
-        movieDiv.appendChild(infoDiv);
-
-        // Append movie div to the container
-        container.appendChild(movieDiv);
-      });
-    })
-    .catch(error => {
-      console.error("Error fetching data: ", error);
-    });
-  </script>
 

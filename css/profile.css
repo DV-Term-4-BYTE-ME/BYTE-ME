@@ -1,0 +1,131 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #01034B;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+}
+
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+
+.profiles {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 20px;
+}
+
+.profile .profileAdd{
+    text-align: center;
+    cursor: pointer;
+}
+
+.profile img, .profile .addIcon  {
+    width: 150px;
+    height: 150px;
+    background-color: #333;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 60px;
+    color: #999;
+    margin-bottom: 10px;
+}
+
+
+
+.profile p {
+    font-size: 18px;
+    color: #ccc;
+}
+
+.addIcon {
+    border: 2px solid #D554EA;
+    width: 150px;
+    height: 150px;
+    background-color: #E6B0F4;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 60px;
+    color: #D554EA;
+    margin-bottom: 10px;
+}
+
+.manageButton {
+    background-color: #D554EA;
+    border: none;
+    padding: 10px 20px;
+    color: #01034B;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.manageButton:hover {
+    background-color: #E6B0F4;
+    color: #01034B;
+}
+
+header {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+    box-sizing: border-box;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar ul li {
+    margin: 0 15px;
+}
+
+.navbar ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.navbar ul li a:hover {
+    color: #00aaff;
+}
+
+.logo {
+    font-size: 24px;
+    color: #fff;
+    font-weight: bold;
+}
