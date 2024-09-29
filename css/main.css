@@ -2,12 +2,34 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Arial', sans-serif;
-  background: url(../assests/images/619579db-2a19-4825-9e0b-15e0ddae83e7.jpeg) no-repeat center center fixed;
-  background-size: cover;
-  min-height: 100vh; /* Use min-height instead of height */
+  background: #000; /* Black background for the body */
+  min-height: 100vh; /* Use min-height for the body */
   display: flex;
   flex-direction: column; /* Change to column layout */
 }
+
+/* Hero Section Background */
+.hero-section {
+  background: url(../assests/images/619579db-2a19-4825-9e0b-15e0ddae83e7.jpeg) no-repeat center center fixed;
+  background-size: cover;
+  height: 100vh; /* Full height for the hero section */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: #fff; /* White text */
+}
+
+.movieInfo p {
+  
+  overflow: hidden; /* Hide overflow if text exceeds height */
+  align-items: left; /* Center the text vertically */
+  max-width: 700px; /* Set a maximum width for the text box */
+  margin-right: 500px;
+}
+
+
+
 
 /* Nav Bar */
 header {
@@ -21,9 +43,7 @@ header {
   align-items: center;
   z-index: 10;
   box-sizing: border-box;
-  margin-bottom: 100px;
 }
-
 
 .navbar {
   display: flex;
@@ -44,7 +64,7 @@ header {
 }
 
 .navbar ul li a {
-  color: #fff;
+  color: #fff; /* White text */
   text-decoration: none;
   font-size: 18px;
   transition: 0.3s;
@@ -56,57 +76,8 @@ header {
 
 .logo {
   font-size: 24px;
-  color: #fff;
+  color: #fff; /* White text */
   font-weight: bold;
-}
-
-.background {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.7);
-}
-
-/* MovieInfo */
-.movie {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.poster {
-  width: 100px;
-  margin-right: 20px;
-}
-
-.movie-info {
-  max-width: 400px;
-}
-
-img {
-  width: 100%;
-  height: auto;
-}
-
-.carousel-container {
-  color: white;
-}
-
-/* Buttons */
-.movieWatchlist {
-  margin: 10px;
-  margin-top: 50px;
-  padding: 20px;
-  border-radius: 30px;
-}
-
-.addMore {
-  margin: 10px;
-  margin-top: 50px;
-  padding: 20px;
-  border-radius: 30px;
 }
 
 /* Movie Section */
@@ -114,6 +85,7 @@ img {
   margin-left: 20px;
   font-size: 1.5em;
   padding: 20px 0;
+  color: #fff; /* White text */
 }
 
 .movie-row {
@@ -158,4 +130,60 @@ footer {
 .footer-names p {
   margin: 0; /* Remove default margin */
   font-size: 16px; /* Adjust font size */
+  color: #fff; /* White text */
+}
+
+/* Media Queries for Responsiveness & Layout */
+@media (max-width: 768px) {
+  header {
+      padding: 10px 20px;
+  }
+
+  .navbar ul {
+      flex-direction: column;
+      background: rgba(0, 0, 0, 0.8);
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      height: calc(100vh - 60px);
+      justify-content: center;
+      align-items: center;
+      display: none; 
+  }
+
+  .navbar ul li {
+      margin: 20px 0;
+  }
+
+  .navbar ul.show {
+      display: flex; 
+  }
+
+  .loginForm {
+      width: 100%;
+      padding: 30px;
+      max-width: 350px;
+      color: #fff; /* White text */
+  }
+}
+
+@media (max-width: 480px) {
+  .loginForm {
+      padding: 20px;
+      max-width: 300px;
+      color: #fff; /* White text */
+  }
+
+  .navbar ul li a {
+      font-size: 16px;
+  }
+
+  .navbar ul li {
+      margin: 10px 0;
+  }
+
+  .navbar .logo {
+      font-size: 20px;
+  }
 }
