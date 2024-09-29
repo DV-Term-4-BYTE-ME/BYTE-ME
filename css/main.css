@@ -113,3 +113,42 @@ header {
   padding: 20px;
   border-radius: 30px;
 }
+
+
+/*movie Section*/
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+.section-title {
+    margin-left: 20px;
+    font-size: 1.5em;
+    padding: 20px 0;
+}
+
+.movie-row {
+    display: flex;
+    overflow-x: auto;
+    padding-left: 20px;
+}
+
+.movie-row img {
+    margin-right: 10px;
+    border-radius: 8px;
+    width: 200px;
+    height: 300px;
+    transition: transform 0.3s ease;
+}
+
+.movie-row img:hover {
+    transform: scale(1.1);
+}
+
+.section {
+    margin-bottom: 40px;
+}
