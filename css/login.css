@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
-    background: url(../assests/images/nate-rayfield-_WR6tUIAJe8-unsplash.jpg) no-repeat center center fixed;
+    background: url(../assests/images/background.png) no-repeat center center fixed;
     background-size: cover;
     height: 100vh;
     display: flex;
@@ -50,7 +50,7 @@ header {
 }
 
 .navbar ul li a:hover {
-    color: #00aaff;
+    color: #56B5B9;
 }
 
 .logo {
@@ -113,24 +113,34 @@ header {
 .inputBox input:valid ~ label {
     top: -20px;
     left: 0;
-    color: #00aaff;
+    color: #56B5B9;
     font-size: 12px;
 }
 
 .rememberForgot {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     font-size: 12px;
     color: #fff;
     margin-bottom: 30px;
 }
 
 .rememberForgot label input {
-    margin-right: 5px;
+    align-items: center; 
+    gap: 5px;
 }
 
-.loginButton {
-    background: #00aaff;
+.rememberForgot a {
+    color: #fff;
+}
+
+.rememberForgot a:hover {
+    color: #56B5B9;
+}
+
+.loginButton2 {
+    background: #56B5B9;
     border: none;
     color: #fff;
     padding: 10px 20px;
@@ -139,8 +149,8 @@ header {
     border-radius: 5px;
 }
 
-.loginButton:hover {
-    background: #0077cc;
+.loginButton2:hover {
+    background: #1A0D83;
 }
 
 .loginForm p {
@@ -150,7 +160,7 @@ header {
 }
 
 .loginForm p a {
-    color: #00aaff;
+    color: #56B5B9;
     text-decoration: none;
 }
 
