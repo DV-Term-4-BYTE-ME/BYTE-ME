@@ -1,7 +1,79 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-  }
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background: url(../assests/images/619579db-2a19-4825-9e0b-15e0ddae83e7.jpeg) no-repeat center center fixed;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+body {
+         overflow-y: scroll; /* Add this line */
+      }
+      
+/*Nav Bar */
+header {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+  box-sizing: border-box;
+  margin-bottom: 100px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar ul li {
+  margin: 0 15px;
+}
+
+.navbar ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.navbar ul li a:hover {
+  color: #56B5B9;
+}
+
+.logo {
+  font-size: 24px;
+  color: #fff;
+  font-weight: bold;
+}
+
+.background {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+/* MovieInfo */
   .movie {
     display: flex;
     align-items: center;
@@ -19,3 +91,25 @@ body {
     height: auto;
 }
 
+.carousel-container 
+{
+  color: white;
+}
+
+
+/* Buttons */
+.movieWatchlist 
+{
+  margin: 10px;
+  margin-top: 50px;
+  padding: 20px;
+  border-radius: 30px;
+}
+
+.addMore 
+{
+  margin: 10px;
+  margin-top: 50px;
+  padding: 20px;
+  border-radius: 30px;
+}
