@@ -1,0 +1,92 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url(../assests/images/619579db-2a19-4825-9e0b-15e0ddae83e7.jpeg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: white;
+    font-family: 'Arial', sans-serif;
+}
+header {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+    box-sizing: border-box;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar ul li {
+    margin: 0 15px;
+}
+
+.navbar ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.navbar ul li a:hover {
+    color: #56B5B9;
+}
+
+.logo {
+    font-size: 24px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.movieCard {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 40px;
+    text-align: left;
+    max-width: 600px;
+}
+
+.movieTitle {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.movieInfo {
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+.buttonWatch {
+    margin-top: 20px;
+    padding: 10px 30px;
+    background-color: #56B5B9;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    border-radius: 5px;
+}
+
+.buttonWatch:hover {
+    background-color: #1A0D83;
+}
