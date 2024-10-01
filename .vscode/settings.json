@@ -7,5 +7,6 @@
         "rayfield",
         "Rooyen",
         "uniquifier"
-    ]
+    ],
+    "liveServer.settings.port": 5501
 }
