@@ -2,19 +2,36 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Arial', sans-serif;
+  background: #000; /* Black background for the body */
+  min-height: 100vh; /* Use min-height for the body */
+  display: flex;
+  flex-direction: column; /* Change to column layout */
+}
+
+/* Hero Section Background */
+.hero-section {
   background: url(../assests/images/619579db-2a19-4825-9e0b-15e0ddae83e7.jpeg) no-repeat center center fixed;
   background-size: cover;
-  height: 100vh;
+  height: 100vh; /* Full height for the hero section */
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+  position: relative;
+  color: #fff; /* White text */
 }
-body {
-         overflow-y: scroll; /* Add this line */
-      }
-      
-/*Nav Bar */
+
+.movieInfo p {
+  
+  overflow: hidden; /* Hide overflow if text exceeds height */
+  align-items: left; /* Center the text vertically */
+  max-width: 700px; /* Set a maximum width for the text box */
+  margin-right: 500px;
+}
+
+
+
+
+/* Nav Bar */
 header {
   width: 100%;
   position: absolute;
@@ -26,7 +43,6 @@ header {
   align-items: center;
   z-index: 10;
   box-sizing: border-box;
-  margin-bottom: 100px;
 }
 
 .navbar {
@@ -48,7 +64,7 @@ header {
 }
 
 .navbar ul li a {
-  color: #fff;
+  color: #fff; /* White text */
   text-decoration: none;
   font-size: 18px;
   transition: 0.3s;
@@ -60,56 +76,114 @@ header {
 
 .logo {
   font-size: 24px;
-  color: #fff;
+  color: #fff; /* White text */
   font-weight: bold;
 }
 
-.background {
+/* Movie Section */
+.section-title {
+  margin-left: 20px;
+  font-size: 1.5em;
+  padding: 20px 0;
+  color: #fff; /* White text */
+}
+
+.movie-row {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.7);
+  overflow-x: auto;
+  padding-left: 20px;
 }
 
-/* MovieInfo */
-  .movie {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
+.movie-row img {
+  margin-right: 10px;
+  border-radius: 8px;
+  width: 200px;
+  height: 300px;
+  transition: transform 0.3s ease;
+}
+
+.movie-row img:hover {
+  transform: scale(1.1);
+}
+
+.section {
+  margin-bottom: 40px;
+}
+
+/* Footer */
+footer {
+  background-color: #333; /* Dark background */
+  color: #fff; /* White text */
+  text-align: center; /* Center the text */
+  padding: 20px; /* Add some padding */
+  position: relative; /* Ensure it stays at the bottom */
+  margin-top: auto; /* This ensures the footer moves to the bottom */
+  width: 100%; /* Full width */
+}
+
+.footer-container {
+  max-width: 1200px; /* Limit the width */
+  margin: 0 auto; /* Center the container */
+  padding: 10px; /* Add some padding */
+}
+
+.footer-names p {
+  margin: 0; /* Remove default margin */
+  font-size: 16px; /* Adjust font size */
+  color: #fff; /* White text */
+}
+
+/* Media Queries for Responsiveness & Layout */
+@media (max-width: 768px) {
+  header {
+      padding: 10px 20px;
   }
-  .poster {
-    width: 100px;
-    margin-right: 20px;
+
+  .navbar ul {
+      flex-direction: column;
+      background: rgba(0, 0, 0, 0.8);
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      height: calc(100vh - 60px);
+      justify-content: center;
+      align-items: center;
+      display: none; 
   }
-  .movie-info {
-    max-width: 400px;
+
+  .navbar ul li {
+      margin: 20px 0;
   }
-  img {
-    width: 100%;
-    height: auto;
+
+  .navbar ul.show {
+      display: flex; 
+  }
+
+  .loginForm {
+      width: 100%;
+      padding: 30px;
+      max-width: 350px;
+      color: #fff; /* White text */
+  }
 }
 
-.carousel-container 
-{
-  color: white;
-}
+@media (max-width: 480px) {
+  .loginForm {
+      padding: 20px;
+      max-width: 300px;
+      color: #fff; /* White text */
+  }
 
+  .navbar ul li a {
+      font-size: 16px;
+  }
 
-/* Buttons */
-.movieWatchlist 
-{
-  margin: 10px;
-  margin-top: 50px;
-  padding: 20px;
-  border-radius: 30px;
-}
+  .navbar ul li {
+      margin: 10px 0;
+  }
 
-.addMore 
-{
-  margin: 10px;
-  margin-top: 50px;
-  padding: 20px;
-  border-radius: 30px;
+  .navbar .logo {
+      font-size: 20px;
+  }
 }
