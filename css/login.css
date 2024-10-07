@@ -84,6 +84,109 @@ header {
     margin-bottom: 20px;
 }
 
+/* Input Box  for Name */
+.sign-up-Name-InputBox {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.sign-up-Name-InputBox input {
+    width: 100%;
+    padding: 10px;
+    background: none;
+    border: none;
+    border-bottom: 2px solid #fff;
+    outline: none;
+    color: #fff;
+    font-size: 16px;
+}
+
+.sign-up-Name-InputBox label {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    pointer-events: none;
+    transition: 0.5s;
+    color: #fff;
+}
+
+.sign-up-Name-InputBox input:focus ~ label,
+.sign-up-Name-InputBox input:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: #56B5B9;
+    font-size: 12px;
+}
+
+/* Input Box  for Email */
+#sign-up-Email-InputBox {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+#sign-up-Email-InputBox input {
+    width: 100%;
+    padding: 10px;
+    background: none;
+    border: none;
+    border-bottom: 2px solid #fff;
+    outline: none;
+    color: #fff;
+    font-size: 16px;
+}
+
+#sign-up-Email-InputBox label {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    pointer-events: none;
+    transition: 0.5s;
+    color: #fff;
+}
+
+#sign-up-Email-InputBox input:focus ~ label,
+#sign-up-Email-InputBox input:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: #56B5B9;
+    font-size: 12px;
+}
+
+/* Input Box  for Password */
+.sign-up-Password-InputBox {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.sign-up-Password-InputBox input {
+    width: 100%;
+    padding: 10px;
+    background: none;
+    border: none;
+    border-bottom: 2px solid #fff;
+    outline: none;
+    color: #fff;
+    font-size: 16px;
+}
+
+.sign-up-Password-InputBox label {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    pointer-events: none;
+    transition: 0.5s;
+    color: #fff;
+}
+
+.sign-up-Password-InputBox input:focus ~ label,
+.sign-up-Password-InputBox input:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: #56B5B9;
+    font-size: 12px;
+}
+
+/* Input Box  */
 .inputBox {
     position: relative;
     margin-bottom: 30px;
@@ -139,7 +242,20 @@ header {
     color: #56B5B9;
 }
 
-.loginButton2 {
+#loginButton-forValidation{
+    background: #56B5B9;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 5px; 
+}
+
+#loginButton-forValidation:hover{
+    background: #1A0D83;
+}
+#signUpButton {
     background: #56B5B9;
     border: none;
     color: #fff;
@@ -149,7 +265,7 @@ header {
     border-radius: 5px;
 }
 
-.loginButton2:hover {
+#signUpButton:hover {
     background: #1A0D83;
 }
 
