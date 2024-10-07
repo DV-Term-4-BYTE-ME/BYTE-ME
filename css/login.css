@@ -139,7 +139,20 @@ header {
     color: #56B5B9;
 }
 
-.loginButton2 {
+.loginButton-forValidation{
+    background: #56B5B9;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 5px; 
+}
+
+.loginButton-forValidation:hover{
+    background: #1A0D83;
+}
+.signUpButton {
     background: #56B5B9;
     border: none;
     color: #fff;
@@ -149,7 +162,7 @@ header {
     border-radius: 5px;
 }
 
-.loginButton2:hover {
+.signUpButton:hover {
     background: #1A0D83;
 }
 

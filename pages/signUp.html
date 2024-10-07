@@ -36,6 +36,10 @@
         <div class="loginForm">
             <h2>Sign Up</h2>
             <form>
+                <div class ="inputBox">
+                    <input type = "Username" required>
+                    <label>Username</label>
+                </div>
                 <div class="inputBox">
                     <input type="email" required>
                     <label>Email</label>
@@ -52,11 +56,11 @@
                     <label><input type="checkbox"> Remember Me</label>
                     <label><a href="#">Forgot Password?</a></label>
                 </div>
-                <button type="submit" class="loginButton2">Sign Up</button>
-                <p>I already have an account. <a href="#">Login</a></p>
+                <input type="button" value= "Sign Up"id="signUpButton">
+                <p>I already have an account. <a href="../pages/signIn.html">Login</a></p>
             </form>
         </div>
     </div>
-
+    <script src="/js/sign-up.js"></script>
 </body>
 </html>
