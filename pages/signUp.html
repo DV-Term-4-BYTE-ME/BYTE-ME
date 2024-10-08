@@ -34,11 +34,10 @@
     <!-- Background and Login Form -->
     <div class="background">
         <div class="loginForm">
-            <h2>Welcome back!</h2>
-            <h4>Login</h4>
+            <h2>Sign Up</h2>
             <form>
                 <div class ="sign-up-Name-InputBox">
-                    <input type = "Name" required>
+                    <input type ="name" required>
                     <label>Name</label>
                 </div>
                 <div id="sign-up-Email-InputBox">
@@ -49,16 +48,19 @@
                     <input type="password" required>
                     <label>Password</label>
                 </div>
+                <div class="inputBox">
+                    <input type="password" required>
+                    <label>Confirm Password</label>
+                </div>
                 <div class="rememberForgot">
                     <label><input type="checkbox"> Remember Me</label>
                     <label><a href="#">Forgot Password?</a></label>
                 </div>
-                <input type="button" value= "Login" id="loginButton-forValidation">
-                <p>Don't have an account? <a href="../pages/signUp.html">Register</a></p>
+                <input type="button" value= "Sign Up" id="signUpButton">
+                <p>I already have an account. <a href="../pages/signIn.html">Login</a></p>
             </form>
         </div>
     </div>
-
+    <script src="../js/signUp.js"></script>
 </body>
 </html>
-
