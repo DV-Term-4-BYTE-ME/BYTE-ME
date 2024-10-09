@@ -6,7 +6,7 @@
         <meta name="viewport" content="width-device-width, initial-scale-1.0">
         <meta name="keywords" content="">
         <meta name="author" content="Danae Swart, Cheslin Abrahams, Angie van Rooyen and Gaby Norris">
-        <title>Gazing Login</title>
+        <title>Frontier Login</title>
         
     
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,22 +35,31 @@
     <!-- Background and Login Form -->
     <div class="background">
         <div class="loginForm">
-            <h2>Login</h2>
+            <h2>Welcome back!</h2>
+            <h4>Login</h4>
             <form>
-                <div class="inputBox">
-                    <input type="email" id="loginEmail" required>
+
+                <div class ="sign-up-Name-InputBox">
+                    <input type = "Name" required>
+                    <label>Name</label>
+                </div>
+                <div id="sign-up-Email-InputBox">
+                    <input type="email" required>
                     <label>Email</label>
                 </div>
-                <div class="inputBox">
-                    <input type="password" id="loginPassword" required>
+                <div class="sign-up-Password-InputBox">
+                    <input type="password" required>
+
                     <label>Password</label>
                 </div>
                 <div class="rememberForgot">
                     <label><input type="checkbox"> Remember Me</label>
                     <label><a href="#">Forgot Password?</a></label>
                 </div>
-                <button type="submit" class="loginButton2" onclick="validateEmail()">Login</button>
-                <p>Don't have an account? <a href="#">Register</a></p>
+
+                <input type="button" value= "Login" id="loginButton-forValidation">
+                <p>Don't have an account? <a href="../pages/signUp.html">Register</a></p>
+
             </form>
         </div>
     </div>

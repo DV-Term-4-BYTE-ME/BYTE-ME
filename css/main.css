@@ -21,7 +21,6 @@ body {
 }
 
 .movieInfo p {
-  
   overflow: hidden; /* Hide overflow if text exceeds height */
   align-items: left; /* Center the text vertically */
   max-width: 700px; /* Set a maximum width for the text box */
