@@ -27,7 +27,7 @@ document.getElementById("signUpButton").addEventListener("click", onClick);
 
 //creating user variables
  var name = document.getElementsByClassName("sign-up-Name-InputBox").innerHTML;
- var email = document.getElementById("sign-up-Email-InputBox").innerHTML;
+ var email = document.getElementById('sign-up-Email-InputBox');
  var password = document.getElementsByClassName("sign-up-Password-InputBox").innerHTML;
 
  //creating user class
@@ -44,19 +44,36 @@ document.getElementById("signUpButton").addEventListener("click", onClick);
 
  } */
 
- //check email method with check of the email contains an @
- function checkEmail(email) {
+  function validateEmail(email) {
 
-  let result = email.includes("@");
-  console.log(email);
-  
-  if(result === true){
-    console.log(email);
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    
+    return emailPattern.test(email);
+    
+    }
+ //check email method with check of the email contains an @
+ function checkEmail() {
+  const emailInput = document.getElementById('sign-up-Email-InputBox');
+
+    if (validateEmail(emailInput.value)) {
+
+    console.log("good emaiil");
+    ; // Clear any previous error message
+    
+    alert('Email is valid! Form submitted.');
+    
+    // You can add your form submission logic here
+    
+    } else {
+    console.log(emailInput.value);
+    
+    }
     
   }
-}
+
 
 function onClick(){
   console.log("clicked");
-  checkEmail(email);
+ 
+  checkEmail();
 }
