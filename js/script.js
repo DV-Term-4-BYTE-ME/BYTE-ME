@@ -113,9 +113,6 @@ function validateEmail(){
   if(emailInput.value==validEmail && passwordInput.value ==validPassword){
     console.log("done");
     document.location.href = "../index.html";
-
   }
-
-
 }
-    
+
