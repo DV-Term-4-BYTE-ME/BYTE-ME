@@ -92,12 +92,12 @@ header {
 }
 
 /* Input Box  for Name */
-.sign-up-Name-InputBox {
+#sign-up-Name-InputBox {
     position: relative;
     margin-bottom: 30px;
 }
 
-.sign-up-Name-InputBox input {
+#sign-up-Name-InputBox input {
     width: 100%;
     padding: 10px;
     background: none;
@@ -108,7 +108,7 @@ header {
     font-size: 16px;
 }
 
-.sign-up-Name-InputBox label {
+#sign-up-Name-InputBox label {
     position: absolute;
     top: 10px;
     left: 0;
@@ -117,8 +117,8 @@ header {
     color: #fff;
 }
 
-.sign-up-Name-InputBox input:focus ~ label,
-.sign-up-Name-InputBox input:valid ~ label {
+#sign-up-Name-InputBox input:focus ~ label,
+#sign-up-Name-InputBox input:valid ~ label {
     top: -20px;
     left: 0;
     color: #56B5B9;
@@ -160,12 +160,12 @@ header {
 }
 
 /* Input Box  for Password */
-.sign-up-Password-InputBox {
+#sign-up-Password-InputBox {
     position: relative;
     margin-bottom: 30px;
 }
 
-.sign-up-Password-InputBox input {
+#sign-up-Password-InputBox input {
     width: 100%;
     padding: 10px;
     background: none;
@@ -176,7 +176,7 @@ header {
     font-size: 16px;
 }
 
-.sign-up-Password-InputBox label {
+#sign-up-Password-InputBox label {
     position: absolute;
     top: 10px;
     left: 0;
@@ -185,21 +185,21 @@ header {
     color: #fff;
 }
 
-.sign-up-Password-InputBox input:focus ~ label,
-.sign-up-Password-InputBox input:valid ~ label {
+#sign-up-Password-InputBox input:focus ~ label,
+#sign-up-Password-InputBox input:valid ~ label {
     top: -20px;
     left: 0;
     color: #56B5B9;
     font-size: 12px;
 }
 
-/* Input Box  */
-.inputBox {
+/* Input Box for Confirm Password   */
+#sign-up-ConfirmPassword-InputBox {
     position: relative;
     margin-bottom: 30px;
 }
 
-.inputBox input {
+#sign-up-ConfirmPassword-InputBox input {
     width: 100%;
     padding: 10px;
     background: none;
@@ -210,7 +210,7 @@ header {
     font-size: 16px;
 }
 
-.inputBox label {
+#sign-up-ConfirmPassword-InputBox label {
     position: absolute;
     top: 10px;
     left: 0;
@@ -219,8 +219,8 @@ header {
     color: #fff;
 }
 
-.inputBox input:focus ~ label,
-.inputBox input:valid ~ label {
+#sign-up-ConfirmPassword-InputBox input:focus ~ label,
+#sign-up-ConfirmPassword-InputBox input:valid ~ label {
     top: -20px;
     left: 0;
     color: #56B5B9;
