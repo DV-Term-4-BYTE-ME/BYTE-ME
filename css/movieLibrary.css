@@ -185,6 +185,12 @@ footer {
     }
 }
 
+.logo img{
+    height: 50px;
+    width: 125px;
+  }
+
+  
 /* Button Styles */
 .button-container {
     display: flex;
@@ -195,15 +201,38 @@ footer {
 .button {
     margin: 0 10px; /* Space between buttons */
     padding: 10px 20px;
-    background-color: #007BFF; /* Button color */
+    background-color: #602585; /* Button color from your original code */
     color: #fff; /* White text */
     text-decoration: none; /* Remove underline */
-    border-radius: 5px; /* Rounded corners */
+    border-radius: 10px; /* Rounded corners from your original code */
     font-size: 18px; /* Match font size to the nav links */
     transition: background-color 0.3s, color 0.3s; /* Hover effect */
 }
 
 .button:hover {
-    background-color: #00aaff; /* Change hover color */
+    background-color: #56B5B9; /* Hover color from your original code */
     color: #fff; /* Keep text color white on hover */
+}
+
+
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    margin-top: 100px;
+
+}
+
+.filter-button {
+    padding: 10px 20px;
+    background-color: #602585;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.filter-button.active {
+    background-color: #007BFF;
+    color: #fff;
 }
