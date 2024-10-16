@@ -23,9 +23,9 @@
 
 
 //creating user variables
- var name = document.getElementsByClassName("sign-up-Name-InputBox").innerHTML;
- var email = document.getElementById('sign-up-Email-InputBox');
- var password = document.getElementsByClassName("sign-up-Password-InputBox").innerHTML;
+ var name = document.getElementsById("sign-up-Name-InputBox").innerHTML;
+ var email = document.getElementById('sign-up-Email-InputBox').innerHTML;
+ var password = document.getElementsById("sign-up-Password-InputBox").innerHTML;
 
 class User{
   constructor(name,email,password){
@@ -39,6 +39,7 @@ class User{
 
  function onSubmit(){
   //Check if it is valid
+    let user1 = User(document.getElementsByClassName("sign-up-Name-InputBox").innerHTML,)
  }
 
  
