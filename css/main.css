@@ -6,6 +6,7 @@ body {
   min-height: 100vh; /* Use min-height for the body */
   display: flex;
   flex-direction: column; /* Change to column layout */
+  overflow-x: hidden; 
 }
 
 /* Hero Section Background */
@@ -88,6 +89,13 @@ header {
   display: flex;
   overflow-x: auto;
   padding-left: 20px;
+  justify-content: space-around;
+  
+}
+.movieContainerImg h3{
+  color: white;
+  text-decoration: none;
+  text-underline-offset: none;
 }
 
 .movie-row img {
