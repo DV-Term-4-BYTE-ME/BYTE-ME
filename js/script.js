@@ -53,38 +53,14 @@ const requestOptions = {
 fetch("https://Movies-Verse.proxy-production.allthingsdev.co/api/movies/upcoming-movies", requestOptions)
    .then((response) => response.json())
    // console.log(response)
-   .then((result) => mineData(result))
+   .then((result) => {mineData(result);
+    checkIfDataLoaded(afterDataLoaded);
+   })
    .catch((error) => console.error(error));
 
+ 
   
 
-
-//--------------------------------login js --------------------------------------------------------
-
-
-
-
-
-let validEmail= "william@openwindow.co.za";
-let validPassword = "Will-I-Am-001";
-
-function validateEmail(){
-  let emailInput = document.getElementById("loginEmail");
-  let passwordInput = document.getElementById("loginPassword");
-
-  if(emailInput.value !== validEmail){
-
-    emailInput.style.borderBottomColor='red';
-    console.log("email hoe");
-  }if(passwordInput.value!==validPassword){
-    passwordInput.style.borderBottomColor='red';
-    console.log("ooi");
-  }
-  if(emailInput.value==validEmail && passwordInput.value ==validPassword){
-    console.log("done");
-    document.location.href = "../index.html";
-  }
-}
 
 
 
@@ -103,11 +79,27 @@ class movie{
   }
 
   getTitle(){
-    console.log("hello from inside gettitle");
+  
     return this.movieTitle;
   }
   getImg(){
     return this.imgSrc;
+  }
+  getStaring(){
+    if(this.staringArr.length!==0){
+      
+    let staringString="";
+    for(let i=0; i<this.staringArr.length; i++){
+      staringString+= this.staringArr[i]+ ", ";
+    }
+    return staringString;
+   } else {
+    return "No staring";
+   }
+  }
+
+  getID(){
+    return this.movieID;
   }
 
 
@@ -119,7 +111,8 @@ let movieObjArr= [];
 
 
    function mineData(data){
-     console.log(data);
+   
+   //  console.log(data);
    
   let movieIDCounter= 0;
 
@@ -144,15 +137,60 @@ let movieObjArr= [];
     
 
    }
+  
+   
+
 }
 
 //----------- code to save each obj into an array---------
 
   function createMovieObj(movieTitle,imgSrc,trailerLink,movieCategorieArr,staringArr,date,movieID){
-      movieObjArr.push( new movie(movieTitle, imgSrc, trailerLink, movieCategorieArr,staringArr,date,movieID))
+      movieObjArr.push( new movie(movieTitle, imgSrc, trailerLink, movieCategorieArr,staringArr,date,movieID));
   }
 
-  console.log(movieObjArr);
+  function checkIfDataLoaded(callback) {
+    const interval = setInterval(() => {
+      if (movieObjArr.length > 0) {
+       // console.log('Data is done loading!');
+        clearInterval(interval); // Stop checking once the data is loaded
+        callback(); // Call the callback function after data is loaded
+      } else {
+       // console.log('Waiting for data to load...');
+      }
+    }, 100); // Check every 100 milliseconds
+  }
+
+  function openSingleView(id){
+    console.log("opended single view");
+    console.log(id);
+  }
+
+  function afterDataLoaded() {
+    // array movieObjArr is now populated and ready to use
+    
+    
+    
+     let topPickContainer= document.getElementById("top-picks");
+
+     // loop through array values 0-9 ( 10 images)
+     for( let i  =0; i<9; i++){
+      let movieToAdd = `  <div class="movieContainerImg" onclick="openSingleView(${movieObjArr[i].getID()})">              
+                            <img src= ${movieObjArr[i].getImg()}>
+                            <h3>${movieObjArr[i].getTitle()}</h3>
+                          </div>`;
+
+    topPickContainer.innerHTML+= movieToAdd;
+     }
+
+     
+   
+
+  }
+ 
+  
+
+
+ 
 
 
 
