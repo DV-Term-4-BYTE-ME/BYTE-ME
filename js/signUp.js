@@ -22,11 +22,6 @@
 //  enabling the Popover
 
 
-//creating user variables
- var name = document.getElementsByClassName("sign-up-Name-InputBox").innerHTML;
- var email = document.getElementById('sign-up-Email-InputBox');
- var password = document.getElementsByClassName("sign-up-Password-InputBox").innerHTML;
-
 class User{
   constructor(name,email,password){
     this.name = name;
@@ -39,6 +34,7 @@ class User{
 
  function onSubmit(){
   //Check if it is valid
+    let user1 = User(document.getElementsByClassName("sign-up-Name-InputBox").innerHTML,document.getElementById('sign-up-Email-InputBox').innerHTML,document.getElementsById("sign-up-Password-InputBox").innerHTML);
  }
 
  

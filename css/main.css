@@ -184,3 +184,21 @@ footer {
       font-size: 20px;
   }
 }
+
+.logo img{
+  height: 50px;
+  width: 125px;
+}
+
+.buttonWatch {
+  background-color: #602585;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #56B5B9;
+}
