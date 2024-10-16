@@ -228,7 +228,7 @@ header {
     font-size: 12px;
 }
 
-.rememberForgot {
+#rememberForgot {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -237,16 +237,16 @@ header {
     margin-bottom: 30px;
 }
 
-.rememberForgot label input {
+#rememberForgot label input {
     align-items: center; 
     gap: 5px;
 }
 
-.rememberForgot a {
+#rememberForgot a {
     color: #fff;
 }
 
-.rememberForgot a:hover {
+#rememberForgot a:hover {
     color: #56B5B9;
 }
 
