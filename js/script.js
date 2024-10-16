@@ -53,40 +53,10 @@ const requestOptions = {
 fetch("https://Movies-Verse.proxy-production.allthingsdev.co/api/movies/upcoming-movies", requestOptions)
    .then((response) => response.json())
    // console.log(response)
-   //.then((result) => mineData(result))
+   .then((result) => mineData(result))
    .catch((error) => console.error(error));
 
-   function mineData(data){
-    //console.log(data);
-   // let temp = JSON.parse(data);
   
-  
-    //find the display container- sothat we can append to it
-   let displayContainer= document.getElementById("container");
-
-  //console.log(temp);
-  //console.log(temp.movies[0].list);
-  //loop through the array and sort the info
-  for(let i =0; i<data.movies.length; i++){
-    let date = data.movies[i].date;
-    let movieTitle= data.movies[i].list[0].title;
-   // console.log(movieTitle);
-   
-    let imgSrc= data.movies[i].list[0].image;
-    let movieDescription= data.movies[i].list[0].categories[0];
-   
-    //structure the data in html form
-
-    let dataToDisplay=`
-    <div class="item">
-    <img src=${imgSrc}>
-    <h3>${movieTitle}</h3>
-    <p>${movieDescription}</p>
-    </div>`;
-
-    displayContainer.innerHTML+=dataToDisplay;
-  }
-}
 
 
 //--------------------------------login js --------------------------------------------------------
@@ -118,40 +88,75 @@ function validateEmail(){
 
 
 
-//- danae class activity classes 
+//- danae-------------- class for movie arr 
 
-//-------------------------- vars to acces obj--------------------
+class movie{
+
+  constructor(movieTitle, imgSrc, trailerLink, movieCategorieArr,staringArr,date,movieID){
+    this.movieTitle= movieTitle;
+    this.imgSrc= imgSrc;
+    this.trailerLink= trailerLink;
+    this.movieCategorieArr= movieCategorieArr;
+    this.staringArr= staringArr;
+    this.date= date;
+    this.movieID= movieID;
+  }
+
+  getTitle(){
+    console.log("hello from inside gettitle");
+    return this.movieTitle;
+  }
+  getImg(){
+    return this.imgSrc;
+  }
+
+
+}
+
+//-------------------------- Code to extract api data -------------------
 
 let movieObjArr= [];
-let horrorObjArr=[];
-let docuObjArr=[];
+
 
    function mineData(data){
-    // console.log(data);
-   // let temp = JSON.parse(data);
+     console.log(data);
+   
+  let movieIDCounter= 0;
 
    for(let i =0; i<data.movies.length; i++){
-    let date = data.movies[i].date;
-    let movieTitle= data.movies[i].list[0].title;
-   // console.log(movieTitle);
+    
    
-    let imgSrc= data.movies[i].list[0].image;
-    let movieCategorie= data.movies[i].list[0].categories[0];
-    let staringArr= data.movies[i].list[0].staring;
+      for(let j =0; j<data.movies[i].list.length; j++){
+     
+        // mine data for each movie 
+        let movieID= movieIDCounter;
+        let movieTitle= data.movies[i].list[j].title;
+        let imgSrc= data.movies[i].list[j].image;
+        let trailerLink = data.movies[i].list[j].link;
+        let movieCategorieArr= data.movies[i].list[j].categories;
+        let staringArr= data.movies[i].list[0].staring;
+        let date= data.movies[i].date;
 
-    if(movieCategorie=="Documentary"){
-      docuObjArr.push( new documentary(movieTitle, date, imgSrc, staringArr));
-    }else if (movieCategorie =="Horror"){
-      horrorObjArr.push(new horror(movieTitle,date,imgSrc,staringArr));
-    }else{
-        
-      movieObjArr.push(new  movie(movieTitle,date,imgSrc,staringArr,movieCategorie));
-
+      
+       createMovieObj(movieTitle, imgSrc, trailerLink, movieCategorieArr,staringArr,date,movieID);
+      movieIDCounter++;
     }
     
 
    }
 }
+
+//----------- code to save each obj into an array---------
+
+  function createMovieObj(movieTitle,imgSrc,trailerLink,movieCategorieArr,staringArr,date,movieID){
+      movieObjArr.push( new movie(movieTitle, imgSrc, trailerLink, movieCategorieArr,staringArr,date,movieID))
+  }
+
+  console.log(movieObjArr);
+
+
+
+ 
 
 //  class movie{
 //     constructor(movieTitle, date, imgSrc, staringArr, categorie){
