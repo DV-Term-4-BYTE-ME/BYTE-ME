@@ -113,9 +113,90 @@ function validateEmail(){
   if(emailInput.value==validEmail && passwordInput.value ==validPassword){
     console.log("done");
     document.location.href = "../index.html";
-
   }
-
-
 }
+
+
+
+//- danae class activity classes 
+
+//-------------------------- vars to acces obj--------------------
+
+let movieObjArr= [];
+let horrorObjArr=[];
+let docuObjArr=[];
+
+   function mineData(data){
+    // console.log(data);
+   // let temp = JSON.parse(data);
+
+   for(let i =0; i<data.movies.length; i++){
+    let date = data.movies[i].date;
+    let movieTitle= data.movies[i].list[0].title;
+   // console.log(movieTitle);
+   
+    let imgSrc= data.movies[i].list[0].image;
+    let movieCategorie= data.movies[i].list[0].categories[0];
+    let staringArr= data.movies[i].list[0].staring;
+
+    if(movieCategorie=="Documentary"){
+      docuObjArr.push( new documentary(movieTitle, date, imgSrc, staringArr));
+    }else if (movieCategorie =="Horror"){
+      horrorObjArr.push(new horror(movieTitle,date,imgSrc,staringArr));
+    }else{
+        
+      movieObjArr.push(new  movie(movieTitle,date,imgSrc,staringArr,movieCategorie));
+
+    }
     
+
+   }
+}
+
+//  class movie{
+//     constructor(movieTitle, date, imgSrc, staringArr, categorie){
+//         this.movieTitle= movieTitle;
+//         this.date= date;
+//         this.imgSrc= imgSrc;
+//         this.staringArr= staringArr;
+//         this.categorie= categorie;
+//     }
+
+//     displayMovieNDate(){
+//         console.log( "title:   " + this.movieTitle +   "      date:  "+ this.date );
+//     }
+
+//     displayStaring(){
+//         let out="";
+//         for( let i =0; i<this.staringArr.length; i++){
+//             out+= this.staringArr[i]+"  ";
+//         }
+//         console.log("staring :   " + out);
+//     }
+
+//  }
+
+
+// class documentary extends movie{
+//     constructor(movieTitle, date, imgSrc, staringArr){
+//     super(movieTitle,date, imgSrc, staringArr);
+//     this.categorie= "Documentary";
+
+//     }
+// }
+
+// class horror extends movie{
+//     constructor(movieTitle, date, imgSrc, staringArr){
+//         super(movieTitle,date,imgSrc,staringArr);
+//         this.categorie= "Horror";
+//     }
+// }
+
+// console.log(horrorObjArr);
+// console.log(movieObjArr);
+// console.log(docuObjArr);
+
+
+
+  
+
