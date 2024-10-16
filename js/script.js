@@ -50,30 +50,35 @@ const requestOptions = {
    redirect: "follow"
 };
 
+//Calling the API
 fetch("https://Movies-Verse.proxy-production.allthingsdev.co/api/movies/upcoming-movies", requestOptions)
-   .then((response) => response.json())
-   // console.log(response)
-   //.then((result) => mineData(result))
-   .catch((error) => console.error(error));
+   .then((response) => response.text())
+   .then((result) => { 
+      mineData(JSON.parse(result));
+      console.log(result);
+    return result;})
+    .catch((error) => console.error(error));
 
-   function mineData(data){
+   function mineData(response){
     //console.log(data);
    // let temp = JSON.parse(data);
   
   
     //find the display container- sothat we can append to it
-   let displayContainer= document.getElementById("container");
+   let displayContainer= document.getElementById("container").innerHTML;
 
   //console.log(temp);
   //console.log(temp.movies[0].list);
   //loop through the array and sort the info
-  for(let i =0; i<data.movies.length; i++){
-    let date = data.movies[i].date;
-    let movieTitle= data.movies[i].list[0].title;
+  
+    let display = "";
+  for(let i =0; i<response.movies.length; i++){
+    let date = response.movies[i].date;
+    let movieTitle= response.movies[i].list[0].title;
    // console.log(movieTitle);
    
-    let imgSrc= data.movies[i].list[0].image;
-    let movieDescription= data.movies[i].list[0].categories[0];
+    let imgSrc= response.movies[i].list[0].image;
+    let movieDescription= response.movies[i].list[0].categories[0];
    
     //structure the data in html form
 
@@ -84,7 +89,7 @@ fetch("https://Movies-Verse.proxy-production.allthingsdev.co/api/movies/upcoming
     <p>${movieDescription}</p>
     </div>`;
 
-    displayContainer.innerHTML+=dataToDisplay;
+    displayContainer +=dataToDisplay;
   }
 }
 
