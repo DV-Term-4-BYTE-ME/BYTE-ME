@@ -26,6 +26,9 @@
  var name = document.getElementsById("sign-up-Name-InputBox").innerHTML;
  var email = document.getElementById('sign-up-Email-InputBox').innerHTML;
  var password = document.getElementsById("sign-up-Password-InputBox").innerHTML;
+ var name = document.getElementsById("sign-up-Name-InputBox").innerHTML;
+ var email = document.getElementById('sign-up-Email-InputBox').innerHTML;
+ var password = document.getElementsById("sign-up-Password-InputBox").innerHTML;
 
 class User{
   constructor(name,email,password){
