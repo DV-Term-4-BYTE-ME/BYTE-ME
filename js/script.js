@@ -53,105 +53,148 @@ const requestOptions = {
 fetch("https://Movies-Verse.proxy-production.allthingsdev.co/api/movies/upcoming-movies", requestOptions)
    .then((response) => response.json())
    // console.log(response)
-   //.then((result) => mineData(result))
+   .then((result) => {mineData(result);
+    checkIfDataLoaded(afterDataLoaded);
+   })
    .catch((error) => console.error(error));
 
-   function mineData(data){
-    //console.log(data);
-   // let temp = JSON.parse(data);
+ 
   
-  
-    //find the display container- sothat we can append to it
-   let displayContainer= document.getElementById("container");
 
-  //console.log(temp);
-  //console.log(temp.movies[0].list);
-  //loop through the array and sort the info
-  for(let i =0; i<data.movies.length; i++){
-    let date = data.movies[i].date;
-    let movieTitle= data.movies[i].list[0].title;
-   // console.log(movieTitle);
-   
-    let imgSrc= data.movies[i].list[0].image;
-    let movieDescription= data.movies[i].list[0].categories[0];
-   
-    //structure the data in html form
 
-    let dataToDisplay=`
-    <div class="item">
-    <img src=${imgSrc}>
-    <h3>${movieTitle}</h3>
-    <p>${movieDescription}</p>
-    </div>`;
 
-    displayContainer.innerHTML+=dataToDisplay;
+
+//- danae-------------- class for movie arr 
+
+class movie{
+
+  constructor(movieTitle, imgSrc, trailerLink, movieCategorieArr,staringArr,date,movieID){
+    this.movieTitle= movieTitle;
+    this.imgSrc= imgSrc;
+    this.trailerLink= trailerLink;
+    this.movieCategorieArr= movieCategorieArr;
+    this.staringArr= staringArr;
+    this.date= date;
+    this.movieID= movieID;
   }
+
+  getTitle(){
+  
+    return this.movieTitle;
+  }
+  getImg(){
+    return this.imgSrc;
+  }
+  getStaring(){
+    if(this.staringArr.length!==0){
+      
+    let staringString="";
+    for(let i=0; i<this.staringArr.length; i++){
+      staringString+= this.staringArr[i]+ ", ";
+    }
+    return staringString;
+   } else {
+    return "No staring";
+   }
+  }
+
+  getID(){
+    return this.movieID;
+  }
+
+
 }
 
-
-//--------------------------------login js --------------------------------------------------------
-
-
-
-
-
-let validEmail= "william@openwindow.co.za";
-let validPassword = "Will-I-Am-001";
-
-function validateEmail(){
-  let emailInput = document.getElementById("loginEmail");
-  let passwordInput = document.getElementById("loginPassword");
-
-  if(emailInput.value !== validEmail){
-
-    emailInput.style.borderBottomColor='red';
-    console.log("email hoe");
-  }if(passwordInput.value!==validPassword){
-    passwordInput.style.borderBottomColor='red';
-    console.log("ooi");
-  }
-  if(emailInput.value==validEmail && passwordInput.value ==validPassword){
-    console.log("done");
-    document.location.href = "../index.html";
-  }
-}
-
-
-
-//- danae class activity classes 
-
-//-------------------------- vars to acces obj--------------------
+//-------------------------- Code to extract api data -------------------
 
 let movieObjArr= [];
-let horrorObjArr=[];
-let docuObjArr=[];
+
 
    function mineData(data){
-    // console.log(data);
-   // let temp = JSON.parse(data);
+   
+   //  console.log(data);
+   
+  let movieIDCounter= 0;
 
    for(let i =0; i<data.movies.length; i++){
-    let date = data.movies[i].date;
-    let movieTitle= data.movies[i].list[0].title;
-   // console.log(movieTitle);
+    
    
-    let imgSrc= data.movies[i].list[0].image;
-    let movieCategorie= data.movies[i].list[0].categories[0];
-    let staringArr= data.movies[i].list[0].staring;
+      for(let j =0; j<data.movies[i].list.length; j++){
+     
+        // mine data for each movie 
+        let movieID= movieIDCounter;
+        let movieTitle= data.movies[i].list[j].title;
+        let imgSrc= data.movies[i].list[j].image;
+        let trailerLink = data.movies[i].list[j].link;
+        let movieCategorieArr= data.movies[i].list[j].categories;
+        let staringArr= data.movies[i].list[0].staring;
+        let date= data.movies[i].date;
 
-    if(movieCategorie=="Documentary"){
-      docuObjArr.push( new documentary(movieTitle, date, imgSrc, staringArr));
-    }else if (movieCategorie =="Horror"){
-      horrorObjArr.push(new horror(movieTitle,date,imgSrc,staringArr));
-    }else{
-        
-      movieObjArr.push(new  movie(movieTitle,date,imgSrc,staringArr,movieCategorie));
-
+      
+       createMovieObj(movieTitle, imgSrc, trailerLink, movieCategorieArr,staringArr,date,movieID);
+      movieIDCounter++;
     }
     
 
    }
+  
+   
+
 }
+
+//----------- code to save each obj into an array---------
+
+  function createMovieObj(movieTitle,imgSrc,trailerLink,movieCategorieArr,staringArr,date,movieID){
+      movieObjArr.push( new movie(movieTitle, imgSrc, trailerLink, movieCategorieArr,staringArr,date,movieID));
+  }
+
+  function checkIfDataLoaded(callback) {
+    const interval = setInterval(() => {
+      if (movieObjArr.length > 0) {
+       // console.log('Data is done loading!');
+        clearInterval(interval); // Stop checking once the data is loaded
+        callback(); // Call the callback function after data is loaded
+      } else {
+       // console.log('Waiting for data to load...');
+      }
+    }, 100); // Check every 100 milliseconds
+  }
+
+  function openSingleView(id){
+    console.log("opended single view");
+    console.log(id);
+  }
+
+  function afterDataLoaded() {
+    // array movieObjArr is now populated and ready to use
+    
+    
+    
+     let topPickContainer= document.getElementById("top-picks");
+
+     // loop through array values 0-9 ( 10 images)
+     for( let i  =0; i<9; i++){
+      let movieToAdd = `  <div class="movieContainerImg" onclick="openSingleView(${movieObjArr[i].getID()})">              
+                            <img src= ${movieObjArr[i].getImg()}>
+                            <h3>${movieObjArr[i].getTitle()}</h3>
+                          </div>`;
+
+    topPickContainer.innerHTML+= movieToAdd;
+     }
+
+     
+   
+
+  }
+ 
+  
+
+
+ 
+
+
+
+ 
 
 //  class movie{
 //     constructor(movieTitle, date, imgSrc, staringArr, categorie){
