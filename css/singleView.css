@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
    /* background-image: url(../assests/images/619579db-2a19-4825-9e0b-15e0ddae83e7.jpeg);*/
-   background-color: #11011b;
+   background-color: #000000;
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -95,6 +95,22 @@ header {
     font-family: "Rubik", sans-serif; 
 }
 
+#watchlistAdd {
+    margin-top: 20px;
+    padding: 10px 30px;
+    background-color: #1A0D83;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    font-family: "Rubik", sans-serif;
+}
+
+#watchlistAdd:hover {
+    background-color: #56B5B9;
+    font-family: "Rubik", sans-serif; 
+}
+
 /* Youtube video*/
 .modal {
     display: none;
@@ -112,7 +128,7 @@ header {
     margin: 15% auto;
     padding: 20px;
     width: 80%;
-    max-width: 700px;
+    max-width: 900px;
     background: white;
     border-radius: 10px;
 }
