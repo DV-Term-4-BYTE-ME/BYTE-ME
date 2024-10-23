@@ -14,7 +14,7 @@ console.log("hello peeps");
 
 //     fetch('https://api.themoviedb.org/3/trending/tv/day?language=en-US', options)
 //       .then(response => response.json())
-//       .then(response => console.log(response))
+//       .then(response => mineData(response))
 //       .catch(err => console.error(err));
 
 //     // Fetch the trending movies and TV shows
@@ -37,7 +37,7 @@ console.log("hello peeps");
 //     })
 //     console.log(apiData);
 
-    //------------------- movie api
+    //--------------------------------------------- movie api
     const options = {
       method: 'GET',
       headers: {
@@ -45,12 +45,18 @@ console.log("hello peeps");
         Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwN2FhZDgxMDQ4YzlmMjNmZWI1ZGYzN2Y3YjA2ZmNiYyIsIm5iZiI6MTcyOTY5MDg3Mi43NTI1NDgsInN1YiI6IjY2ZWMxNjRkOWJkNDI1MDQzMDc0OWI4MiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.6MZErar8nBOsywfFcHUnUON9vcuqk-FxQuuMHjjq6pg'
       }
     };
+
     
-    fetch('https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc', options)
+    async function getApiData() {
+      await fetch('https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc', options)
       .then(res => res.json())
       .then(res => mineData(res))
       .catch(err => console.error(err));
 
+    }
+    getApiData();
+    
+  
 //-- tv api--------------------
 
       // const options1 = {
@@ -214,9 +220,10 @@ let watchList =[];
 
 
 
-  function checkIfDataLoaded(arr) {
+
+  function checkIfDataLoaded() {
     const interval = setInterval(() => {
-      if (arr.length == 20) {
+      if (movieObjArr.length == 20) {
        // console.log('Data is done loading!');
         clearInterval(interval); // Stop checking once the data is loaded
         afterDataLoaded(); // Call the callback function after data is loaded
@@ -226,23 +233,29 @@ let watchList =[];
     }, 100); // Check every 100 milliseconds
   }
 
-  checkIfDataLoaded(movieObjArr);
+  checkIfDataLoaded();
+
+  let isDataLoaded= false;
 
   function afterDataLoaded() {
     console.log('data is loaded hoes');
+    isDataLoaded=true;
+
     
     //set hero image 
     populateHomeScreen();
-    
-  
+
+    populateMovieLibrary();
   
   }
 
 
-console.log(watchList);
     
   
     function populateHomeScreen(){
+      
+      //--------------------------------------------populate header section --------------------------------
+     
       document.getElementById("homeHero").innerHTML= `
       <div id="overlaySlay">
         <img src= 'https://image.tmdb.org/t/p/original${movieObjArr[2].getBackdropImg()}' >
@@ -289,19 +302,27 @@ console.log(watchList);
        }
 
 
-//---------------- watchlist population with 3 values
-  for(let i =0; i<3; i++){
-    watchList.push(movieObjArr[i]);
-  }
+       for(let i =2; i<6; i++){
 
- displayWatchList();
+        watchList.push(movieObjArr[i]);
+      }
+  
+    
+      
+ 
+
+  displayWatchList();
+
   
   }
 
   function displayWatchList(){
    
       let watchListContainer = document.getElementById("watch-list");
+      watchListContainer.innerHTML="";
+     
       for(let i =0; i<watchList.length;i++){
+       
         let movieAdd= ` <div class="movieContainerImg" onclick="openSingleView(${watchList[i].getID()})">              
                               <img src=  'https://image.tmdb.org/t/p/original${watchList[i].getMovieImg()}'>
                               <h3>${watchList[i].getTitle()}</h3>
@@ -311,7 +332,26 @@ console.log(watchList);
     }
   }
 
-  
+  // this function does not work yet----------==
+
+  function addToWatchList(id){
+   console.log(id);
+    console.log(movieObjArr[id]);
+    watchList.push(movieObjArr[id]);
+
+    let watchListContainer = document.getElementById("watch-list");
+
+    let movieAdd= ` <div class="movieContainerImg" onclick="openSingleView(${watchList[id].getID()})">              
+    <img src=  'https://image.tmdb.org/t/p/original${watchList[id].getMovieImg()}'>
+    <h3>${watchList[id].getTitle()}</h3>
+     </div>`
+   
+    watchListContainer.innerHTML+= movieAdd;
+  }
+
+
+
+ //addToWatchList(2);
       //  for( let i  =0; i<watchList.length; i++){
   
       //   let movieToAdd = `  <div class="movieContainerImg" onclick="openSingleView(${watchList[i].getID()})">              
@@ -324,50 +364,41 @@ console.log(watchList);
        
       //  }
 
-    
+
+   function openSingleView(id){
+
+    console.log("opended single view");
+    console.log(id);
+
+    // trying to populate the single view class------------------------------------------------
+// -- this next line of code opens the single view page.
+  //  window.location.href = "pages/singleView.html";
+  }
   
-   
 
+  //-----------------------------------------------js for movie library-----------------------\
+ // this function and the populate home page are ffighting -- gabs if you have a look 
+ //at the console log on the home page and the movie library page youll see that the
+ //innerHTml are fighting eachother and idk why --
+  function populateMovieLibrary(){
+    console.log("populating th movie libraty page");
+    let movieContainer = document.getElementById("movieLibraryContainer");
+    movieContainer.innerHTML=`<H1>hello from the js file</H1>`
 
-    
- 
-  
+    for(let i=0;i<movieObjArr.length;i++){
 
+      let movieToAdd =`<div class="libraryMovie"  onclick="openSingleView(${movieObjArr[i].getID()})>
+                        <img src=  'https://image.tmdb.org/t/p/original${movieObjArr[i].getMovieImg()}'>
+                        <h3>${movieObjArr[i].getTitle()}</h3>
+                        </div>`
 
- 
-  // function openSingleView(id){
-  //   console.log("opended single view");
-  //   console.log(id);
+             console.log(movieObjArr[i].getID());
+             console.log(movieObjArr[i].getMovieImg());
+             console.log(movieObjArr[i].getTitle());
+      
+    }    
 
-  //   // trying to populate the single view class------------------------------------------------
-
-  //   window.location.href = "pages/singleView.html";
-  
-   // let container= document.getElementById("singleViewContainer");
-  //  let addContent = 
-
-  //  `
-  //  <div class = "content">
-
-  //  <p>${movieObjArr[id].getDate()}</p>
-  //   <h1>${movieObjArr[id].getTitle()}</h1>
-  //   <p>${movieObjArr[id].getCategorie()}</p>
-  //   <p>${movieObjArr[id].getStaring()}</p>
-  //   <p>${movieObjArr[id].getTrailerLink()}</p>
-  //  </div>
-
-  //  <div class="movieImg">
-  //  <img src="${movieObjArr[id].getImg()}"
-  //  </div>
-  //  ` ;
-
-  //  container.innerHTML= addContent;
-  // }
-
-
-
-
- 
+  }
 
 
   
