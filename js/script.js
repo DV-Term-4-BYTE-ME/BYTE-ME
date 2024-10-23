@@ -90,7 +90,13 @@ class movie{
       
     let staringString="";
     for(let i=0; i<this.staringArr.length; i++){
-      staringString+= this.staringArr[i]+ ", ";
+    
+      if(i==this.staringArr.length-1){
+        staringString+= this.staringArr[i];
+      }else{
+        staringString+= this.staringArr[i]+ ", ";
+      }
+
     }
     return staringString;
    } else {
@@ -100,6 +106,36 @@ class movie{
 
   getID(){
     return this.movieID;
+  }
+
+  getTrailerLink(){
+    return this.trailerLink;
+  }
+
+  getDate(){
+    return this.date;
+  }
+  getCategorie(){
+    if(this.movieCategorieArr.length!==0){
+
+      let catString= "";
+      for(let i =0; i<this.movieCategorieArr.length; i++){
+        if(i== this.movieCategorieArr.length-1){
+          catString+= this.movieCategorieArr[i];
+        }else{
+        catString+= this.movieCategorieArr[i]+" | ";
+        }
+      }
+
+      return catString;
+    }
+    else{
+      return "No Categorie"
+    }
+  }
+
+  getCategorieArr(){
+    return this.movieCategorieArr;
   }
 
 
@@ -163,16 +199,53 @@ let movieObjArr= [];
   function openSingleView(id){
     console.log("opended single view");
     console.log(id);
+
+    // trying to populate the single view class------------------------------------------------
+
+    window.location.href = "pages/singleView.html";
+  
+   // let container= document.getElementById("singleViewContainer");
+  //  let addContent = 
+
+  //  `
+  //  <div class = "content">
+
+  //  <p>${movieObjArr[id].getDate()}</p>
+  //   <h1>${movieObjArr[id].getTitle()}</h1>
+  //   <p>${movieObjArr[id].getCategorie()}</p>
+  //   <p>${movieObjArr[id].getStaring()}</p>
+  //   <p>${movieObjArr[id].getTrailerLink()}</p>
+  //  </div>
+
+  //  <div class="movieImg">
+  //  <img src="${movieObjArr[id].getImg()}"
+  //  </div>
+  //  ` ;
+
+  //  container.innerHTML= addContent;
   }
 
   function afterDataLoaded() {
+    //set hero image 
+    document.getElementById("homeHero").innerHTML= `
+    <div id="overlaySlay">
+      <img src= ${movieObjArr[129].getImg()}>
+    </div>
+    <div id="heroDiv">
+    <h2>${movieObjArr[129].getTitle()}</h2>
+    <h3>Starring:</h3>
+    <h4> ${movieObjArr[129].getStaring()}</h4>
+    <button type="submit" class="buttonWatch" onclick="openSingleView(129)">Watch Now</button>
+    </div>
+    `;
+
     // array movieObjArr is now populated and ready to use
     
     
     
      let topPickContainer= document.getElementById("top-picks");
 
-     // loop through array values 0-9 ( 10 images)
+     // loop through array values 0-9 ( 10 images) for top pics row
      for( let i  =0; i<9; i++){
       let movieToAdd = `  <div class="movieContainerImg" onclick="openSingleView(${movieObjArr[i].getID()})">              
                             <img src= ${movieObjArr[i].getImg()}>
@@ -182,8 +255,33 @@ let movieObjArr= [];
     topPickContainer.innerHTML+= movieToAdd;
      }
 
+     //loop for top movies row
+     let topMoviesContainer = document.getElementById("top-movies");
+
+     for( let i  =9; i<19; i++){
+      let movieToAdd = `  <div class="movieContainerImg" onclick="openSingleView(${movieObjArr[i].getID()})">              
+                            <img src= ${movieObjArr[i].getImg()}>
+                            <h3>${movieObjArr[i].getTitle()}</h3>
+                          </div>`;
+
+    topMoviesContainer.innerHTML+= movieToAdd;
+
      
-   
+     }
+//loop for watchlist row 
+     let watchListContainer = document.getElementById("watch-list");
+     for( let i  =21; i<24; i++){
+
+      let movieToAdd = `  <div class="movieContainerImg" onclick="openSingleView(${movieObjArr[i].getID()})">              
+                            <img src= ${movieObjArr[i].getImg()}>
+                            <h3>${movieObjArr[i].getTitle()}</h3>
+                          </div>`;
+
+    watchListContainer.innerHTML+= movieToAdd;
+
+     
+     }
+
 
   }
  
