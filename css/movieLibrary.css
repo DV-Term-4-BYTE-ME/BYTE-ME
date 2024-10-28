@@ -8,6 +8,51 @@ body {
     flex-direction: column; /* Change to column layout */
 }
 
+/* danae added classes= --------------------*/
+#movieLibraryContainer{
+   
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        
+        overflow-x: hidden;
+        padding-left: 20px;
+        justify-content: flex-start;;
+        padding-top: 20px;
+        padding-left: 0px;
+        
+      
+
+}
+#movieLibraryContainer img {
+    margin-right: 10px;
+    border-radius: 8px;
+    width: 200px;
+    height: 300px;
+
+    transition: transform 0.3s ease;
+  }
+  
+  #movieLibraryContainer img:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+  }
+
+  .libraryMovie{
+    flex: 1 1 300px;
+    padding-left: 5px;
+    padding-right: 5px;
+   
+  }
+  
+  .libraryMovie h3{
+    color: white;
+    text-decoration: none;
+    
+  }
+
+/* end of -----danae added classes=--------------------*/
+
 /* Hero Section Background */
 .hero-section {
     background: url(../assests/images/619579db-2a19-4825-9e0b-15e0ddae83e7.jpeg) no-repeat center center fixed;

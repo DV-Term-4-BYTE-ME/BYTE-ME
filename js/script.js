@@ -14,7 +14,7 @@ console.log("hello peeps");
 
 //     fetch('https://api.themoviedb.org/3/trending/tv/day?language=en-US', options)
 //       .then(response => response.json())
-//       .then(response => console.log(response))
+//       .then(response => mineData(response))
 //       .catch(err => console.error(err));
 
 //     // Fetch the trending movies and TV shows
@@ -37,30 +37,40 @@ console.log("hello peeps");
 //     })
 //     console.log(apiData);
 
-//---------------------2nd api data and data mining----------------------------------
+    //--------------------------------------------- movie api
+    const options = {
+      method: 'GET',
+      headers: {
+        accept: 'application/json',
+        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwN2FhZDgxMDQ4YzlmMjNmZWI1ZGYzN2Y3YjA2ZmNiYyIsIm5iZiI6MTcyOTY5MDg3Mi43NTI1NDgsInN1YiI6IjY2ZWMxNjRkOWJkNDI1MDQzMDc0OWI4MiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.6MZErar8nBOsywfFcHUnUON9vcuqk-FxQuuMHjjq6pg'
+      }
+    };
 
-const myHeaders = new Headers();
-myHeaders.append("x-apihub-key", "R3-VhE4bDvXgKFaoUhqTAVliGkwsbPeYqLcYAE6lSrWtHaG2sD");
-myHeaders.append("x-apihub-host", "Movies-Verse.allthingsdev.co");
-myHeaders.append("x-apihub-endpoint", "4f700f4a-4bd2-4604-8d5b-7b5e4c976c65");
+    
+    async function getApiData() {
+      await fetch('https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc', options)
+      .then(res => res.json())
+      .then(res => mineData(res))
+      .catch(err => console.error(err));
 
-const requestOptions = {
-   method: "GET",
-   headers: myHeaders,
-   redirect: "follow"
-};
-
-fetch("https://Movies-Verse.proxy-production.allthingsdev.co/api/movies/upcoming-movies", requestOptions)
-   .then((response) => response.json())
-   // console.log(response)
-   .then((result) => {mineData(result);
-    checkIfDataLoaded(afterDataLoaded);
-   })
-   .catch((error) => console.error(error));
-
- 
+    }
+    getApiData();
+    
   
+//-- tv api--------------------
 
+      // const options1 = {
+      //   method: 'GET',
+      //   headers: {
+      //     accept: 'application/json',
+      //     Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwN2FhZDgxMDQ4YzlmMjNmZWI1ZGYzN2Y3YjA2ZmNiYyIsIm5iZiI6MTcyOTY5MDg3Mi43NTI1NDgsInN1YiI6IjY2ZWMxNjRkOWJkNDI1MDQzMDc0OWI4MiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.6MZErar8nBOsywfFcHUnUON9vcuqk-FxQuuMHjjq6pg'
+      //   }
+      // };
+      
+      // fetch('https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=en-US&page=1&sort_by=popularity.desc', options)
+      //   .then(res => res.json())
+      //   .then(res => console.log(res))
+      //   .catch(err => console.error(err));
 
 
 
@@ -68,13 +78,14 @@ fetch("https://Movies-Verse.proxy-production.allthingsdev.co/api/movies/upcoming
 
 class movie{
 
-  constructor(movieTitle, imgSrc, trailerLink, movieCategorieArr,staringArr,date,movieID){
+  constructor(backdropImg, genreIdArr, movieTitle, overview,popularity,movieImg,voteAve,movieID){
     this.movieTitle= movieTitle;
-    this.imgSrc= imgSrc;
-    this.trailerLink= trailerLink;
-    this.movieCategorieArr= movieCategorieArr;
-    this.staringArr= staringArr;
-    this.date= date;
+    this.backdropImg= backdropImg;
+    this.genreIdArr= genreIdArr;
+    this.overview= overview;
+    this.popularity= popularity;
+    this.movieImg= movieImg;
+    this.voteAve= voteAve;
     this.movieID= movieID;
   }
 
@@ -82,60 +93,30 @@ class movie{
   
     return this.movieTitle;
   }
-  getImg(){
-    return this.imgSrc;
-  }
-  getStaring(){
-    if(this.staringArr.length!==0){
-      
-    let staringString="";
-    for(let i=0; i<this.staringArr.length; i++){
-    
-      if(i==this.staringArr.length-1){
-        staringString+= this.staringArr[i];
-      }else{
-        staringString+= this.staringArr[i]+ ", ";
-      }
-
-    }
-    return staringString;
-   } else {
-    return "No staring";
-   }
+  getMovieImg(){
+    return this.movieImg;
   }
 
   getID(){
     return this.movieID;
   }
 
-  getTrailerLink(){
-    return this.trailerLink;
+  getBackdropImg(){
+    return this.backdropImg;
   }
 
-  getDate(){
-    return this.date;
+  getPopularity(){
+    return this.popularity;
   }
-  getCategorie(){
-    if(this.movieCategorieArr.length!==0){
-
-      let catString= "";
-      for(let i =0; i<this.movieCategorieArr.length; i++){
-        if(i== this.movieCategorieArr.length-1){
-          catString+= this.movieCategorieArr[i];
-        }else{
-        catString+= this.movieCategorieArr[i]+" | ";
-        }
-      }
-
-      return catString;
-    }
-    else{
-      return "No Categorie"
-    }
+  getGenreArr(){
+    return this.genreIdArr;
   }
 
-  getCategorieArr(){
-    return this.movieCategorieArr;
+  getvoteAve(){
+    return this.voteAve;
+  }
+  getOverview(){
+    return this.overview;
   }
 
 
@@ -144,32 +125,81 @@ class movie{
 //-------------------------- Code to extract api data -------------------
 
 let movieObjArr= [];
+let tvObjArr=[];
+let watchList =[];
+
 
 
    function mineData(data){
    
-   //  console.log(data);
+    // console.log(data);
+  
+  
    
-  let movieIDCounter= 0;
-
-   for(let i =0; i<data.movies.length; i++){
+   for(let i =0; i<data.results.length; i++){
     
-   
-      for(let j =0; j<data.movies[i].list.length; j++){
-     
-        // mine data for each movie 
-        let movieID= movieIDCounter;
-        let movieTitle= data.movies[i].list[j].title;
-        let imgSrc= data.movies[i].list[j].image;
-        let trailerLink = data.movies[i].list[j].link;
-        let movieCategorieArr= data.movies[i].list[j].categories;
-        let staringArr= data.movies[i].list[0].staring;
-        let date= data.movies[i].date;
 
+        // mine data for each movie 
+        let backdropImg= data.results[i].backdrop_path;
+        let genreIdArr =[];
+
+        //------------- sorthing thrugh the genre ids and sorting them
+        for(let j =0; j<data.results[i].genre_ids.length;j++){
+          if(data.results[i].genre_ids[j]==28){
+            genreIdArr.push("Action");
+          }else if(data.results[i].genre_ids[j]==12){
+            genreIdArr.push("Adventure");
+          }else if(data.results[i].genre_ids[j]==16){
+            genreIdArr.push("Animation");
+          }else if(data.results[i].genre_ids[j]==35){
+            genreIdArr.push("Comedy");
+          }else if(data.results[i].genre_ids[j]==80){
+            genreIdArr.push("Crime");
+          }else if(data.results[i].genre_ids[j]==99){
+            genreIdArr.push("Documentary");
+          }else if(data.results[i].genre_ids[j]==18){
+            genreIdArr.push("Drama");
+          }else if(data.results[i].genre_ids[j]==10751){
+            genreIdArr.push("Family");
+          }else if(data.results[i].genre_ids[j]==14){
+            genreIdArr.push("Fantasy");
+          }else if(data.results[i].genre_ids[j]==36){
+            genreIdArr.push("History");
+          }else if(data.results[i].genre_ids[j]==27){
+            genreIdArr.push("Horror");
+          }else if(data.results[i].genre_ids[j]==10402){
+            genreIdArr.push("Music");
+          }else if(data.results[i].genre_ids[j]==9648){
+            genreIdArr.push("Mystery");
+          }else if(data.results[i].genre_ids[j]==10749){
+            genreIdArr.push("Romance");
+          }else if(data.results[i].genre_ids[j]==878){
+            genreIdArr.push("Science Fiction");
+          }else if(data.results[i].genre_ids[j]==10770){
+            genreIdArr.push("TV Movie");
+          }else if(data.results[i].genre_ids[j]==53){
+            genreIdArr.push("Thriller");
+          }else if(data.results[i].genre_ids[j]==10752){
+            genreIdArr.push("War");
+          }else if(data.results[i].genre_ids[j]==37){
+            genreIdArr.push("Western");
+          }
+        
+        }
+     
+        let movieTitle = data.results[i].title;
+        let overview= data.results[i].overview;
+        let popularity= data.results[i].popularity;
+        let movieImg= data.results[i].poster_path;
+        let voteAve= data.results[i].vote_average;
+        let movieID= i;
+
+
+    
       
-       createMovieObj(movieTitle, imgSrc, trailerLink, movieCategorieArr,staringArr,date,movieID);
-      movieIDCounter++;
-    }
+       createMovieObj(backdropImg, genreIdArr, movieTitle, overview,popularity,movieImg,voteAve,movieID);
+
+    
     
 
    }
@@ -180,163 +210,195 @@ let movieObjArr= [];
 
 //----------- code to save each obj into an array---------
 
-  function createMovieObj(movieTitle,imgSrc,trailerLink,movieCategorieArr,staringArr,date,movieID){
-      movieObjArr.push( new movie(movieTitle, imgSrc, trailerLink, movieCategorieArr,staringArr,date,movieID));
+  function createMovieObj(backdropImg,genreIdArr,movieTitle,overview,popularity,movieImg,voteAve,movieID){
+      movieObjArr.push( new movie(backdropImg,genreIdArr,movieTitle,overview,popularity,movieImg,voteAve,movieID));
   }
 
-  function checkIfDataLoaded(callback) {
+
+ // console.log(movieObjArr);
+  //populateHomePage();
+
+
+
+
+  function checkIfDataLoaded() {
     const interval = setInterval(() => {
-      if (movieObjArr.length > 0) {
+      if (movieObjArr.length == 20) {
        // console.log('Data is done loading!');
         clearInterval(interval); // Stop checking once the data is loaded
-        callback(); // Call the callback function after data is loaded
+        afterDataLoaded(); // Call the callback function after data is loaded
       } else {
-       // console.log('Waiting for data to load...');
+        //console.log('Waiting for data to load...');
       }
     }, 100); // Check every 100 milliseconds
   }
 
-  function openSingleView(id){
+  checkIfDataLoaded();
+
+  let isDataLoaded= false;
+
+  function afterDataLoaded() {
+    console.log('data is loaded hoes');
+    isDataLoaded=true;
+
+    
+    //set hero image 
+    populateHomeScreen();
+
+    populateMovieLibrary();
+  
+  }
+
+
+    
+  
+    function populateHomeScreen(){
+      
+      //--------------------------------------------populate header section --------------------------------
+     
+      document.getElementById("homeHero").innerHTML= `
+      <div id="overlaySlay">
+        <img src= 'https://image.tmdb.org/t/p/original${movieObjArr[2].getBackdropImg()}' >
+        
+      </div>
+      <div id="heroDiv">
+      <h2>${movieObjArr[2].getTitle()}</h2>
+      <h4> ${movieObjArr[2].getOverview()}</h4>
+      <button type="submit" class="buttonWatch" onclick="openSingleView(129)">Watch Now</button>
+      </div>
+      `;
+  
+  
+      
+      
+      
+       let topPickContainer= document.getElementById("top-picks");
+  
+       // loop through array values 0-9 ( 10 images) for top pics row
+       for( let i  =0; i<9; i++){
+      
+        let movieToAdd = `  <div class="movieContainerImg" onclick="openSingleView(${movieObjArr[i].getID()})">              
+                              <img src= 'https://image.tmdb.org/t/p/original${movieObjArr[i].getMovieImg()}'>
+                              <h3>${movieObjArr[i].getTitle()}</h3>
+                            </div>`;
+  
+      topPickContainer.innerHTML+= movieToAdd;
+       }
+  
+       //loop for top movies row
+       let topMoviesContainer = document.getElementById("top-movies");
+       
+  
+       for( let i  =9; i<19; i++){
+      
+        let movieToAdd = `  <div class="movieContainerImg" onclick="openSingleView(${movieObjArr[i].getID()})">              
+                              <img src=  'https://image.tmdb.org/t/p/original${movieObjArr[i].getMovieImg()}'>
+                              <h3>${movieObjArr[i].getTitle()}</h3>
+                            </div>`;
+  
+      topMoviesContainer.innerHTML+= movieToAdd;
+  
+       
+       }
+
+
+       for(let i =2; i<6; i++){
+
+        watchList.push(movieObjArr[i]);
+      }
+  
+    
+      
+ 
+
+  displayWatchList();
+
+  
+  }
+
+  function displayWatchList(){
+   
+      let watchListContainer = document.getElementById("watch-list");
+      watchListContainer.innerHTML="";
+     
+      for(let i =0; i<watchList.length;i++){
+       
+        let movieAdd= ` <div class="movieContainerImg" onclick="openSingleView(${watchList[i].getID()})">              
+                              <img src=  'https://image.tmdb.org/t/p/original${watchList[i].getMovieImg()}'>
+                              <h3>${watchList[i].getTitle()}</h3>
+                            </div>`
+         watchListContainer.innerHTML+= movieAdd;
+      
+    }
+  }
+
+  // this function does not work yet----------==
+
+  function addToWatchList(id){
+   console.log(id);
+    console.log(movieObjArr[id]);
+    watchList.push(movieObjArr[id]);
+
+    let watchListContainer = document.getElementById("watch-list");
+
+    let movieAdd= ` <div class="movieContainerImg" onclick="openSingleView(${watchList[id].getID()})">              
+    <img src=  'https://image.tmdb.org/t/p/original${watchList[id].getMovieImg()}'>
+    <h3>${watchList[id].getTitle()}</h3>
+     </div>`
+   
+    watchListContainer.innerHTML+= movieAdd;
+  }
+
+
+
+ //addToWatchList(2);
+      //  for( let i  =0; i<watchList.length; i++){
+  
+      //   let movieToAdd = `  <div class="movieContainerImg" onclick="openSingleView(${watchList[i].getID()})">              
+      //                         <img src= ${watchList[i].getMovieImg()}>
+      //                         <h3>${watchList[i].getTitle()}</h3>
+      //                       </div>`;
+  
+      // watchListContainer.innerHTML+= movieToAdd;
+  
+       
+      //  }
+
+
+   function openSingleView(id){
+
     console.log("opended single view");
     console.log(id);
 
     // trying to populate the single view class------------------------------------------------
-
-    window.location.href = "pages/singleView.html";
-  
-   // let container= document.getElementById("singleViewContainer");
-  //  let addContent = 
-
-  //  `
-  //  <div class = "content">
-
-  //  <p>${movieObjArr[id].getDate()}</p>
-  //   <h1>${movieObjArr[id].getTitle()}</h1>
-  //   <p>${movieObjArr[id].getCategorie()}</p>
-  //   <p>${movieObjArr[id].getStaring()}</p>
-  //   <p>${movieObjArr[id].getTrailerLink()}</p>
-  //  </div>
-
-  //  <div class="movieImg">
-  //  <img src="${movieObjArr[id].getImg()}"
-  //  </div>
-  //  ` ;
-
-  //  container.innerHTML= addContent;
+// -- this next line of code opens the single view page.
+  //  window.location.href = "pages/singleView.html";
   }
-
-  function afterDataLoaded() {
-    //set hero image 
-    document.getElementById("homeHero").innerHTML= `
-    <div id="overlaySlay">
-      <img src= ${movieObjArr[129].getImg()}>
-    </div>
-    <div id="heroDiv">
-    <h2>${movieObjArr[129].getTitle()}</h2>
-    <h3>Starring:</h3>
-    <h4> ${movieObjArr[129].getStaring()}</h4>
-    <button type="submit" class="buttonWatch" onclick="openSingleView(129)">Watch Now</button>
-    </div>
-    `;
-
-    // array movieObjArr is now populated and ready to use
-    
-    
-    
-     let topPickContainer= document.getElementById("top-picks");
-
-     // loop through array values 0-9 ( 10 images) for top pics row
-     for( let i  =0; i<9; i++){
-      let movieToAdd = `  <div class="movieContainerImg" onclick="openSingleView(${movieObjArr[i].getID()})">              
-                            <img src= ${movieObjArr[i].getImg()}>
-                            <h3>${movieObjArr[i].getTitle()}</h3>
-                          </div>`;
-
-    topPickContainer.innerHTML+= movieToAdd;
-     }
-
-     //loop for top movies row
-     let topMoviesContainer = document.getElementById("top-movies");
-
-     for( let i  =9; i<19; i++){
-      let movieToAdd = `  <div class="movieContainerImg" onclick="openSingleView(${movieObjArr[i].getID()})">              
-                            <img src= ${movieObjArr[i].getImg()}>
-                            <h3>${movieObjArr[i].getTitle()}</h3>
-                          </div>`;
-
-    topMoviesContainer.innerHTML+= movieToAdd;
-
-     
-     }
-//loop for watchlist row 
-     let watchListContainer = document.getElementById("watch-list");
-     for( let i  =21; i<24; i++){
-
-      let movieToAdd = `  <div class="movieContainerImg" onclick="openSingleView(${movieObjArr[i].getID()})">              
-                            <img src= ${movieObjArr[i].getImg()}>
-                            <h3>${movieObjArr[i].getTitle()}</h3>
-                          </div>`;
-
-    watchListContainer.innerHTML+= movieToAdd;
-
-     
-     }
-
-
-  }
- 
   
 
+  //-----------------------------------------------js for movie library-----------------------\
+ // this function and the populate home page are ffighting -- gabs if you have a look 
+ //at the console log on the home page and the movie library page youll see that the
+ //innerHTml are fighting eachother and idk why --
+  function populateMovieLibrary(){
+    console.log("populating th movie libraty page");
+    let movieContainer = document.getElementById("movieLibraryContainer");
+    movieContainer.innerHTML=`<H1>hello from the js file</H1>`
 
- 
+    for(let i=0;i<movieObjArr.length;i++){
 
+      let movieToAdd =`<div class="libraryMovie"  onclick="openSingleView(${movieObjArr[i].getID()})>
+                        <img src=  'https://image.tmdb.org/t/p/original${movieObjArr[i].getMovieImg()}'>
+                        <h3>${movieObjArr[i].getTitle()}</h3>
+                        </div>`
 
+             console.log(movieObjArr[i].getID());
+             console.log(movieObjArr[i].getMovieImg());
+             console.log(movieObjArr[i].getTitle());
+      
+    }    
 
- 
-
-//  class movie{
-//     constructor(movieTitle, date, imgSrc, staringArr, categorie){
-//         this.movieTitle= movieTitle;
-//         this.date= date;
-//         this.imgSrc= imgSrc;
-//         this.staringArr= staringArr;
-//         this.categorie= categorie;
-//     }
-
-//     displayMovieNDate(){
-//         console.log( "title:   " + this.movieTitle +   "      date:  "+ this.date );
-//     }
-
-//     displayStaring(){
-//         let out="";
-//         for( let i =0; i<this.staringArr.length; i++){
-//             out+= this.staringArr[i]+"  ";
-//         }
-//         console.log("staring :   " + out);
-//     }
-
-//  }
-
-
-// class documentary extends movie{
-//     constructor(movieTitle, date, imgSrc, staringArr){
-//     super(movieTitle,date, imgSrc, staringArr);
-//     this.categorie= "Documentary";
-
-//     }
-// }
-
-// class horror extends movie{
-//     constructor(movieTitle, date, imgSrc, staringArr){
-//         super(movieTitle,date,imgSrc,staringArr);
-//         this.categorie= "Horror";
-//     }
-// }
-
-// console.log(horrorObjArr);
-// console.log(movieObjArr);
-// console.log(docuObjArr);
-
+  }
 
 
   
