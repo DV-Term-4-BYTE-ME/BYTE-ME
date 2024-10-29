@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Arial', sans-serif;
-  background: #0b0016; /* Black background for the body */
+  background: #000000; /* Black background for the body */
   min-height: 100vh; /* Use min-height for the body */
   display: flex;
   flex-direction: column; /* Change to column layout */
@@ -63,6 +63,11 @@ body::-webkit-scrollbar {
   height: 100%;
   background-color: rgba(28, 7, 44, 0.5); /* Black overlay with 50% opacity */
   z-index: 1;
+}
+#watch-list{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
 }
 
 .buttonWatch {
