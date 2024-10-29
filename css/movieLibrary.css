@@ -122,34 +122,37 @@ header {
 }
 
 /* Movie Section */
-.section {
-    margin-bottom: 40px;
-    margin: 10px; /* Added margin to each movie section */
-}
-
-.section-title {
-    margin-left: 20px;
-    font-size: 1.5em;
-    padding: 20px 0;
-    color: #fff; /* White text */
-}
-
-.movie-row {
+/* Consistent Spacing for Movie Containers */
+.movie-row,
+#movieLibraryContainer {
     display: flex;
-    overflow-x: auto;
-    padding-left: 20px;
+    flex-wrap: wrap;
+    gap: 1px; /* Spacing between movie items */
+    padding: 0 20px;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
-.movie-row img {
-    margin-right: 10px;
+/* Individual Movie Container Style */
+.movieContainerImg,
+.libraryMovie {
+    flex: 1 1 200px; /* Ensure each movie item has the same width */
+    margin: 0px; /* Consistent spacing */
+}
+
+/* Image Styles for Movies */
+.movie-row img,
+#movieLibraryContainer img {
     border-radius: 8px;
     width: 200px;
     height: 300px;
     transition: transform 0.3s ease;
 }
 
-.movie-row img:hover {
+.movie-row img:hover,
+#movieLibraryContainer img:hover {
     transform: scale(1.1);
+    cursor: pointer;
 }
 
 /* Footer */
@@ -241,6 +244,7 @@ footer {
     display: flex;
     justify-content: center;
     margin: 20px 0; /* Adjust margin as needed */
+
 }
 
 .button {
@@ -252,6 +256,7 @@ footer {
     border-radius: 10px; /* Rounded corners from your original code */
     font-size: 18px; /* Match font size to the nav links */
     transition: background-color 0.3s, color 0.3s; /* Hover effect */
+
 }
 
 .button:hover {
@@ -270,6 +275,7 @@ footer {
     cursor: pointer;
     margin-top: 90px;
     margin-left: 35px;
+    margin-bottom: 20px;
   }
   
   /* Dropdown button on hover & focus */

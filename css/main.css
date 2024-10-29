@@ -144,7 +144,7 @@ header {
 
 /* Movie Section */
 .section-title {
-  margin-left: 20px;
+  margin-left: 50px;
   font-size: 1.5em;
   padding: 20px 0;
   color: #fff; /* White text */
@@ -162,6 +162,7 @@ header {
 .movieContainerImg{
   padding-left: 5px;
   padding-right: 5px;
+  margin-left: 30px; /* Add spacing to the left side of each image container */
 }
 
 .movieContainerImg h3{
@@ -178,6 +179,7 @@ header {
   width: 200px;
   height: 300px;
   transition: transform 0.3s ease;
+    margin-left: 10px;
 }
 
 .movie-row img:hover {
@@ -292,5 +294,34 @@ button:hover {
 
 
 
+
+/* Styles for the plus icon button next to the movie title */
+.movieContainerImg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title-with-button {
+  display: flex;
+  align-items: center; /* Align title and button vertically */
+  margin-top: 5px; /* Adds spacing above the title and button */
+}
+
+.plus-icon-button {
+  margin-left: 10px; /* Space between title and button */
+  background-color: #602585; /* Button background color */
+  color: #fff; /* Icon color */
+  border: none;
+  border-radius: 50%;
+  padding: 5px 10px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.plus-icon-button:hover {
+  background-color: #56B5B9;
+}
 
 
