@@ -27,14 +27,15 @@
         </div>
     </header>
     
-        <div class="filter-buttons">
-            <button class="filter-button" data-filter="all">All</button>
-            <button class="filter-button" data-filter="genre1">Action</button>
-            <button class="filter-button" data-filter="genre2">Horror</button>
-            <button class="filter-button" data-filter="year2023">2023</button>
-            <button class="filter-button" data-filter="year2022">2022</button>
-            </div>
-    </div>
+    <div class="dropdown">
+        <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+        <div id="myDropdown" class="dropdown-content">
+          <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+          <a href="#20224">2024</a>
+          <a href="#2023">2023</a>
+          <a href="#topRated">Top Rated</a>
+        </div>
+      </div>
     <!-- Movie Sections -->
     <div class="container">
         <div class="section">

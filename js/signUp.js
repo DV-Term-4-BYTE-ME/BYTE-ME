@@ -22,6 +22,8 @@
 //  enabling the Popover
 
 
+document.getElementById("signUpButton").addEventListener("submit", onSubmit);
+
 class User{
   constructor(name,email,password){
     this.name = name;
@@ -35,6 +37,9 @@ class User{
  function onSubmit(){
   //Check if it is valid
     let user1 = User(document.getElementsByClassName("sign-up-Name-InputBox").innerHTML,document.getElementById('sign-up-Email-InputBox').innerHTML,document.getElementsById("sign-up-Password-InputBox").innerHTML);
+
+    console.log(user1);
+    
  }
 
  
