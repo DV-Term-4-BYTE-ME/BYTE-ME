@@ -60,7 +60,7 @@ header {
 }
 
 .movieCard {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0);
     padding: 40px;
     text-align: left;
     max-width: 600px;
