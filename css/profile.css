@@ -7,11 +7,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    max-height: 100vh;
 }
 
 .container {
     text-align: center;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -20,6 +22,7 @@ h1 {
     margin-bottom: 40px;
     font-family: "Chakra Petch", sans-serif;
     font-weight: 500;
+    margin-top: 100px;;
 }
 
 .profiles {
@@ -29,12 +32,12 @@ h1 {
     margin-bottom: 20px;
 }
 
-.profile .profileAdd{
+.profile-ByteMe .profileAdd{
     text-align: center;
     cursor: pointer;
 }
 
-.profile img, .profile .addIcon  {
+.profile-ByteMe img, .profile .addIcon  {
     width: 150px;
     height: 150px;
     background-color: #333;
@@ -49,10 +52,50 @@ h1 {
 
 
 
-.profile p {
+#profile-Talya {
+    text-align: center;
+    cursor: pointer;
+}
+
+#profile-Talya img, .profile   {
+    width: 150px;
+    height: 150px;
+    background-color: #333;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 60px;
+    color: #999;
+    margin-bottom: 10px;
+}
+
+
+
+.profiles p {
     font-size: 18px;
     color: #ccc;
 }
+
+
+#profile-William {
+    text-align: center;
+    cursor: pointer;
+}
+
+#profile-William img, .profile   {
+    width: 150px;
+    height: 150px;
+    background-color: #333;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 60px;
+    color: #999;
+    margin-bottom: 10px;
+}
+
 
 .addIcon {
     border: 2px solid #602585;
