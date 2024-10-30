@@ -373,7 +373,7 @@ let watchList =[];
 
     // trying to populate the single view class------------------------------------------------
 // -- this next line of code opens the single view page.
-  //  window.location.href = "pages/singleView.html";
+    window.location.href = "pages/singleView.html";
   }
   
 
