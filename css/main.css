@@ -41,17 +41,20 @@ body::-webkit-scrollbar {
 #heroDiv h2{
   font-size: 50px;
   margin-bottom: 4%;
+  font-family: "Chakra Petch", sans-serif;
 }
 #heroDiv h3{
   font-size: 30px;
   margin-bottom: 1%;
   margin-top: 0px;
   font-weight: 400;
+  font-family: "Rubik", sans-serif;
 }
 #heroDiv h4{
   font-size: 25px;
   margin-top: 0px;
   font-weight: 200;
+  font-family: "Rubik", sans-serif;
 }
 
 #overlaySlay::after {
