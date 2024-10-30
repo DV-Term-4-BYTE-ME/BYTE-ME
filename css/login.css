@@ -251,7 +251,7 @@ header {
 }
 
 #loginButton-forValidation{
-    background: #56B5B9;
+    background: #1A0D83;
     border: none;
     color: #fff;
     padding: 10px 20px;
@@ -262,11 +262,11 @@ header {
 }
 
 #loginButton-forValidation:hover{
-    background: #1A0D83;
+    background: #56B5B9;
     font-family: "Rubik", sans-serif;
 }
 #signUpButton {
-    background: #56B5B9;
+    background: #1A0D83;
     border: none;
     color: #fff;
     padding: 10px 20px;
@@ -277,7 +277,7 @@ header {
 }
 
 #signUpButton:hover {
-    background: #1A0D83;
+    background: #56B5B9;
     font-family: "Rubik", sans-serif;
 }
 
