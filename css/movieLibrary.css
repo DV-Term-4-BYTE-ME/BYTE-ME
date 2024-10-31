@@ -125,62 +125,63 @@ header {
 .container {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
-}
-
-/* Column for Filter Buttons */
-.filter-column {
+    gap: 20px; /* Adds space between elements */
+  }
+  
+  /* Column for Filter Buttons */
+  .filter-column {
     display: flex;
     flex-direction: column;
     gap: 10px;
     margin-top: 100px;
     margin-bottom: 25px;
     margin-left: 20px;
-}
-
-.filter-btn {
+  }
+  
+  .filter-btn {
     background-color: #602585;
     color: white;
-    padding: 15px;
-    padding-right: 20px;
-    padding-left: 20px;
+    padding: 15px 20px; /* Simplified padding */
     font-size: 16px;
     border: none;
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s;
-}
-
-.filter-btn:hover {
+  }
+  
+  .filter-btn:hover {
     background-color: #56B5B9;
-}
-
-/* Movie Library Styling */
-#movieLibraryContainer {
+  }
+  
+  /* Movie Library Styling */
+  #movieLibraryContainer {
     display: flex;
     flex-wrap: wrap;
     padding: 0 20px;
-    flex: 1 1 600px;
+    flex: 1 1 600px; /* Adjusts to the parent container's size */
     justify-content: flex-start;
     margin-top: 100px;
-}
-
-/* Individual Movie Container Style */
-.libraryMovie {
-    flex: 1 1 200px;
-}
-
-#movieLibraryContainer img {
+  }
+  
+  /* Individual Movie Container Style */
+  .libraryMovie {
+    flex: 1 1 22%; /* Sets the width of each movie item to around 22% */
+    margin-bottom: 20px; /* Adds space below each movie item */
+    box-sizing: border-box; /* Ensures padding/margin doesn't affect total width */
+  }
+  
+  #movieLibraryContainer img {
     border-radius: 8px;
-    width: 200px;
-    height: 300px;
+    width: 100%; /* Makes image responsive to the container width */
+    height: auto; /* Maintains aspect ratio */
     transition: transform 0.3s ease;
-}
-
-#movieLibraryContainer img:hover {
+  }
+  
+  #movieLibraryContainer img:hover {
     transform: scale(1.1);
     cursor: pointer;
-}
+  }
+  
 
 
 /* Footer */
@@ -206,7 +207,6 @@ footer {
     color: #fff; /* White text */
 }
 
-/* Media Queries for Responsiveness & Layout */
 @media (max-width: 768px) {
     header {
         padding: 10px 20px;
@@ -266,6 +266,35 @@ footer {
     width: 125px;
   }
 
+  /* Button Container */
+.button-container {
+    display: flex;
+    justify-content: center; /* Center the button horizontally */
+    margin-top: 20px; /* Adjust spacing above the button container */
+  }
+  
+  /* Button Style */
+  .button {
+
+    background-color: #602585; /* Button background color */
+    color: #fff; /* Text color */
+    padding: 10px 20px; /* Padding for size and shape */
+    font-size: 18px; /* Font size */
+    border: none; /* Remove border */
+    border-radius: 10px; /* Rounded corners */
+    text-align: center; /* Center text */
+    font-family: "Rubik", sans-serif; /* Font style */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth color transition */
+    margin-left: 520px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+  }
+  
+  /* Button Hover Effect */
+  .button:hover {
+    background-color: #56B5B9; /* Hover color */
+  }
   
 
 

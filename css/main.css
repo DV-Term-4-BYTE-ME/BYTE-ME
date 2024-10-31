@@ -29,7 +29,7 @@ body::-webkit-scrollbar {
   
 }
 #heroDiv {
-  width: 25%;
+  width: 55%;
   position: absolute;
   top: 50%;
   left: 20%;
@@ -296,11 +296,6 @@ button:hover {
   background-color: #56B5B9;
 }
 
-
-
-
-
-/* Styles for the plus icon button next to the movie title */
 .movieContainerImg {
   display: flex;
   flex-direction: column;
@@ -328,5 +323,8 @@ button:hover {
 .plus-icon-button:hover {
   background-color: #56B5B9;
 }
+
+
+
 
 
