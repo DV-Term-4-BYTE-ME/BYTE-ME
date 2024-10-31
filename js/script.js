@@ -283,7 +283,7 @@ let count=0;
       <div id="heroDiv">
       <h2>${movieObjArr[18].getTitle()}</h2>
       <h4> ${movieObjArr[18].getOverview()}</h4>
-      <button type="submit" class="buttonWatch" onclick="openSingleView(129)">Watch Now</button>
+      <button type="submit" class="buttonWatch" onclick="openSingleView(18)">Watch Now</button>
        
       </div>
       `;
