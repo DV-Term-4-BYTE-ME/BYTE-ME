@@ -113,6 +113,17 @@ class movie{
     return this.genreIdArr;
   }
 
+  getGenreForOutput(){
+    let output="";
+    output+= this.genreIdArr[0] ;
+    for(let i =1; i< this.genreIdArr.length; i++){
+      
+        output+= " | " + this.genreIdArr[i];
+      
+    }
+    return output;
+  }
+
   getvoteAve(){
     return this.voteAve;
   }
@@ -210,9 +221,15 @@ let watchList =[];
 }
 
 //----------- code to save each obj into an array---------
-
+let arrPopulated = false;
+let count=0;
   function createMovieObj(backdropImg,genreIdArr,movieTitle,overview,popularity,movieImg,voteAve,movieID){
       movieObjArr.push( new movie(backdropImg,genreIdArr,movieTitle,overview,popularity,movieImg,voteAve,movieID));
+      count++;
+      if(count==20){
+        arrPopulated= true;
+      }
+     
   }
 
 
@@ -236,13 +253,14 @@ let watchList =[];
 
   checkIfDataLoaded();
 
-  let isDataLoaded= false;
+
 
   function afterDataLoaded() {
     console.log('data is loaded hoes');
-    isDataLoaded=true;
 
-    
+     // Store movieObjArr in localStorage
+     localStorage.setItem('movieObjArr', JSON.stringify(movieObjArr));
+
     //set hero image 
     populateHomeScreen();
 
@@ -259,13 +277,14 @@ let watchList =[];
      
       document.getElementById("homeHero").innerHTML= `
       <div id="overlaySlay">
-        <img src= 'https://image.tmdb.org/t/p/original${movieObjArr[2].getBackdropImg()}' >
+        <img src= 'https://image.tmdb.org/t/p/original${movieObjArr[18].getBackdropImg()}' >
         
       </div>
       <div id="heroDiv">
-      <h2>${movieObjArr[2].getTitle()}</h2>
-      <h4> ${movieObjArr[2].getOverview()}</h4>
-      <button type="submit" class="buttonWatch" onclick="openSingleView(129)">Watch Now</button>
+      <h2>${movieObjArr[18].getTitle()}</h2>
+      <h4> ${movieObjArr[18].getOverview()}</h4>
+      <button type="submit" class="buttonWatch" onclick="openSingleView(18)">Watch Now</button>
+       
       </div>
       `;
   
@@ -280,7 +299,11 @@ let watchList =[];
       
         let movieToAdd = `  <div class="movieContainerImg" onclick="openSingleView(${movieObjArr[i].getID()})">              
                               <img src= 'https://image.tmdb.org/t/p/original${movieObjArr[i].getMovieImg()}'>
-                              <h3>${movieObjArr[i].getTitle()}</h3>
+                             
+                              <div class="title-with-button">
+                               <h3>${movieObjArr[i].getTitle()}</h3>
+                                <button class="plus-icon-button">+</button>
+                                </div>
                             </div>`;
   
       topPickContainer.innerHTML+= movieToAdd;
@@ -294,7 +317,11 @@ let watchList =[];
       
         let movieToAdd = `  <div class="movieContainerImg" onclick="openSingleView(${movieObjArr[i].getID()})">              
                               <img src=  'https://image.tmdb.org/t/p/original${movieObjArr[i].getMovieImg()}'>
+                              
+                              <div class="title-with-button">
                               <h3>${movieObjArr[i].getTitle()}</h3>
+                                <button class="plus-icon-button">+</button>
+                                </div>
                             </div>`;
   
       topMoviesContainer.innerHTML+= movieToAdd;
@@ -345,6 +372,7 @@ let watchList =[];
     let movieAdd= ` <div class="movieContainerImg" onclick="openSingleView(${watchList[id].getID()})">              
     <img src=  'https://image.tmdb.org/t/p/original${watchList[id].getMovieImg()}'>
     <h3>${watchList[id].getTitle()}</h3>
+    
      </div>`
    
     watchListContainer.innerHTML+= movieAdd;
@@ -370,17 +398,86 @@ let watchList =[];
 
     console.log("opended single view");
     console.log(id);
+   
+
+ 
 
     // trying to populate the single view class------------------------------------------------
 // -- this next line of code opens the single view page.
-  //  window.location.href = "pages/singleView.html";
+  localStorage.setItem('selectedMovieId', id);
+
+ 
+  window.location.href = "pages/singleView.html";
+  
   }
+
+ 
+
+  if(window.location.pathname.includes("singleView.html")){
+    
+     // Retrieve movieObjArr from localStorage
+     const movieObjArrString = localStorage.getItem('movieObjArr');
+     const movieObjArr = movieObjArrString ? JSON.parse(movieObjArrString) : [];
+//get id from local storage
+    let movieId =parseInt( localStorage.getItem('selectedMovieId'));
+
+   
+     console.log(movieObjArr);
+    // // get output for genres
+     let genreArr= movieObjArr[movieId].genreIdArr;
+     console.log(genreArr);
+    let genreOut="";
+    genreOut+= genreArr[0];
+    for(let i =1; i<genreArr.length; i++){
+      genreOut+= "  |  " + genreArr[i];
+    }
+
+    console.log(genreOut);
+     
+   
+    let singleContainer = document.getElementById("singleViewContainer");
+  
+    let movieViewed = `
+     <img id="backImgSingle" src=  'https://image.tmdb.org/t/p/original${movieObjArr[movieId].backdropImg}'>
+      <p id="blurSingleBackground"></p>
+    <div id= "movieDataSingle">
+      <div class="movieDetails">
+        
+        <H1>${movieObjArr[movieId].movieTitle}</H1>
+        <h2>${movieObjArr[movieId].overview}</h2>
+        <h3>${genreOut}</h3>
+       
+        <p class="smallInfoSingleView">Popularity & Views: ${movieObjArr[movieId].popularity} </p>
+        <p class="smallInfoSingleView">Rating: ${movieObjArr[movieId].voteAve}</p>
+      </div>
+    
+      <div class="moviePosterSingle">
+         <img  src='https://image.tmdb.org/t/p/original${movieObjArr[movieId].movieImg}'>
+      </div>
+    </div>
+
+    `;
+    // <p class="genreSingleView">${movieObjArr[movieId].getGenreForOutput()}</p>
+    singleContainer.innerHTML=movieViewed;
+    
+
+  }
+
+
+
+
+
+
+
   
 
   //-----------------------------------------------js for movie library-----------------------\
  // this function and the populate home page are ffighting -- gabs if you have a look 
  //at the console log on the home page and the movie library page youll see that the
  //innerHTml are fighting eachother and idk why --
+
+
+ 
   function populateMovieLibrary(){
     console.log("populating th movie libraty page");
     let movieContainer = document.getElementById("movieLibraryContainer");
