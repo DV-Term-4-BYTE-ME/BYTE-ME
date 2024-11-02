@@ -286,9 +286,9 @@ footer {
     font-family: "Rubik", sans-serif; /* Font style */
     cursor: pointer; /* Pointer cursor on hover */
     transition: background-color 0.3s ease; /* Smooth color transition */
-    margin-left: 520px;
     margin-bottom: 50px;
     margin-top: 50px;
+    align-items: center;
   }
   
   /* Button Hover Effect */

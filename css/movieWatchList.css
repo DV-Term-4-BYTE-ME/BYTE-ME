@@ -48,7 +48,9 @@ header {
 
 .navbar {
   display: flex;
-  align-items: center; /* Align items vertically */
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
 .navbar ul {
@@ -114,7 +116,7 @@ header {
   color: white;
   text-decoration: none;
   font-family: "Chakra Petch", sans-serif;
-  text-align: center; /* Center the title */
+  
 }
 
 #movieLibraryContainer {
