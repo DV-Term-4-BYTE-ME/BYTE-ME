@@ -256,7 +256,7 @@ let count=0;
 
 
   function afterDataLoaded() {
-    console.log('data is loaded hoes');
+    console.log('data is loaded girll');
 
      // Store movieObjArr in localStorage
      localStorage.setItem('movieObjArr', JSON.stringify(movieObjArr));
@@ -267,6 +267,16 @@ let count=0;
     populateMovieLibrary();
   
   }
+  
+  //--------------------------js for user page and user name on home
+
+  function userSelected(UserName){
+    console.log(UserName);
+    localStorage.setItem("userSelected",UserName);
+    window.location.href = "../index.html";
+    
+  }
+
 
 
     
@@ -274,13 +284,19 @@ let count=0;
     function populateHomeScreen(){
       
       //--------------------------------------------populate header section --------------------------------
+
+      //- get local storrage for name selected 
+      let user= localStorage.getItem("userSelected");
      
+
+
       document.getElementById("homeHero").innerHTML= `
       <div id="overlaySlay">
         <img src= 'https://image.tmdb.org/t/p/original${movieObjArr[18].getBackdropImg()}' >
         
       </div>
       <div id="heroDiv">
+      <h3>Howdy ${user}</h3>
       <h2>${movieObjArr[18].getTitle()}</h2>
       <h4> ${movieObjArr[18].getOverview()}</h4>
       <button type="submit" class="buttonWatch" onclick="openSingleView(18)">Watch Now</button>
@@ -406,15 +422,28 @@ let count=0;
 // -- this next line of code opens the single view page.
   localStorage.setItem('selectedMovieId', id);
 
- 
+  // -- check if we are on the home page or from within the single View page
+  console.log(window.localStorage.pathname);
+  if (window.location.pathname === "/index.html") {
+    console.log("on home");
+     
   window.location.href = "pages/singleView.html";
+
+  } else {
+    console.log("on single");
+     displaySingleView(id);
+  
+
+  }
+
   
   }
 
  
 
-  if(window.location.pathname.includes("singleView.html")){
-    
+  //--- function that displays single view data
+  function displaySingleView(){
+     
      // Retrieve movieObjArr from localStorage
      const movieObjArrString = localStorage.getItem('movieObjArr');
      const movieObjArr = movieObjArrString ? JSON.parse(movieObjArrString) : [];
@@ -422,8 +451,7 @@ let count=0;
     let movieId =parseInt( localStorage.getItem('selectedMovieId'));
 
    
-     console.log(movieObjArr);
-    // // get output for genres
+
      let genreArr= movieObjArr[movieId].genreIdArr;
      console.log(genreArr);
     let genreOut="";
@@ -459,10 +487,33 @@ let count=0;
     `;
     // <p class="genreSingleView">${movieObjArr[movieId].getGenreForOutput()}</p>
     singleContainer.innerHTML=movieViewed;
+
+    //----------- find containers for recomemded movies 
+
+    let recomendedContainer = document.getElementById("top-picks");
+    let i = movieId +1;
+   if(i >14){
+    i = movieID-7;
+   }
+    let final="";
+    let j = 0;
+    while(j<6){
+      let dataToAdd= `  <img  src='https://image.tmdb.org/t/p/original${movieObjArr[i].movieImg}'   onclick="openSingleView(${movieObjArr[i].movieID})">`
+      final+=dataToAdd;
+      i++;
+      j++;
+     
+    }
     
+     recomendedContainer.innerHTML=final;
+   
+  }
+ 
+//------------------when single view page is opend ---------display sinngle
+  if(window.location.pathname.includes("singleView.html")){
+   displaySingleView();
 
   }
-
 
 
 
