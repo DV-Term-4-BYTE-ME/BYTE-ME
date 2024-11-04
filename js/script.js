@@ -140,6 +140,9 @@ let movieObjArr= [];
 let tvObjArr=[];
 let watchList =[];
 
+let arrAction=[];
+let arrAnimation =[];
+let arrComedy=[];
 
 
    function mineData(data){
@@ -159,10 +162,13 @@ let watchList =[];
         for(let j =0; j<data.results[i].genre_ids.length;j++){
           if(data.results[i].genre_ids[j]==28){
             genreIdArr.push("Action");
+            arrAction.push(i);
+
           }else if(data.results[i].genre_ids[j]==12){
             genreIdArr.push("Adventure");
           }else if(data.results[i].genre_ids[j]==16){
             genreIdArr.push("Animation");
+            arrAnimation.push(i);
           }else if(data.results[i].genre_ids[j]==35){
             genreIdArr.push("Comedy");
           }else if(data.results[i].genre_ids[j]==80){
@@ -264,7 +270,7 @@ let count=0;
     //set hero image 
     populateHomeScreen();
 
-    populateMovieLibrary();
+    displayLibraryFromArr(arrAction);
   
   }
   
@@ -287,6 +293,8 @@ let count=0;
 
       //- get local storrage for name selected 
       let user= localStorage.getItem("userSelected");
+
+
      
 
 
@@ -356,6 +364,8 @@ let count=0;
  
 
   displayWatchList();
+  displayLibraryFromArr(movieObjArr);
+  
 
   
   }
@@ -492,13 +502,23 @@ let count=0;
 
     let recomendedContainer = document.getElementById("top-picks");
     let i = movieId +1;
+  
    if(i >14){
     i = movieID-7;
    }
     let final="";
     let j = 0;
     while(j<6){
-      let dataToAdd= `  <img  src='https://image.tmdb.org/t/p/original${movieObjArr[i].movieImg}'   onclick="openSingleView(${movieObjArr[i].movieID})">`
+      let dataToAdd= ` 
+       <div>
+      <img  src='https://image.tmdb.org/t/p/original${movieObjArr[i].movieImg}'   onclick="openSingleView(${movieObjArr[i].movieID})">
+      <div class="title-with-button">
+        <h3>${movieObjArr[i].movieTitle}</h3>
+        <button class="plus-icon-button">+</button>
+    </div>
+    </div>
+      
+      `
       final+=dataToAdd;
       i++;
       j++;
@@ -515,6 +535,42 @@ let count=0;
 
   }
 
+  //[-------------- watch list js ---------]
+
+
+  // create the filter sections --
+
+  // code for creating different filters 
+
+  // if(window.location.pathname.includes("movieLibrary.html")){
+  //   displayLibraryFromArr(movieObjArr);
+
+  // function to display on the library page from a given array 
+  //arr of arr ids
+  //- not wroin work on it tomorrow
+function displayLibraryFromArr(arr){
+  // find container
+
+  //try ans work around local storrage -
+ let arrayyyyhoe= localStorage.getItem('movieObjArr');
+  console.log(arrayyyyhoe);
+  console.log("populating from the movie libraty page yay - here us data");
+  console.log(movieObjArr);
+  let displayContainer= document.getElementById ("movieLibraryContainer");
+
+  let dataToDislay = "";
+   for( let i =0 ; i< arr.length; i++){
+    dataToDislay +=  `<div class="libraryMovie">
+    <img src=" 'https://image.tmdb.org/t/p/original${arr[i].getMovieImg()}'>
+    </div>`
+   }
+  
+
+  
+
+
+}
+  
 
 
 
@@ -527,28 +583,4 @@ let count=0;
  //at the console log on the home page and the movie library page youll see that the
  //innerHTml are fighting eachother and idk why --
 
-
- 
-  function populateMovieLibrary(){
-    console.log("populating th movie libraty page");
-    let movieContainer = document.getElementById("movieLibraryContainer");
-    movieContainer.innerHTML=`<H1>hello from the js file</H1>`
-
-    for(let i=0;i<movieObjArr.length;i++){
-
-      let movieToAdd =`<div class="libraryMovie"  onclick="openSingleView(${movieObjArr[i].getID()})>
-                        <img src=  'https://image.tmdb.org/t/p/original${movieObjArr[i].getMovieImg()}'>
-                        <h3>${movieObjArr[i].getTitle()}</h3>
-                        </div>`
-
-             console.log(movieObjArr[i].getID());
-             console.log(movieObjArr[i].getMovieImg());
-             console.log(movieObjArr[i].getTitle());
-      
-    }    
-
-  }
-
-
-  
 
