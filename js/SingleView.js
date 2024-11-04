@@ -24,3 +24,15 @@ window.addEventListener("click", (event) => {
         buttonWatch.src = buttonWatch.src;
     }
 });
+
+
+// hover on + button
+const button = document.getElementById("watchlistAdd");
+
+button.addEventListener("mouseenter", () => {
+  button.textContent = "Add to Watchlist";
+});
+
+button.addEventListener("mouseleave", () => {
+  button.textContent = "+";
+});

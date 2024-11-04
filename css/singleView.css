@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-   /* background-image: url(../assests/images/619579db-2a19-4825-9e0b-15e0ddae83e7.jpeg);*/
+   background-image: url(../assests/images/619579db-2a19-4825-9e0b-15e0ddae83e7.jpeg);
    background-color: #000000;
     background-size: cover;
     background-position: center;
@@ -160,9 +160,10 @@ header {
 /*
 .movieCard {
     background-color: rgba(0, 0, 0, 0);
-    padding: 40px;
+    padding-left: 40px;
     text-align: left;
     max-width: 600px;
+    margin-top: 25vh;
 }
 
 .movieTitle {
@@ -203,11 +204,15 @@ header {
     font-size: 1.2rem;
     border-radius: 5px;
     font-family: "Rubik", sans-serif;
+
 }
 
 #watchlistAdd:hover {
     background-color: #56B5B9;
-    font-family: "Rubik", sans-serif; 
+    font-family: "Rubik", sans-serif;
+    transition: all 0.5s ease;
+    overflow: hidden;
+    white-space: nowrap; 
 }
 
 
@@ -239,4 +244,72 @@ header {
     font-size: 24px;
     cursor: pointer;
     color: black;
-}*/
+
+}
+
+.backButton {
+    margin-top: 0px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #fff;
+    background-color: #000000;
+    margin-left: 0px;
+    margin-right: 10px;
+}
+
+/* Movie Section */
+
+
+.section-title {
+    margin-left: 40px;
+    font-size: 1.5em;
+    padding: 20px 0;
+    color: #fff; /* White text */
+    font-family: "Chakra Petch", sans-serif;
+  }
+  
+  .movie-row {
+    display: flex;
+    overflow-x: auto;
+    padding-left: 20px;
+    justify-content: space-around;
+    padding-top: 20px;
+    padding-left: 0px;
+    
+  }
+  .movieContainerImg{
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-left: 30px; /* Add spacing to the left side of each image container */
+  }
+  
+  .movieContainerImg h3{
+    color: white;
+    text-decoration: none;
+    font-family: "Rubik", sans-serif;
+    
+  }
+  
+  
+  .movie-row img {
+    margin-right: 10px;
+    border-radius: 8px;
+    width: 200px;
+    height: 300px;
+    transition: transform 0.3s ease;
+      margin-left: 10px;
+  }
+  
+  .movie-row img:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+  }
+  
+  .section {
+    margin-top: 0px; 
+    margin-bottom: 40px; /* Keeps the bottom margin for spacing between sections */
+    background-color: rgba(0, 0, 0, 0);
+    margin-left: 0px;
+}
+
+
