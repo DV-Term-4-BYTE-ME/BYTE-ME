@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-   background-image: url(../assests/images/619579db-2a19-4825-9e0b-15e0ddae83e7.jpeg);
+  
    background-color: #000000;
     background-size: cover;
     background-position: center;
@@ -9,6 +9,10 @@ body {
     
     color: white;
     font-family: "Rubik", sans-serif;
+    overflow-y: scroll;
+}
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+    display: none; /* Hide scrollbar */
 }
 header {
     width: 100%;
@@ -271,12 +275,14 @@ header {
   .movie-row {
     display: flex;
     overflow-x: auto;
+    height: 350px;
     padding-left: 20px;
     justify-content: space-around;
     padding-top: 20px;
     padding-left: 0px;
     
   }
+ 
   .movieContainerImg{
     padding-left: 5px;
     padding-right: 5px;
@@ -306,10 +312,20 @@ header {
   }
   
   .section {
-    margin-top: 0px; 
+    margin-top: 20px; 
     margin-bottom: 40px; /* Keeps the bottom margin for spacing between sections */
     background-color: rgba(0, 0, 0, 0);
     margin-left: 0px;
+    overflow-y: auto;
+
+
 }
 
 
+.backButton {
+    margin-top: 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #fff;
+    background-color: #000000;
+}
