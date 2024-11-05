@@ -32,12 +32,20 @@ body::-webkit-scrollbar {
   width: 55%;
   position: absolute;
   top: 50%;
-  left: 20%;
+  left:30%;
   transform: translate(-50%, -50%);
   font-size: 100%;
   z-index: 2;
   
 }
+#heroDiv button{
+  width: 50%;
+}
+#heroDiv h3{
+  color: #602585;
+  left: 200px;
+}
+
 #heroDiv h2{
   font-size: 50px;
   margin-bottom: 4%;
@@ -56,6 +64,7 @@ body::-webkit-scrollbar {
   font-weight: 200;
   font-family: "Rubik", sans-serif;
 }
+
 
 #overlaySlay::after {
   content: '';

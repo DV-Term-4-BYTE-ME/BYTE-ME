@@ -140,6 +140,9 @@ let movieObjArr= [];
 let tvObjArr=[];
 let watchList =[];
 
+let arrAction=[];
+let arrAnimation =[];
+let arrComedy=[];
 
 
    function mineData(data){
@@ -159,10 +162,13 @@ let watchList =[];
         for(let j =0; j<data.results[i].genre_ids.length;j++){
           if(data.results[i].genre_ids[j]==28){
             genreIdArr.push("Action");
+            arrAction.push(i);
+
           }else if(data.results[i].genre_ids[j]==12){
             genreIdArr.push("Adventure");
           }else if(data.results[i].genre_ids[j]==16){
             genreIdArr.push("Animation");
+            arrAnimation.push(i);
           }else if(data.results[i].genre_ids[j]==35){
             genreIdArr.push("Comedy");
           }else if(data.results[i].genre_ids[j]==80){
@@ -256,7 +262,7 @@ let count=0;
 
 
   function afterDataLoaded() {
-    console.log('data is loaded hoes');
+    console.log('data is loaded girll');
 
      // Store movieObjArr in localStorage
      localStorage.setItem('movieObjArr', JSON.stringify(movieObjArr));
@@ -264,9 +270,19 @@ let count=0;
     //set hero image 
     populateHomeScreen();
 
-    populateMovieLibrary();
+    displayLibraryFromArr(arrAction);
   
   }
+  
+  //--------------------------js for user page and user name on home
+
+  function userSelected(UserName){
+    console.log(UserName);
+    localStorage.setItem("userSelected",UserName);
+    window.location.href = "../index.html";
+    
+  }
+
 
 
     
@@ -274,13 +290,21 @@ let count=0;
     function populateHomeScreen(){
       
       //--------------------------------------------populate header section --------------------------------
+
+      //- get local storrage for name selected 
+      let user= localStorage.getItem("userSelected");
+
+
      
+
+
       document.getElementById("homeHero").innerHTML= `
       <div id="overlaySlay">
         <img src= 'https://image.tmdb.org/t/p/original${movieObjArr[18].getBackdropImg()}' >
         
       </div>
       <div id="heroDiv">
+      <h3>Howdy ${user}</h3>
       <h2>${movieObjArr[18].getTitle()}</h2>
       <h4> ${movieObjArr[18].getOverview()}</h4>
       <button type="submit" class="buttonWatch" onclick="openSingleView(18)">Watch Now</button>
@@ -340,6 +364,8 @@ let count=0;
  
 
   displayWatchList();
+  displayLibraryFromArr(movieObjArr);
+  
 
   
   }
@@ -406,15 +432,28 @@ let count=0;
 // -- this next line of code opens the single view page.
   localStorage.setItem('selectedMovieId', id);
 
- 
+  // -- check if we are on the home page or from within the single View page
+  console.log(window.localStorage.pathname);
+  if (window.location.pathname === "/index.html") {
+    console.log("on home");
+     
   window.location.href = "pages/singleView.html";
+
+  } else {
+    console.log("on single");
+     displaySingleView(id);
+  
+
+  }
+
   
   }
 
  
 
-  if(window.location.pathname.includes("singleView.html")){
-    
+  //--- function that displays single view data
+  function displaySingleView(){
+     
      // Retrieve movieObjArr from localStorage
      const movieObjArrString = localStorage.getItem('movieObjArr');
      const movieObjArr = movieObjArrString ? JSON.parse(movieObjArrString) : [];
@@ -422,8 +461,7 @@ let count=0;
     let movieId =parseInt( localStorage.getItem('selectedMovieId'));
 
    
-     console.log(movieObjArr);
-    // // get output for genres
+
      let genreArr= movieObjArr[movieId].genreIdArr;
      console.log(genreArr);
     let genreOut="";
@@ -459,11 +497,80 @@ let count=0;
     `;
     // <p class="genreSingleView">${movieObjArr[movieId].getGenreForOutput()}</p>
     singleContainer.innerHTML=movieViewed;
+
+    //----------- find containers for recomemded movies 
+
+    let recomendedContainer = document.getElementById("top-picks");
+    let i = movieId +1;
+  
+   if(i >14){
+    i = movieID-7;
+   }
+    let final="";
+    let j = 0;
+    while(j<6){
+      let dataToAdd= ` 
+       <div>
+      <img  src='https://image.tmdb.org/t/p/original${movieObjArr[i].movieImg}'   onclick="openSingleView(${movieObjArr[i].movieID})">
+      <div class="title-with-button">
+        <h3>${movieObjArr[i].movieTitle}</h3>
+        <button class="plus-icon-button">+</button>
+    </div>
+    </div>
+      
+      `
+      final+=dataToAdd;
+      i++;
+      j++;
+     
+    }
     
+     recomendedContainer.innerHTML=final;
+   
+  }
+ 
+//------------------when single view page is opend ---------display sinngle
+  if(window.location.pathname.includes("singleView.html")){
+   displaySingleView();
 
   }
 
+  //[-------------- watch list js ---------]
 
+
+  // create the filter sections --
+
+  // code for creating different filters 
+
+  // if(window.location.pathname.includes("movieLibrary.html")){
+  //   displayLibraryFromArr(movieObjArr);
+
+  // function to display on the library page from a given array 
+  //arr of arr ids
+  //- not wroin work on it tomorrow
+function displayLibraryFromArr(arr){
+  // find container
+
+  //try ans work around local storrage -
+ let arrayyyyhoe= localStorage.getItem('movieObjArr');
+  console.log(arrayyyyhoe);
+  console.log("populating from the movie libraty page yay - here us data");
+  console.log(movieObjArr);
+  let displayContainer= document.getElementById ("movieLibraryContainer");
+
+  let dataToDislay = "";
+   for( let i =0 ; i< arr.length; i++){
+    dataToDislay +=  `<div class="libraryMovie">
+    <img src=" 'https://image.tmdb.org/t/p/original${arr[i].getMovieImg()}'>
+    </div>`
+   }
+  
+
+  
+
+
+}
+  
 
 
 
@@ -476,28 +583,4 @@ let count=0;
  //at the console log on the home page and the movie library page youll see that the
  //innerHTml are fighting eachother and idk why --
 
-
- 
-  function populateMovieLibrary(){
-    console.log("populating th movie libraty page");
-    let movieContainer = document.getElementById("movieLibraryContainer");
-    movieContainer.innerHTML=`<H1>hello from the js file</H1>`
-
-    for(let i=0;i<movieObjArr.length;i++){
-
-      let movieToAdd =`<div class="libraryMovie"  onclick="openSingleView(${movieObjArr[i].getID()})>
-                        <img src=  'https://image.tmdb.org/t/p/original${movieObjArr[i].getMovieImg()}'>
-                        <h3>${movieObjArr[i].getTitle()}</h3>
-                        </div>`
-
-             console.log(movieObjArr[i].getID());
-             console.log(movieObjArr[i].getMovieImg());
-             console.log(movieObjArr[i].getTitle());
-      
-    }    
-
-  }
-
-
-  
 
