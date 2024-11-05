@@ -117,7 +117,7 @@ header {
 .moviePosterSingle{
     width:100%;
     padding: 20px;
-    margin-right: 60px;
+    margin-right: 1%;
     flex:4;
    
     
@@ -130,20 +130,29 @@ header {
     object-fit: cover;
 }
 .movieDetails{
+
     width: 100%;
-    margin: 60px;
-    width: 100%;
-    padding: 12;
-    padding-top: 40px;
+   
+    height: 80%;
+    padding: 4%;
+    margin: 2%;
+    padding-top: 1%;
+    padding-bottom: 2%;
    
     border-radius: 10px;
-    flex:6;
+    flex:8;
 
     
    
     background-color: rgba(13, 0, 14, 0.7);
     
     
+}
+
+.btnCon{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
 }
 
 .movieDetails h1{
@@ -157,7 +166,7 @@ header {
     line-height: 1.5;
 }
 
-.movieDetails button{
+ .movieDetails button{
     background-color: #602585;
     color: #fff;
     padding: 10px 20px;
@@ -165,7 +174,7 @@ header {
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    width: 27%;
+    width: 40%;
     height: 50px;
     font-family: "Rubik", sans-serif;
     margin-right: 12px;

@@ -180,8 +180,7 @@ header {
   
   /* Individual Movie Container Style */
   .libraryMovie {
-    flex: 1 1 23%;
-    height: 21%;
+    width: 25%;
    /* Sets the width of each movie item to around 22% */
     /* Adds space below each movie item */
     box-sizing: border-box; 
@@ -201,7 +200,27 @@ header {
     transform: scale(1.1);
     cursor: pointer;
   }
+  .button-container{
+    margin: 3%;
+    display: flex;
+    gap: 2%;
+  }
   
+  .button-container button{
+    background-color: #602585;
+    color: white;
+    padding: 15px 20px; /* Simplified padding */
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  .button-container button:hover {
+    background-color: #56B5B9;
+  }
+  
+
 
 
 /* Footer */
