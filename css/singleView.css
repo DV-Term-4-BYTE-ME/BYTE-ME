@@ -275,7 +275,7 @@ header {
   .movie-row {
     display: flex;
     overflow-x: auto;
-    height: 350px;
+    height: 400px;
     padding-left: 20px;
     justify-content: space-around;
     padding-top: 20px;
@@ -320,6 +320,42 @@ header {
 
 
 }
+
+.plus-icon-button {
+    margin-left: 10px; /* Space between title and button */
+    background-color: #602585; /* Button background color */
+    color: #fff; /* Icon color */
+    border: none;
+    border-radius: 50%;
+    padding: 5px 10px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: 200;
+
+  }
+  
+  .plus-icon-button:hover {
+    background-color: #56B5B9;
+  }
+  
+  .title-with-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
+    margin-left: 8%;
+   
+    align-items: center; /* Align title and button vertically */
+    margin-top: 5px; /* Adds spacing above the title and button */
+
+  }
+.title-with-button h3{
+    
+  }
+
+
+  
 
 
 .backButton {
