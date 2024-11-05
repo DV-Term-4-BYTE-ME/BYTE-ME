@@ -5,8 +5,18 @@ body {
     background: #0d001d; /* Black background for the body */
     min-height: 100vh; /* Use min-height for the body */
     display: flex;
-    flex-direction: column; /* Change to column layout */
+    overflow-x: hidden;
+    flex-direction: column; 
+    /* Change to column layout */
+    overflow-y: scroll; /* Ensure scrolling is possible */
+
 }
+
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, and Opera */
+}
+
+
 
 /* danae added classes= --------------------
 #movieLibraryContainer{
@@ -170,11 +180,11 @@ header {
   
   /* Individual Movie Container Style */
   .libraryMovie {
-    flex: 1 1 23%;
-    height: 21%;
+    width: 25%;
    /* Sets the width of each movie item to around 22% */
     /* Adds space below each movie item */
-    box-sizing: border-box; /* Ensures padding/margin doesn't affect total width */
+    box-sizing: border-box; 
+    color: white;/* Ensures padding/margin doesn't affect total width */
   }
 
 
@@ -190,7 +200,27 @@ header {
     transform: scale(1.1);
     cursor: pointer;
   }
+  .button-container{
+    margin: 3%;
+    display: flex;
+    gap: 2%;
+  }
   
+  .button-container button{
+    background-color: #602585;
+    color: white;
+    padding: 15px 20px; /* Simplified padding */
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  .button-container button:hover {
+    background-color: #56B5B9;
+  }
+  
+
 
 
 /* Footer */
