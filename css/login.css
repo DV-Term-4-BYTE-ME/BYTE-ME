@@ -1,351 +1,282 @@
 body {
-    margin: 0;
-    padding: 0;
-    font-family: "Rubik", sans-serif;
-    background: url(../assests/images/background.png) no-repeat center center fixed;
-    background-size: cover;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+  margin: 0;
+  padding: 0;
+  font-family: "Rubik", sans-serif;
+  background: url(../assests/images/background.png) no-repeat center center
+    fixed;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
 header {
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 10px 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 10;
-    box-sizing: border-box;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+  box-sizing: border-box;
 }
 
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
 .navbar ul {
-    list-style: none;
-    display: flex;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
 }
 
 .navbar ul li {
-    margin: 0 15px;
+  margin: 0 15px;
 }
 
 .navbar ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 18px;
-    transition: 0.3s;
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  transition: 0.3s;
 }
 
 .navbar ul li a:hover {
-    color: #56B5B9;
+  color: #56b5b9;
 }
 
-.logo img{
-    height: 50px;
-    width: 125px;
+.logo img {
+  height: 50px;
+  width: 125px;
 }
 
 .background {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
 }
 
 .loginForm {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(10px);
-    color: #fff;
-    text-align: center;
-    width: 90%;
-    max-width: 250px;
-    max-height: fit-content;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  color: #fff;
+  text-align: center;
+  width: 90%;
+  max-width: 250px;
+  max-height: fit-content;
 }
 
 .loginForm h2 {
-    margin-bottom: 20px;
-    font-family: "Chakra Petch", sans-serif;
-    font-weight: 500;
+  margin-bottom: 20px;
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 500;
 }
 
 .loginForm h4 {
-    margin-bottom: 20px;
-    font-family: "Chakra Petch", sans-serif;
-    font-weight: 500;
+  margin-bottom: 20px;
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 500;
 }
 
 /* Input Box  for Name */
-#sign-up-Name-InputBox {
-    position: relative;
-    margin-bottom: 30px;
+#sign-up-form div {
+  position: relative;
+  margin-bottom: 30px;
 }
 
-#sign-up-Name-InputBox input {
-    width: 100%;
-    padding: 10px;
-    background: none;
-    border: none;
-    border-bottom: 2px solid #fff;
-    outline: none;
-    color: #fff;
-    font-size: 16px;
+.sign-up-form-div input {
+  width: 100%;
+  padding: 10px;
+  background: none;
+  border: none;
+  border-bottom: 2px solid #fff;
+  outline: none;
+  color: #fff;
+  font-size: 16px;
 }
 
-#sign-up-Name-InputBox label {
-    position: absolute;
-    top: 10px;
-    left: 0;
-    pointer-events: none;
-    transition: 0.5s;
-    color: #fff;
+.sign-up-form-div label {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  pointer-events: none;
+  transition: 0.5s;
+  color: #fff;
 }
 
-#sign-up-Name-InputBox input:focus ~ label,
-#sign-up-Name-InputBox input:valid ~ label {
-    top: -20px;
-    left: 0;
-    color: #56B5B9;
-    font-size: 12px;
-}
-
-/* Input Box  for Email */
-#sign-up-Email-InputBox {
-    position: relative;
-    margin-bottom: 30px;
-}
-
-#sign-up-Email-InputBox input {
-    width: 100%;
-    padding: 10px;
-    background: none;
-    border: none;
-    border-bottom: 2px solid #fff;
-    outline: none;
-    color: #fff;
-    font-size: 16px;
-}
-
-#sign-up-Email-InputBox label {
-    position: absolute;
-    top: 10px;
-    left: 0;
-    pointer-events: none;
-    transition: 0.5s;
-    color: #fff;
-}
-
-#sign-up-Email-InputBox input:focus ~ label,
-#sign-up-Email-InputBox input:valid ~ label {
-    top: -20px;
-    left: 0;
-    color: #56B5B9;
-    font-size: 12px;
-}
-
-/* Input Box  for Password */
-#sign-up-Password-InputBox {
-    position: relative;
-    margin-bottom: 30px;
-}
-
-#sign-up-Password-InputBox input {
-    width: 100%;
-    padding: 10px;
-    background: none;
-    border: none;
-    border-bottom: 2px solid #fff;
-    outline: none;
-    color: #fff;
-    font-size: 16px;
-}
-
-#sign-up-Password-InputBox label {
-    position: absolute;
-    top: 10px;
-    left: 0;
-    pointer-events: none;
-    transition: 0.5s;
-    color: #fff;
-}
-
-#sign-up-Password-InputBox input:focus ~ label,
-#sign-up-Password-InputBox input:valid ~ label {
-    top: -20px;
-    left: 0;
-    color: #56B5B9;
-    font-size: 12px;
-}
-
-/* Input Box for Confirm Password   */
-#sign-up-ConfirmPassword-InputBox {
-    position: relative;
-    margin-bottom: 30px;
-}
-
-#sign-up-ConfirmPassword-InputBox input {
-    width: 100%;
-    padding: 10px;
-    background: none;
-    border: none;
-    border-bottom: 2px solid #fff;
-    outline: none;
-    color: #fff;
-    font-size: 16px;
-}
-
-#sign-up-ConfirmPassword-InputBox label {
-    position: absolute;
-    top: 10px;
-    left: 0;
-    pointer-events: none;
-    transition: 0.5s;
-    color: #fff;
-}
-
-#sign-up-ConfirmPassword-InputBox input:focus ~ label,
-#sign-up-ConfirmPassword-InputBox input:valid ~ label {
-    top: -20px;
-    left: 0;
-    color: #56B5B9;
-    font-size: 12px;
+.sign-up-form-div input:focus ~ label,
+.sign-up-form-div input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #56b5b9;
+  font-size: 12px;
 }
 
 #rememberForgot {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 12px;
-    color: #fff;
-    margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: #fff;
+  margin-bottom: 30px;
 }
 
 #rememberForgot label input {
-    align-items: center; 
-    gap: 5px;
+  align-items: center;
+  gap: 5px;
 }
 
 #rememberForgot a {
-    color: #fff;
+  color: #fff;
 }
 
 #rememberForgot a:hover {
-    color: #56B5B9;
+  color: #56b5b9;
 }
 
-#loginButton-forValidation{
-    background: #1A0D83;
-    border: none;
-    color: #fff;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: 0.3s;
-    border-radius: 5px;
-    font-family: "Rubik", sans-serif; 
+#loginButton-forValidation {
+  background: #1a0d83;
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 5px;
+  font-family: "Rubik", sans-serif;
 }
 
-#loginButton-forValidation:hover{
-    background: #56B5B9;
-    font-family: "Rubik", sans-serif;
+#loginButton-forValidation:hover {
+  background: #56b5b9;
+  font-family: "Rubik", sans-serif;
 }
 #signUpButton {
-    background: #1A0D83;
-    border: none;
-    color: #fff;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: 0.3s;
-    border-radius: 5px;
-    font-family: "Rubik", sans-serif;
+  background: #1a0d83;
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 5px;
+  font-family: "Rubik", sans-serif;
 }
 
 #signUpButton:hover {
-    background: #56B5B9;
-    font-family: "Rubik", sans-serif;
+  background: #56b5b9;
+  font-family: "Rubik", sans-serif;
 }
 
 .loginForm p {
-    margin-top: 20px;
-    font-size: 14px;
-    color: #fff;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #fff;
 }
 
 .loginForm p a {
-    color: #56B5B9;
-    text-decoration: none;
+  color: #56b5b9;
+  text-decoration: none;
 }
 
 .loginForm p a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 /* Media Queries for Responsiveness & Layout */
 
 @media (max-width: 768px) {
-    header {
-        padding: 10px 20px;
-    }
+  header {
+    padding: 10px 20px;
+  }
 
-    .navbar ul {
-        flex-direction: column;
-        background: rgba(0, 0, 0, 0.8);
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        height: calc(100vh - 60px);
-        justify-content: center;
-        align-items: center;
-        display: none; 
-    }
+  .navbar ul {
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 60px);
+    justify-content: center;
+    align-items: center;
+    display: none;
+  }
 
-    .navbar ul li {
-        margin: 20px 0;
-    }
+  .navbar ul li {
+    margin: 20px 0;
+  }
 
-    .navbar ul.show {
-        display: flex; 
-    }
+  .navbar ul.show {
+    display: flex;
+  }
 
-    .loginForm {
-        width: 100%;
-        padding: 30px;
-        max-width: 350px;
-    }
+  .loginForm {
+    width: 100%;
+    padding: 30px;
+    max-width: 350px;
+  }
 }
 
 @media (max-width: 480px) {
-    .loginForm {
-        padding: 20px;
-        max-width: 300px;
-    }
+  .loginForm {
+    padding: 20px;
+    max-width: 300px;
+  }
 
-    .navbar ul li a {
-        font-size: 16px;
-    }
+  .navbar ul li a {
+    font-size: 16px;
+  }
 
-    .navbar ul li {
-        margin: 10px 0;
-    }
+  .navbar ul li {
+    margin: 10px 0;
+  }
 
-    .navbar .logo {
-        font-size: 20px;
-    }
+  .navbar .logo {
+    font-size: 20px;
+  }
+}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  display: none;
+  background: rgba(0, 0, 0, 0.6);
+}
+#overlay div {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#overlay span {
+  width: 40px;
+  height: 40px;
+  border: 4px #ddd solid;
+  border-top: 4px #2e93e6 solid;
+  border-radius: 50%;
+  animation: sp-anime 0.8s infinite linear;
+}
+@keyframes sp-anime {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.is-hide {
+  display: none;
 }
