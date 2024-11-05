@@ -132,7 +132,8 @@ header {
 .movieDetails{
     width: 100%;
     margin: 60px;
-    padding: 70px;
+    width: 100%;
+    padding: 12;
     padding-top: 40px;
    
     border-radius: 10px;
@@ -155,6 +156,25 @@ header {
     font-weight: 200;
     line-height: 1.5;
 }
+
+.movieDetails button{
+    background-color: #602585;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 27%;
+    height: 50px;
+    font-family: "Rubik", sans-serif;
+    margin-right: 12px;
+ 
+}
+
+.movieDetails button:hover {
+    background-color: #56B5B9;
+  }
 
 .smallInfoSingleView{
      font-size: 16px;

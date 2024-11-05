@@ -5,8 +5,18 @@ body {
     background: #0d001d; /* Black background for the body */
     min-height: 100vh; /* Use min-height for the body */
     display: flex;
-    flex-direction: column; /* Change to column layout */
+    overflow-x: hidden;
+    flex-direction: column; 
+    /* Change to column layout */
+    overflow-y: scroll; /* Ensure scrolling is possible */
+
 }
+
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, and Opera */
+}
+
+
 
 /* danae added classes= --------------------
 #movieLibraryContainer{
@@ -174,7 +184,8 @@ header {
     height: 21%;
    /* Sets the width of each movie item to around 22% */
     /* Adds space below each movie item */
-    box-sizing: border-box; /* Ensures padding/margin doesn't affect total width */
+    box-sizing: border-box; 
+    color: white;/* Ensures padding/margin doesn't affect total width */
   }
 
 

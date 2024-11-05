@@ -383,15 +383,6 @@ let count=0;
        }
 
 
-       for(let i =2; i<6; i++){
-
-        watchList.push(movieObjArr[i]);
-       
-      }
-      //console.log(watchList);
-      localStorage.setItem("watchList",JSON.stringify(watchList));
-  
-   
       
  
 
@@ -431,7 +422,7 @@ let count=0;
 
    console.log("data to display",JSON.parse(localStorage.getItem("watchList")));
    watchListData= JSON.parse(localStorage.getItem("watchList"));
-   console.log(watchListData);
+   //console.log(watchListData);
    
 
     let allreadyInList = false;
@@ -442,27 +433,24 @@ let count=0;
       alert(`${movieObjArr[data].getTitle()} is already in your watchlist.`);
       return;
     }
-   }
+    
+  }
 
    console.log("only reaches here if item not in list")
 
    watchListData.push(movieObjArr[id]);
    console.log(watchListData);
+
    localStorage.setItem("watchList", JSON.stringify(watchListData));
+
+   console.log(JSON.parse(localStorage.getItem("watchList")));
+
    alert(`${movieObjArr[id].getTitle()} has been added to your watchlist!`);
-   window.location.href = '../pages/movieWatchlist.html';
-
-
+   //window.location.href = '../pages/movieWatchlist.html';
+  
+  
    // --- start here danie
    // trying to have the local storage update as you are adding items to watchlist
-
-   
-    //  // Retrieve movieObjArr from localStorage
-    //  const watchListString = localStorage.getItem('watchlist');
-    // console.log(watchListString);
-    //  const watchListLocal = watchListString ? JSON.parse(watchListString) : [];
-
-
 
    
   }
@@ -470,19 +458,35 @@ let count=0;
 
 
   if(window.location.pathname.includes("movieWatchlist.html")){
-    displayinWatch();
+    displayWatchListOnPage();
    }
 
-   function displayinWatch(){
+   function displayWatchListOnPage(){
     console.log("hello from insade the js");
     console.log("here from the add to watchlist - watchlist from storage=");
     //console.log(JSON.parse(localStorage.getItem("watchList")));
 
-    const watchListArr = localStorage.getItem('watchList');
-    //console.log(watchListArr);
+    const watchListArr = JSON.parse(localStorage.getItem('watchList')) || [];
+    console.log(watchListArr);
 
-    const movieObjArrs =JSON.parse(watchListArr);
-    console.log(movieObjArrs);
+    let movieWatchlistContainer = document.getElementById("movieWatchlistContainer");
+    console.log(movieWatchlistContainer);
+//console.log(watchListArr[0].)
+
+    let dataToDislay = "";
+     for( let i =0 ; i< watchListArr.length; i++){
+      
+      dataToDislay +=  `<div class="libraryMovie">
+      <img src='https://image.tmdb.org/t/p/original${watchListArr[i].movieImg}' onclick="openSingleView(${watchListArr[i].movieID})">
+       <h3>${watchListArr[i].movieTitle}</h3>
+      </div>`
+     
+      
+     }
+
+     movieWatchlistContainer.innerHTML= dataToDislay;
+
+
 
    
     
@@ -573,7 +577,7 @@ let count=0;
         <p class="smallInfoSingleView">Popularity & Views: ${movieObjArr[movieId].popularity} </p>
         <p class="smallInfoSingleView">Rating: ${movieObjArr[movieId].voteAve}</p>
         <button>Watch Now</button>
-        <button onclick="addToWatchList(${movieId})">Add To Wachlist</button>
+        <button class="addWatchBtn" onclick="addToWatchList(${movieId})">Add To Wachlist</button>
       </div>
     
       <div class="moviePosterSingle">
