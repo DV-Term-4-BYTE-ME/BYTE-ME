@@ -65,7 +65,6 @@ body::-webkit-scrollbar {
   font-family: "Rubik", sans-serif;
 }
 
-
 #overlaySlay::after {
   content: '';
   position: absolute;
@@ -149,6 +148,7 @@ header {
   color: #56B5B9;
 }
 
+/*Logo*/
 .logo {
   font-size: 24px;
   color: #fff; /* White text */
@@ -206,15 +206,17 @@ header {
   margin-bottom: 40px; /* Keeps the bottom margin for spacing between sections */
 }
 
+
 /* Footer */
 footer {
-  background-color: #333; /* Dark background */
-  color: #fff; /* White text */
-  text-align: center; /* Center the text */
-  padding: 20px; /* Add some padding */
-  position: relative; /* Ensure it stays at the bottom */
-  margin-top: auto; /* This ensures the footer moves to the bottom */
-  width: 100%; /* Full width */
+  background-color: #1A0D83; 
+  color: #fff; 
+  text-align: center; 
+  padding: 20px; 
+  position: relative; 
+  margin-top: auto; 
+  width: 100%; 
+  font-family: "Chakra Petch"
 }
 
 .footer-container {
