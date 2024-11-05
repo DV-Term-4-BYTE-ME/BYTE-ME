@@ -57,7 +57,6 @@ header {
   list-style: none;
   display: flex;
   padding: 0;
-  margin-left: 525px;
 }
 
 .navbar ul li {
@@ -139,28 +138,6 @@ header {
   cursor: pointer;
 }
 
-/* Footer */
-footer {
-  background-color: #333; /* Dark background */
-  color: #fff; /* White text */
-  text-align: center; /* Center the text */
-  padding: 20px; /* Add some padding */
-  position: relative; /* Ensure it stays at the bottom */
-  margin-top: auto; /* This ensures the footer moves to the bottom */
-  width: 100%; /* Full width */
-}
-
-.footer-container {
-  max-width: 1200px; /* Limit the width */
-  margin: 0 auto; /* Center the container */
-  padding: 10px; /* Add some padding */
-}
-
-.footer-names p {
-  margin: 0; /* Remove default margin */
-  font-size: 16px; /* Adjust font size */
-  color: #fff; /* White text */
-}
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -309,6 +286,32 @@ footer {
     background-color: #56B5B9; /* Hover color */
   }
   
+
+
+  /* Footer */
+footer {
+  background-color: #1A0D83; 
+  color: #fff; 
+  text-align: center; 
+  padding: 20px; 
+  position: relative; 
+  margin-top: auto; 
+  width: 100%; 
+  font-family: "Chakra Petch"
+}
+
+.footer-container {
+  max-width: 1200px; /* Limit the width */
+  margin: 0 auto; /* Center the container */
+  padding: 10px; /* Add some padding */
+}
+
+.footer-names p {
+  margin: 0; /* Remove default margin */
+  font-size: 16px; /* Adjust font size */
+  color: #fff; /* White text */
+}
+
 
 
  
