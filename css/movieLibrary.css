@@ -55,24 +55,25 @@ body {
 
 /* end of -----danae added classes=--------------------*/
 
-/* Hero Section Background */
+/* Hero Section Background 
 .hero-section {
     background: url(../assests/images/619579db-2a19-4825-9e0b-15e0ddae83e7.jpeg) no-repeat center center fixed;
     background-size: cover;
-    height: 100vh; /* Full height for the hero section */
+    height: 100vh; /* Full height for the hero section 
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    color: #fff; /* White text */
+    color: #fff; /* White text 
 }
 
 .movieInfo p {
-    overflow: hidden; /* Hide overflow if text exceeds height */
-    align-items: left; /* Center the text vertically */
-    max-width: 700px; /* Set a maximum width for the text box */
+    overflow: hidden; /* Hide overflow if text exceeds height 
+    align-items: left; /* Center the text vertically 
+    max-width: 700px; /* Set a maximum width for the text box 
     margin-right: 500px;
 }
+*/
 
 /* Nav Bar */
 header {
@@ -139,6 +140,7 @@ header {
     margin-top: 100px;
     margin-bottom: 25px;
     margin-left: 20px;
+    width: 15%;
   }
   
   .filter-btn {
@@ -161,23 +163,27 @@ header {
     display: flex;
     flex-wrap: wrap;
     padding: 0 20px;
-    flex: 1 1 600px; /* Adjusts to the parent container's size */
+    flex: 1 ; /* Adjusts to the parent container's size */
     justify-content: flex-start;
     margin-top: 100px;
   }
   
   /* Individual Movie Container Style */
   .libraryMovie {
-    flex: 1 1 22%; /* Sets the width of each movie item to around 22% */
-    margin-bottom: 20px; /* Adds space below each movie item */
+    flex: 1 1 23%;
+    height: 21%;
+   /* Sets the width of each movie item to around 22% */
+    /* Adds space below each movie item */
     box-sizing: border-box; /* Ensures padding/margin doesn't affect total width */
   }
-  
+
+
   #movieLibraryContainer img {
     border-radius: 8px;
     width: 80%; /* Makes image responsive to the container width */
-    height: 100%; /* Maintains aspect ratio */
+   /* Maintains aspect ratio */
     transition: transform 0.3s ease;
+    object-fit: cover;
   }
   
   #movieLibraryContainer img:hover {
@@ -301,4 +307,29 @@ footer {
   
 
 
+  /* Movie Library Styling----------------------------------
+  ----------------------------for the movie watchlist page -- */
+  #movieWatchlistContainer {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 20px;
+    flex: 1 ; /* Adjusts to the parent container's size */
+    justify-content: flex-start;
+    margin-top: 100px;
+  }
+  
  
+
+  #movieWatchlistContainer img {
+    border-radius: 8px;
+    width: 80%; /* Makes image responsive to the container width */
+   /* Maintains aspect ratio */
+    transition: transform 0.3s ease;
+    object-fit: cover;
+  }
+  
+  #movieWatchlistContainer img:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+  }
+  
