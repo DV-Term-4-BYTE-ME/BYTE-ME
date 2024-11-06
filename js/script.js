@@ -167,12 +167,15 @@ function mineData(data) {
     for (let j = 0; j < data.results[i].genre_ids.length; j++) {
       if (data.results[i].genre_ids[j] == 28) {
         genreIdArr.push("Action");
+        arrAction.push(i);
       } else if (data.results[i].genre_ids[j] == 12) {
         genreIdArr.push("Adventure");
       } else if (data.results[i].genre_ids[j] == 16) {
         genreIdArr.push("Animation");
+        arrAnimation.push(i);
       } else if (data.results[i].genre_ids[j] == 35) {
         genreIdArr.push("Comedy");
+        arrComedy.push(i);
       } else if (data.results[i].genre_ids[j] == 80) {
         genreIdArr.push("Crime");
       } else if (data.results[i].genre_ids[j] == 99) {
@@ -187,6 +190,7 @@ function mineData(data) {
         genreIdArr.push("History");
       } else if (data.results[i].genre_ids[j] == 27) {
         genreIdArr.push("Horror");
+        arrHorror.push(i);
       } else if (data.results[i].genre_ids[j] == 10402) {
         genreIdArr.push("Music");
       } else if (data.results[i].genre_ids[j] == 9648) {
@@ -195,6 +199,7 @@ function mineData(data) {
         genreIdArr.push("Romance");
       } else if (data.results[i].genre_ids[j] == 878) {
         genreIdArr.push("Science Fiction");
+        arrScienceFiction.push(i);
       } else if (data.results[i].genre_ids[j] == 10770) {
         genreIdArr.push("TV Movie");
       } else if (data.results[i].genre_ids[j] == 53) {
@@ -265,6 +270,7 @@ function checkIfDataLoaded() {
     if (movieObjArr.length == 20) {
       // console.log('Data is done loading!');
       clearInterval(interval); // Stop checking once the data is loaded
+
       afterDataLoaded(); // Call the callback function after data is loaded
     } else {
       //console.log('Waiting for data to load...');
@@ -316,6 +322,7 @@ function populateHomeScreen() {
         
       </div>
       <div id="heroDiv">
+      <h3>Howdy ${user}</h3>
       <h2>${movieObjArr[18].getTitle()}</h2>
       <h4> ${movieObjArr[18].getOverview()}</h4>
       <button type="submit" class="buttonWatch" onclick="openSingleView(18)">Watch Now</button>
@@ -336,7 +343,7 @@ function populateHomeScreen() {
                              
                               <div class="title-with-button">
                                <h3>${movieObjArr[i].getTitle()}</h3>
-                                <button class="plus-icon-button">+</button>
+                                
                                 </div>
                             </div>`;
 
@@ -347,30 +354,26 @@ function populateHomeScreen() {
   let topMoviesContainer = document.getElementById("top-movies");
 
   for (let i = 9; i < 19; i++) {
-    let movieToAdd = `  <div class="movieContainerImg" onclick="openSingleView(${movieObjArr[
+    let movieToAdd = `  <div class="movieContainerImg"  onclick="openSingleView(${movieObjArr[
       i
     ].getID()})">              
                               <img src=  'https://image.tmdb.org/t/p/original${movieObjArr[
                                 i
-                              ].getMovieImg()}'>
+                              ].getMovieImg()}' >
                               
                               <div class="title-with-button">
                               <h3>${movieObjArr[i].getTitle()}</h3>
-                                <button class="plus-icon-button">+</button>
+                               
                                 </div>
                             </div>`;
 
     topMoviesContainer.innerHTML += movieToAdd;
   }
 
-  for (let i = 2; i < 6; i++) {
-    watchList.push(movieObjArr[i]);
-  }
-
-  displayWatchList();
+  // displayWatchList();
 }
 
-function displayWatchList() {
+function displayWatchList(arr) {
   let watchListContainer = document.getElementById("watch-list");
   watchListContainer.innerHTML = "";
 
@@ -488,33 +491,41 @@ function displayWatchListOnPage() {
 
 function openSingleView(id) {
   console.log("opended single view");
-  console.log(id);
 
   // trying to populate the single view class------------------------------------------------
   // -- this next line of code opens the single view page.
   localStorage.setItem("selectedMovieId", id);
 
-  window.location.href = "pages/singleView.html";
+  // -- check if we are on the home page or from within the single View page
+  //console.log(window.location.pathname);
+  if (window.location.pathname.includes("/index.html")) {
+    console.log("on home from single view");
+
+    window.location.href = "pages/singleView.html";
+  } else if (window.location.pathname.includes("movieLibrary.html")) {
+    window.location.href = "singleView.html";
+  } else if (window.location.pathname.includes("movieWatchlist.html")) {
+    window.location.href = "singleView.html";
+  }
 }
 
-if (window.location.pathname.includes("singleView.html")) {
+//--- function that displays single view data
+function displaySingleView() {
   // Retrieve movieObjArr from localStorage
   const movieObjArrString = localStorage.getItem("movieObjArr");
   const movieObjArr = movieObjArrString ? JSON.parse(movieObjArrString) : [];
   //get id from local storage
   let movieId = parseInt(localStorage.getItem("selectedMovieId"));
 
-  console.log(movieObjArr);
-  // // get output for genres
   let genreArr = movieObjArr[movieId].genreIdArr;
-  console.log(genreArr);
+  //console.log(genreArr);
   let genreOut = "";
   genreOut += genreArr[0];
   for (let i = 1; i < genreArr.length; i++) {
     genreOut += "  |  " + genreArr[i];
   }
 
-  console.log(genreOut);
+  // console.log(genreOut);
 
   let singleContainer = document.getElementById("singleViewContainer");
 
