@@ -74,7 +74,7 @@ Technologies Used
   - HTML5, CSS,  
   - Bootstrap & HTML
 
-- **Backend**:
+- Backend:
   - JavaScript
   - JQuery
 
