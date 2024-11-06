@@ -50,6 +50,12 @@ h1 {
   margin-bottom: 10px;
 }
 
+
+.profiles:hover, .addIcon:hover{
+    color: #00aaff;
+}
+
+
 #profile-Talya {
   text-align: center;
   cursor: pointer;
