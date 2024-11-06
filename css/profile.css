@@ -1,185 +1,187 @@
 body {
-    margin: 0;
-    padding: 0;
-    font-family: "Rubik", sans-serif;
-    background-color: #000000;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: "Rubik", sans-serif;
+  background-color: #000000;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: 100vh;
 }
 
 .container {
-    text-align: center;
-    justify-content: center;
-    align-items: center;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
 }
 
-
 h1 {
-    font-size: 36px;
-    margin-bottom: 40px;
-    font-family: "Chakra Petch", sans-serif;
-    font-weight: 500;
-    margin-top: 100px;;
+  font-size: 36px;
+  margin-bottom: 40px;
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 500;
+  margin-top: 100px;
 }
 
 .profiles {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 20px;
 }
 
-.profile-ByteMe .profileAdd{
-    text-align: center;
-    cursor: pointer;
+.profile-ByteMe .profileAdd {
+  text-align: center;
+  cursor: pointer;
 }
 
-.profile-ByteMe img, .profile .addIcon  {
-    width: 150px;
-    height: 150px;
-    background-color: #333;
-    border-radius: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 60px;
-    color: #999;
-    margin-bottom: 10px;
-}
-
-
-
-#profile-Talya {
-    text-align: center;
-    cursor: pointer;
-}
-
-#profile-Talya img, .profile   {
-    width: 150px;
-    height: 150px;
-    background-color: #333;
-    border-radius: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 60px;
-    color: #999;
-    margin-bottom: 10px;
+.profile-ByteMe img,
+.profile .addIcon {
+  width: 150px;
+  height: 150px;
+  background-color: #333;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 60px;
+  color: #999;
+  margin-bottom: 10px;
 }
 
 
-
-.profiles p {
-    font-size: 18px;
-    color: #ccc;
-}
-
-
-#profile-William {
-    text-align: center;
-    cursor: pointer;
-}
-
-#profile-William img, .profile   {
-    width: 150px;
-    height: 150px;
-    background-color: #333;
-    border-radius: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 60px;
-    color: #999;
-    margin-bottom: 10px;
-}
-
-
-.addIcon {
-    border: 2px solid #602585;
-    width: 150px;
-    height: 150px;
-    background-color: #9B62BE;
-    border-radius: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 60px;
-    color: #602585;
-    margin-bottom: 10px;
-}
-
-.manageButton {
-    background-color: #602585;
-    border: none;
-    padding: 10px 20px;
-    color: #fff;
-    cursor: pointer;
-    font-size: 16px;
-    border-radius: 5px;
-    margin-top: 20px;
-    font-family: "Rubik", sans-serif;
-}
-
-.manageButton:hover {
-    background-color: #9B62BE;
-    color: #fff;
-    font-family: "Rubik", sans-serif;
-}
-
-header {
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 10px 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 10;
-    box-sizing: border-box;
-}
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-}
-
-.navbar ul {
-    list-style: none;
-    display: flex;
-    padding: 0;
-    margin: 0;
-}
-
-.navbar ul li {
-    margin: 0 15px;
-}
-
-.navbar ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 18px;
-    transition: 0.3s;
-}
-
-.navbar ul li a:hover {
+.profiles:hover, .addIcon:hover{
     color: #00aaff;
 }
 
-.logo img{
-    height: 50px;
-    width: 125px;
+
+#profile-Talya {
+  text-align: center;
+  cursor: pointer;
+}
+
+#profile-Talya img,
+.profile {
+  width: 150px;
+  height: 150px;
+  background-color: #333;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 60px;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+.profiles p {
+  font-size: 18px;
+  color: #ccc;
+}
+
+#profile-William {
+  text-align: center;
+  cursor: pointer;
+}
+
+#profile-William img,
+.profile {
+  width: 150px;
+  height: 150px;
+  background-color: #333;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 60px;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+.addIcon {
+  border: 2px solid #602585;
+  width: 150px;
+  height: 150px;
+  background-color: #9b62be;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 60px;
+  color: #602585;
+  margin-bottom: 10px;
+}
+
+.manageButton {
+  background-color: #602585;
+  border: none;
+  padding: 10px 20px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  margin-top: 20px;
+  font-family: "Rubik", sans-serif;
+}
+
+.manageButton:hover {
+  background-color: #9b62be;
+  color: #fff;
+  font-family: "Rubik", sans-serif;
+}
+
+header {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar ul li {
+  margin: 0 15px;
+}
+
+.navbar ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.navbar ul li a:hover {
+  color: #00aaff;
+}
+
+.logo img {
+  height: 50px;
+  width: 125px;
 }
 
 .backButton {
-    margin-top: 20px;
-    font-size: 1rem;
-    font-weight: 500;
-    color: #fff;
-    background-color: #000000;
+  margin-top: 20px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #fff;
+  background-color: #000000;
 }

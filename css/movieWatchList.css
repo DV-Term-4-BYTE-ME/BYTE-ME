@@ -7,11 +7,10 @@ body {
   min-height: 100vh; /* Use min-height for the body */
   display: flex;
   flex-direction: column; /* Change to column layout */
-  overflow-x: hidden; 
+  overflow-x: hidden;
   overflow-y: scroll; /* Ensure scrolling is possible */
   scrollbar-width: 0px;
 }
-
 
 /* Hero Section Background */
 .hero-section {
@@ -71,7 +70,7 @@ header {
 }
 
 .navbar ul li a:hover {
-  color: #56B5B9;
+  color: #56b5b9;
 }
 
 /* Movie Section and Button Styles */
@@ -96,7 +95,7 @@ header {
 }
 
 .filter-btn:hover {
-  background-color: #56B5B9;
+  background-color: #56b5b9;
 }
 
 /* Movie Library Styling */
@@ -115,7 +114,6 @@ header {
   color: white;
   text-decoration: none;
   font-family: "Chakra Petch", sans-serif;
-  
 }
 
 #movieLibraryContainer {
@@ -155,7 +153,7 @@ header {
     height: calc(100vh - 60px);
     justify-content: center;
     align-items: center;
-    display: none; 
+    display: none;
   }
 
   .navbar ul li {
@@ -163,7 +161,7 @@ header {
   }
 
   .navbar ul.show {
-    display: flex; 
+    display: flex;
   }
 
   .loginForm {
@@ -224,7 +222,7 @@ header {
 }
 
 .filter-btn:hover {
-  background-color: #56B5B9;
+  background-color: #56b5b9;
 }
 
 /* Movie Library Styling */
@@ -255,6 +253,7 @@ header {
   transform: scale(1.1);
   cursor: pointer;
 }
+
 
 
   /* Button Container */
@@ -312,6 +311,3 @@ footer {
   color: #fff; /* White text */
 }
 
-
-
- 

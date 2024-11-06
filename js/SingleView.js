@@ -6,25 +6,24 @@ const buttonWatch = document.getElementById("buttonWatch");
 
 // Show modal when button is clicked
 trailerButton.addEventListener("click", () => {
-    videoModal.style.display = "block";
+  videoModal.style.display = "block";
 });
 
 // Hide modal when close button is clicked
 closeButton.addEventListener("click", () => {
-    videoModal.style.display = "none";
-    // Stop the video playback when closing the modal
-    buttonWatch.src = buttonWatch.src;
+  videoModal.style.display = "none";
+  // Stop the video playback when closing the modal
+  buttonWatch.src = buttonWatch.src;
 });
 
 // Hide modal if clicked outside the modal content
 window.addEventListener("click", (event) => {
-    if (event.target === videoModal) {
-        videoModal.style.display = "none";
-        // Stop the video playback when closing the modal
-        buttonWatch.src = buttonWatch.src;
-    }
+  if (event.target === videoModal) {
+    videoModal.style.display = "none";
+    // Stop the video playback when closing the modal
+    buttonWatch.src = buttonWatch.src;
+  }
 });
-
 
 // hover on + button
 const button = document.getElementById("watchlistAdd");

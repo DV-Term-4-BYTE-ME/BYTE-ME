@@ -1,12 +1,15 @@
 body {
   margin: 0;
+  margin-left: 0%;
+  margin-right: 0px;
   padding: 0;
   font-family: "Rubik", sans-serif;
   background: #0d001d; /* Black background for the body */
   min-height: 100vh; /* Use min-height for the body */
   display: flex;
+  width: 100%;
   flex-direction: column; /* Change to column layout */
-  overflow-x: hidden; 
+  overflow-x: hidden;
   overflow-y: scroll; /* Ensure scrolling is possible */
   scrollbar-width: 0px;
 }
@@ -19,14 +22,12 @@ body::-webkit-scrollbar {
   height: 100vh; /* Full height for the hero section */
   position: relative;
   color: #fff; /* White text */
- 
 }
-.hero-section img{
+.hero-section img {
   width: 100%;
-  height: 100vh ;
+  height: 100vh;
   object-fit: cover;
-  background-color: rgb(rgb(108, 27, 27,0.5));
-  
+  background-color: rgb(rgb(108, 27, 27, 0.5));
 }
 #heroDiv {
   width: 55%;
@@ -36,8 +37,8 @@ body::-webkit-scrollbar {
   transform: translate(-50%, -50%);
   font-size: 100%;
   z-index: 2;
-  
 }
+
 #heroDiv button{
   width: 50%;
 }
@@ -47,18 +48,19 @@ body::-webkit-scrollbar {
 }
 
 #heroDiv h2{
+
   font-size: 50px;
   margin-bottom: 4%;
   font-family: "Chakra Petch", sans-serif;
 }
-#heroDiv h3{
+#heroDiv h3 {
   font-size: 30px;
   margin-bottom: 1%;
   margin-top: 0px;
   font-weight: 400;
   font-family: "Rubik", sans-serif;
 }
-#heroDiv h4{
+#heroDiv h4 {
   font-size: 25px;
   margin-top: 0px;
   font-weight: 200;
@@ -66,7 +68,7 @@ body::-webkit-scrollbar {
 }
 
 #overlaySlay::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -75,7 +77,7 @@ body::-webkit-scrollbar {
   background-color: rgba(28, 7, 44, 0.5); /* Black overlay with 50% opacity */
   z-index: 1;
 }
-#watch-list{
+#watch-list {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -95,7 +97,7 @@ body::-webkit-scrollbar {
 }
 
 button:hover {
-  background-color: #56B5B9;
+  background-color: #56b5b9;
 }
 
 .movieInfo p {
@@ -145,7 +147,7 @@ header {
 }
 
 .navbar ul li a:hover {
-  color: #56B5B9;
+  color: #56b5b9;
 }
 
 /*Logo*/
@@ -171,21 +173,18 @@ header {
   justify-content: space-around;
   padding-top: 20px;
   padding-left: 0px;
-  
 }
-.movieContainerImg{
+.movieContainerImg {
   padding-left: 5px;
   padding-right: 5px;
   margin-left: 30px; /* Add spacing to the left side of each image container */
 }
 
-.movieContainerImg h3{
+.movieContainerImg h3 {
   color: white;
   text-decoration: none;
   font-family: "Rubik", sans-serif;
-  
 }
-
 
 .movie-row img {
   margin-right: 10px;
@@ -193,7 +192,7 @@ header {
   width: 200px;
   height: 300px;
   transition: transform 0.3s ease;
-    margin-left: 10px;
+  margin-left: 10px;
 }
 
 .movie-row img:hover {
@@ -234,59 +233,59 @@ footer {
 /* Media Queries for Responsiveness & Layout */
 @media (max-width: 768px) {
   header {
-      padding: 10px 20px;
+    padding: 10px 20px;
   }
 
   .navbar ul {
-      flex-direction: column;
-      background: rgba(0, 0, 0, 0.8);
-      position: absolute;
-      top: 60px;
-      left: 0;
-      width: 100%;
-      height: calc(100vh - 60px);
-      justify-content: center;
-      align-items: center;
-      display: none; 
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 60px);
+    justify-content: center;
+    align-items: center;
+    display: none;
   }
 
   .navbar ul li {
-      margin: 20px 0;
+    margin: 20px 0;
   }
 
   .navbar ul.show {
-      display: flex; 
+    display: flex;
   }
 
   .loginForm {
-      width: 100%;
-      padding: 30px;
-      max-width: 350px;
-      color: #fff; /* White text */
+    width: 100%;
+    padding: 30px;
+    max-width: 350px;
+    color: #fff; /* White text */
   }
 }
 
 @media (max-width: 480px) {
   .loginForm {
-      padding: 20px;
-      max-width: 300px;
-      color: #fff; /* White text */
+    padding: 20px;
+    max-width: 300px;
+    color: #fff; /* White text */
   }
 
   .navbar ul li a {
-      font-size: 16px;
+    font-size: 16px;
   }
 
   .navbar ul li {
-      margin: 10px 0;
+    margin: 10px 0;
   }
 
   .navbar .logo {
-      font-size: 20px;
+    font-size: 20px;
   }
 }
 
-.logo img{
+.logo img {
   height: 50px;
   width: 125px;
 }
@@ -304,7 +303,7 @@ footer {
 }
 
 button:hover {
-  background-color: #56B5B9;
+  background-color: #56b5b9;
 }
 
 .movieContainerImg {
@@ -332,7 +331,5 @@ button:hover {
 }
 
 .plus-icon-button:hover {
-  background-color: #56B5B9;
+  background-color: #56b5b9;
 }
-
-

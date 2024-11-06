@@ -7,7 +7,7 @@
     <meta name="keywords" content="">
     <meta name="author" content="Danae Swart, Cheslin Abrahams, Angie van Rooyen and Gaby Norris">
     <title>Movie Page</title>
-    <link rel="stylesheet" href="../css/movieWatchList.css">
+    <link rel="stylesheet" href="../css/movieLibrary.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,14 +37,14 @@
     <div class="container">
         <!-- Filter Section -->
         <div class="filter-column">
-            <button class="filter-btn" onclick="showTopMovies()">Top Movies</button>
-            <button class="filter-btn" onclick="showTrending()">Trending</button>
-            <button class="filter-btn" onclick="showWatchAgain()">Watch Again</button>
+            <button class="filter-btn" onclick="watchFilter('all')">All Movies</button>
+            <button class="filter-btn" onclick="watchFilter('recent')">Recently Added</button>
+            <button class="filter-btn" onclick="watchFilter('az')">A-Z</button>
         </div>
     
   
      <!-- Movie Library Section -->
-     <div id="movieLibraryContainer">
+     <div id="movieWatchlistContainer">
         <div class="libraryMovie">
             <img src="../assests/images/619579db-2a19-4825-9e0b-15e0ddae83e7.jpeg">
             <h3>Title</h3>
@@ -85,7 +85,8 @@
 
 <!-- Buttons Above Footer -->
 <div class="button-container">
-    <a href="../pages/addMore.html" class="button">Add More</a>
+   <a href="../pages/movieLibrary.html" ><button>Add More</button></a>
+   <button onclick="clearLocal()">Clear Watchlist</button>
 </div>
 
 
@@ -100,7 +101,7 @@
 </footer>
 
 <!-- Link to the JavaScript file -->
-<script src="../js/main.js"></script>
+<script src="../js/script.js"></script>
 
 
 </body>
