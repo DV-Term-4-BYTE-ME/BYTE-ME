@@ -141,7 +141,7 @@ let movieObjArr = [];
 let tvObjArr = [];
 let watchList = [];
 
-// arrays for filter values
+
 let arrAll = [
   0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
 ];
@@ -210,6 +210,7 @@ function mineData(data) {
         genreIdArr.push("Western");
       }
     }
+
 
     let movieTitle = data.results[i].title;
     let overview = data.results[i].overview;
@@ -293,11 +294,13 @@ function afterDataLoaded() {
     console.error("Error in displayLibraryFromArr:", error);
   }
 
+
   try {
     // Then, try calling populateHomeScreen
     populateHomeScreen();
   } catch (error) {
     console.error("Error in populateHomeScreen:", error);
+
   }
 }
 
@@ -316,7 +319,9 @@ function populateHomeScreen() {
 
   let user = localStorage.getItem("userSelected");
 
+
   document.getElementById("homeHero").innerHTML = `
+
       <div id="overlaySlay">
         <img src= 'https://image.tmdb.org/t/p/original${movieObjArr[18].getBackdropImg()}' >
         
@@ -392,10 +397,16 @@ function displayWatchList(arr) {
 
 //fires when added to watchlist
 
-function addToWatchList(id) {
-  console.log(localStorage.getItem("watchList"));
-  //console.log("data to display",JSON.parse(localStorage.getItem("watchList")));
-  let objectToAdd = movieObjArr[id];
+
+  //fires when added to watchlist
+
+  function addToWatchList(id){
+
+
+   console.log(localStorage.getItem("watchList"));
+   //console.log("data to display",JSON.parse(localStorage.getItem("watchList")));
+   let objectToAdd=  movieObjArr[id];
+
   //  watchList.push(movieObjArr[id]);
   //console.log(objectToAdd);
   watchListData = JSON.parse(localStorage.getItem("watchList")) || [];
@@ -582,6 +593,7 @@ function displaySingleView() {
     j++;
   }
 
+
   recomendedContainer.innerHTML = final;
 }
 
@@ -589,6 +601,7 @@ function displaySingleView() {
 if (window.location.pathname.includes("singleView.html")) {
   displaySingleView();
 }
+
 
 function clearLocal() {
   localStorage.clear();
@@ -645,6 +658,7 @@ function watchFilter(id) {
           toLog.push(arr[j]);
         }
       }
+
     }
 
     //console.log(toLog);
@@ -674,5 +688,7 @@ function displayChangesWatch(arr) {
       </div> `;
   }
 
+
   movieWatchlistContainer.innerHTML = dataToDislay;
 }
+
