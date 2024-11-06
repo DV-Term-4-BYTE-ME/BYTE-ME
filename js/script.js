@@ -135,19 +135,37 @@ class movie {
   }
 }
 
-//-------------------------- Code to extract api data -------------------
+//-------------------------- Code to extract api data danae  -------------------
 
-let movieObjArr = [];
-let tvObjArr = [];
-let watchList = [];
+let movieObjArr= [];
+let tvObjArr=[];
+let watchList =[];
 
-function mineData(data) {
-  // console.log(data);
+// arrays for filter values
+let arrAll=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19];
 
-  for (let i = 0; i < data.results.length; i++) {
-    // mine data for each movie
-    let backdropImg = data.results[i].backdrop_path;
-    let genreIdArr = [];
+// arrays to capture filters for the movie page
+let arrAction=[];
+let arrAnimation =[];
+let arrComedy=[];
+let arrHorror=[];
+let arrScienceFiction=[];
+
+localStorage.setItem('watchLisr',[]);
+
+
+   function mineData(data){
+   
+    // console.log(data);
+  
+  
+   
+   for(let i =0; i<data.results.length; i++){
+    
+
+        // mine data for each movie 
+        let backdropImg= data.results[i].backdrop_path;
+        let genreIdArr =[];
 
     //------------- sorthing thrugh the genre ids and sorting them
     for (let j = 0; j < data.results[i].genre_ids.length; j++) {
@@ -260,22 +278,59 @@ function checkIfDataLoaded() {
 
 checkIfDataLoaded();
 
-function afterDataLoaded() {
-  console.log("data is loaded hoes");
+  function afterDataLoaded() {
+    console.log('data is loaded girll');
+  
+     // Store movieObjArr in localStorage
+     localStorage.setItem('movieObjArr', JSON.stringify(movieObjArr));
 
-  // Store movieObjArr in localStorage
-  localStorage.setItem("movieObjArr", JSON.stringify(movieObjArr));
+    try {
+      // First, try calling displayLibraryFromArr
+      displayLibraryFromArr(arrAll);
+    } catch (error) {
+      console.error("Error in displayLibraryFromArr:", error);
+    }
+  
+    try {
+      // Then, try calling populateHomeScreen
+      populateHomeScreen();
+    } catch (error) {
+      console.error("Error in populateHomeScreen:", error);
+    }
 
-  //set hero image
-  populateHomeScreen();
 
-  populateMovieLibrary();
-}
+   
+    
+  
+  }
+  
+  //--------------------------js for user page and user name on home
 
-function populateHomeScreen() {
-  //--------------------------------------------populate header section --------------------------------
+  function userSelected(UserName){
+    //console.log(UserName);
+    localStorage.setItem("userSelected",UserName);
+    window.location.href = "../index.html";
+    
+  }
 
-  document.getElementById("homeHero").innerHTML = `
+
+
+    
+  
+    function populateHomeScreen(){
+      
+      //--------------------------------------------populate header section --------------------------------
+   
+    
+      //- get local storrage for name selected 
+   
+      let user= localStorage.getItem("userSelected");
+
+
+     
+
+
+      document.getElementById("homeHero").innerHTML= `
       <div id="overlaySlay">
         <img src= 'https://image.tmdb.org/t/p/original${movieObjArr[18].getBackdropImg()}' >
         
@@ -339,40 +394,129 @@ function displayWatchList() {
   let watchListContainer = document.getElementById("watch-list");
   watchListContainer.innerHTML = "";
 
-  for (let i = 0; i < watchList.length; i++) {
-    let movieAdd = ` <div class="movieContainerImg" onclick="openSingleView(${watchList[
-      i
-    ].getID()})">              
-                              <img src=  'https://image.tmdb.org/t/p/original${watchList[
-                                i
-                              ].getMovieImg()}'>
-                              <h3>${watchList[i].getTitle()}</h3>
-                            </div>`;
-    watchListContainer.innerHTML += movieAdd;
-  }
-}
-
-// this function does not work yet----------==
-
-function addToWatchList(id) {
-  console.log(id);
-  console.log(movieObjArr[id]);
-  watchList.push(movieObjArr[id]);
-
-  let watchListContainer = document.getElementById("watch-list");
-
-  let movieAdd = ` <div class="movieContainerImg" onclick="openSingleView(${watchList[
-    id
-  ].getID()})">              
-    <img src=  'https://image.tmdb.org/t/p/original${watchList[
-      id
-    ].getMovieImg()}'>
-    <h3>${watchList[id].getTitle()}</h3>
     
-     </div>`;
+     
+      for(let i =0; i<arr.length;i++){
+       
+        let movieAdd= ` <div class="movieContainerImg" onclick="openSingleView(${arr[i].getID()})">              
+                              <img src=  'https://image.tmdb.org/t/p/original${arr[i].getMovieImg()}'>
+                              <h3>${arr[i].getTitle()}</h3>
+                            </div>`
+         watchListContainer.innerHTML+= movieAdd;
+      
+    }
+  
+  }
 
-  watchListContainer.innerHTML += movieAdd;
+  //fires when added to watchlist
+
+  function addToWatchList(id){
+
+
+   console.log(localStorage.getItem("watchList"));
+   //console.log("data to display",JSON.parse(localStorage.getItem("watchList")));
+   let objectToAdd=  movieObjArr[id];
+  //  watchList.push(movieObjArr[id]);
+   //console.log(objectToAdd);
+   watchListData= JSON.parse(localStorage.getItem("watchList")) || [];
+   console.log(watchListData);
+   console.log(watchListData.length);
+
+
+    let allreadyInList = false;
+
+if(watchListData.length>0){
+  console.log("something in the local storage");
+   for(let i =0; i<watchListData.length; i++){
+    if(watchListData[i].movieID==id){
+      allreadyInList= true;
+      alert(`${movieObjArr[data].getTitle()} is already in your watchlist.`);
+      return;
+    }
+  }
+  }else if(watchListData==null){
+    console.log("first value added");
+    let arr = [objectToAdd];
+    localStorage.setItem("watchList", JSON.stringify(arr));
+   
+    
+  }
+  
+  
+  if(allreadyInList===false){
+    console.log("only reaches here if item not in list")
+    console.log(movieObjArr[id]);
+    watchListData.push(movieObjArr[id]);
+   // console.log("watchlist data:",watchListData);
+    localStorage.setItem("watchList", JSON.stringify(watchListData));
+    alert(`${movieObjArr[id].getTitle()} has been added to your watchlist!`);
+    
+
 }
+
+}
+  
+  //----------- code for remove item from watch list
+
+  function removeItemWatch(id){
+    console.log("from the remove id",id);
+    let watchListArr = JSON.parse(localStorage.getItem('watchList')) || [];
+    console.log(watchListArr)
+
+    for(let i =0; i<watchListArr.length;i++){
+      if(id==watchListArr[i].movieID){
+        watchListArr.splice(i,1);
+      }
+    }
+
+    localStorage.setItem("watchList",JSON.stringify(watchListArr) );
+    displayWatchListOnPage();
+   
+
+  }
+  //--------------------codee for movie watch list--------------mwl
+
+
+  if(window.location.pathname.includes("movieWatchlist.html")){
+    displayWatchListOnPage();
+   // console.log(movieObjArr);
+   }
+
+   function displayWatchListOnPage(){
+  
+    const watchListArr = JSON.parse(localStorage.getItem('watchList')) || [];
+   // console.log(watchListArr);
+
+    let movieWatchlistContainer = document.getElementById("movieWatchlistContainer");
+   // console.log(movieWatchlistContainer);
+//console.log(watchListArr[0].)
+
+    let dataToDislay = "";
+     for( let i =0 ; i< watchListArr.length; i++){
+      
+      dataToDislay +=  `<div class="libraryMovie">
+     
+      <img src='https://image.tmdb.org/t/p/original${watchListArr[i].movieImg}' onclick="openSingleView(${watchListArr[i].movieID})">
+       <div class="tAndRemove">
+        <h3>${watchListArr[i].movieTitle}</h3>
+          <p onclick="removeItemWatch(${watchListArr[i].movieID})">-</p>
+        </div>
+      </div> `
+
+     
+      
+     }
+
+     movieWatchlistContainer.innerHTML= dataToDislay;
+
+
+
+   
+    
+   }
+  
+
+
 
 //addToWatchList(2);
 //  for( let i  =0; i<watchList.length; i++){
@@ -438,32 +582,157 @@ if (window.location.pathname.includes("singleView.html")) {
     </div>
 
     `;
-  // <p class="genreSingleView">${movieObjArr[movieId].getGenreForOutput()}</p>
-  singleContainer.innerHTML = movieViewed;
-}
+    // <p class="genreSingleView">${movieObjArr[movieId].getGenreForOutput()}</p>
+    singleContainer.innerHTML=movieViewed;
 
-//-----------------------------------------------js for movie library-----------------------\
-// this function and the populate home page are ffighting -- gabs if you have a look
-//at the console log on the home page and the movie library page youll see that the
-//innerHTml are fighting eachother and idk why --
+    //----------- find containers for recomemded movies 
 
-function populateMovieLibrary() {
-  console.log("populating th movie libraty page");
-  let movieContainer = document.getElementById("movieLibraryContainer");
-  movieContainer.innerHTML = `<H1>hello from the js file</H1>`;
-
-  for (let i = 0; i < movieObjArr.length; i++) {
-    let movieToAdd = `<div class="libraryMovie"  onclick="openSingleView(${movieObjArr[
-      i
-    ].getID()})>
-                        <img src=  'https://image.tmdb.org/t/p/original${movieObjArr[
-                          i
-                        ].getMovieImg()}'>
-                        <h3>${movieObjArr[i].getTitle()}</h3>
-                        </div>`;
-
-    console.log(movieObjArr[i].getID());
-    console.log(movieObjArr[i].getMovieImg());
-    console.log(movieObjArr[i].getTitle());
+    let recomendedContainer = document.getElementById("top-picks");
+    let i = movieId +1;
+  
+   if(i >14){
+    i = movieId-7;
+   }
+    let final="";
+    let j = 0;
+    while(j<6){
+      let dataToAdd= ` 
+       <div>
+      <img  src='https://image.tmdb.org/t/p/original${movieObjArr[i].movieImg}'   onclick="openSingleView(${movieObjArr[i].movieID})">
+      <div class="title-with-button">
+        <h3>${movieObjArr[i].movieTitle}</h3>
+        
+    </div>
+    </div>
+      
+      `
+      final+=dataToAdd;
+      i++;
+      j++;
+     
+    }
+    
+     recomendedContainer.innerHTML=final;
+   
   }
-}
+ 
+//------------------when single view page is opend ---------display sinngle
+  if(window.location.pathname.includes("singleView.html")){
+   displaySingleView();
+
+  }
+
+  function clearLocal(){
+    localStorage.clear();
+    displayWatchListOnPage();
+    
+  }
+ 
+
+
+
+function displayLibraryFromArr(arr){
+  // find container
+//console.log("fired from the library page");
+  
+
+  let displayContainer= document.getElementById ("movieLibraryContainer");
+  //console.log(displayContainer);
+
+
+
+  let dataToDislay = "";
+   for( let i =0 ; i< arr.length; i++){
+    
+    dataToDislay +=  `<div class="libraryMovie">
+    <img src='https://image.tmdb.org/t/p/original${movieObjArr[arr[i]].getMovieImg()}}' onclick="openSingleView(${movieObjArr[arr[i]].getID()})">
+     <h3>${movieObjArr[arr[i]].getTitle()}</h3>
+    </div>`
+   
+    
+   }
+   displayContainer.innerHTML= dataToDislay;
+
+
+
+  }
+
+
+  //---------------code for watchFilter --
+
+  function watchFilter(id){
+    //console.log(id);
+    if(id=="all"){
+      displayWatchListOnPage();
+    }else if(id=="recent"){
+      let arr = JSON.parse(localStorage.getItem("watchList"));
+      let newArr =[];
+      for(let i =arr.length-1; i>-1;i--){
+        newArr.push(arr[i]);
+      }
+      displayChangesWatch(newArr);
+    }else{ //alfabetically
+
+      let arr = JSON.parse(localStorage.getItem("watchList"));
+      let newArr =[];
+      for(let i =0; i< arr.length; i++){
+        newArr.push(arr[i].movieTitle);
+      }
+     newArr.sort();
+     //console.log(newArr);
+      let toLog=[];
+     
+      for(let i=0; i<newArr.length;i++){
+       
+        for(let j=0; j<newArr.length;j++){
+          
+          if(arr[j].movieTitle==newArr[i]){
+            toLog.push(arr[j]);
+          }
+        }
+      }
+      
+     //console.log(toLog);
+     displayChangesWatch(toLog);
+
+    }
+  }
+
+  function displayChangesWatch(arr){
+    
+   // const watchListArr = JSON.parse(localStorage.getItem('watchList')) || [];
+   // console.log(watchListArr);
+
+    let movieWatchlistContainer = document.getElementById("movieWatchlistContainer");
+   // console.log(movieWatchlistContainer);
+//console.log(watchListArr[0].)
+
+    let dataToDislay = "";
+     for( let i =0 ; i< arr.length; i++){
+      
+      dataToDislay +=  `<div class="libraryMovie">
+     
+      <img src='https://image.tmdb.org/t/p/original${arr[i].movieImg}' onclick="openSingleView(${arr[i].movieID})">
+       <div class="tAndRemove">
+        <h3>${arr[i].movieTitle}</h3>
+          <p onclick="removeItemWatch(${arr[i].movieID})">-</p>
+        </div>
+      </div> `
+
+     
+      
+     }
+
+     movieWatchlistContainer.innerHTML= dataToDislay;
+  }
+
+
+  
+
+
+
+
+
+  
+
+  
