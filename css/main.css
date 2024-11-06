@@ -1,10 +1,13 @@
 body {
   margin: 0;
+  margin-left: 0%;
+  margin-right: 0px;
   padding: 0;
   font-family: "Rubik", sans-serif;
   background: #0d001d; /* Black background for the body */
   min-height: 100vh; /* Use min-height for the body */
   display: flex;
+  width: 100%;
   flex-direction: column; /* Change to column layout */
   overflow-x: hidden;
   overflow-y: scroll; /* Ensure scrolling is possible */
@@ -30,12 +33,22 @@ body::-webkit-scrollbar {
   width: 55%;
   position: absolute;
   top: 50%;
-  left: 20%;
+  left:30%;
   transform: translate(-50%, -50%);
   font-size: 100%;
   z-index: 2;
 }
-#heroDiv h2 {
+
+#heroDiv button{
+  width: 50%;
+}
+#heroDiv h3{
+  color: #602585;
+  left: 200px;
+}
+
+#heroDiv h2{
+
   font-size: 50px;
   margin-bottom: 4%;
   font-family: "Chakra Petch", sans-serif;
@@ -137,6 +150,7 @@ header {
   color: #56b5b9;
 }
 
+/* /Logo/ */
 .logo {
   font-size: 24px;
   color: #fff; /* White text */
@@ -191,15 +205,17 @@ header {
   margin-bottom: 40px; /* Keeps the bottom margin for spacing between sections */
 }
 
+
 /* Footer */
 footer {
-  background-color: #333; /* Dark background */
-  color: #fff; /* White text */
-  text-align: center; /* Center the text */
-  padding: 20px; /* Add some padding */
-  position: relative; /* Ensure it stays at the bottom */
-  margin-top: auto; /* This ensures the footer moves to the bottom */
-  width: 100%; /* Full width */
+  background-color: #1A0D83; 
+  color: #fff; 
+  text-align: center; 
+  padding: 20px; 
+  position: relative; 
+  margin-top: auto; 
+  width: 100%; 
+  font-family: "Chakra Petch"
 }
 
 .footer-container {
