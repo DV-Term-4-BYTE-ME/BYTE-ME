@@ -37,9 +37,9 @@
     <div class="container">
         <!-- Filter Section -->
         <div class="filter-column">
-            <button class="filter-btn" onclick="showTopMovies()">Top Movies</button>
-            <button class="filter-btn" onclick="showTrending()">Trending</button>
-            <button class="filter-btn" onclick="showWatchAgain()">Watch Again</button>
+            <button class="filter-btn" onclick="watchFilter('all')">All Movies</button>
+            <button class="filter-btn" onclick="watchFilter('recent')">Recently Added</button>
+            <button class="filter-btn" onclick="watchFilter('az')">A-Z</button>
         </div>
     
   
@@ -85,7 +85,7 @@
 
 <!-- Buttons Above Footer -->
 <div class="button-container">
-   <a href="movieLibrary.html" ></a><button>Add More</button></a>
+   <a href="../pages/movieLibrary.html" ><button>Add More</button></a>
    <button onclick="clearLocal()">Clear Watchlist</button>
 </div>
 

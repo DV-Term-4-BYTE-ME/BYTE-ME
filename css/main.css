@@ -1,10 +1,13 @@
 body {
   margin: 0;
+  margin-left: 0%;
+  margin-right: 0px;
   padding: 0;
   font-family: "Rubik", sans-serif;
   background: #0d001d; /* Black background for the body */
   min-height: 100vh; /* Use min-height for the body */
   display: flex;
+  width: 100%;
   flex-direction: column; /* Change to column layout */
   overflow-x: hidden; 
   overflow-y: scroll; /* Ensure scrolling is possible */
