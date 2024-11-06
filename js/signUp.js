@@ -1,45 +1,48 @@
-/*  import { writeFileSync } from "fs";
+let loginForm = document.getElementById("sign-up-form");
+loginForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  let password = document.getElementById("sign-up-Password-InputBox").value;
+  let confirmPassword = document.getElementById(
+    "sign-up-ConfirmPassword-InputBox"
+  ).value;
+  let email = document.getElementById("sign-up-Email-InputBox").value;
+  
+  if (password != confirmPassword) {
+    alert("Your passwords do not match, try again.");
+  } else {
+    /* if (email === localStorage.getItem(User.email)) {
+      function myFunction() {
+        myFunction();
+        if (
+          confirm("This email already has an account, would you like to login?")
+        ) {
+          window.location.href = "../pages/signIn.html";
+        }
+      } */
+    /* } else { */
+      
+        $("#overlay").fadeIn(300);
+        let user = new User(
+          document.getElementById("sign-up-Name-InputBox").value,
+          document.getElementById("sign-up-Email-InputBox").value,
+          document.getElementById("sign-up-Password-InputBox").value
+        );
 
-// // converting a JS object to JSON
- const user = {
-   id: 1,
-   completeName: "Jennifer Jones",
-   age: 20,
- };
- const data = JSON.stringify(user);
+        const jsonString = JSON.stringify(user);
+        let userEmail = localStorage.setItem(user.email, jsonString);
+        let userPassword = localStorage.setItem(user.password, jsonString);
+        setTimeout(function () {
+          window.location.href = "../pages/signIn.html";
+        }, 5000);
+      }
+    }
+ /*  } */
+/* } */);
 
- try {
- //reading a JSON file synchronously
-  writeFileSync("data.json", data);
- } catch (error) {
-//logging the error
-    console.error(error);
-   throw error;}
-
-//logging the outcome
- console.log("data.json written correctly"); */
-
-//  enabling the Popover
-
-
-document.getElementById("signUpButton").addEventListener("submit", onSubmit);
-
-class User{
-  constructor(name,email,password){
+class User {
+  constructor(name, email, password) {
     this.name = name;
     this.email = email;
     this.password = password;
   }
-
- } 
-
-
- function onSubmit(){
-  //Check if it is valid
-    let user1 = User(document.getElementsByClassName("sign-up-Name-InputBox").innerHTML,document.getElementById('sign-up-Email-InputBox').innerHTML,document.getElementsById("sign-up-Password-InputBox").innerHTML);
-
-    console.log(user1);
-    
- }
-
- 
+}

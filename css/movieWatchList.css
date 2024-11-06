@@ -7,11 +7,10 @@ body {
   min-height: 100vh; /* Use min-height for the body */
   display: flex;
   flex-direction: column; /* Change to column layout */
-  overflow-x: hidden; 
+  overflow-x: hidden;
   overflow-y: scroll; /* Ensure scrolling is possible */
   scrollbar-width: 0px;
 }
-
 
 /* Hero Section Background */
 .hero-section {
@@ -57,7 +56,6 @@ header {
   list-style: none;
   display: flex;
   padding: 0;
-  margin-left: 525px;
 }
 
 .navbar ul li {
@@ -72,7 +70,7 @@ header {
 }
 
 .navbar ul li a:hover {
-  color: #56B5B9;
+  color: #56b5b9;
 }
 
 /* Movie Section and Button Styles */
@@ -97,7 +95,7 @@ header {
 }
 
 .filter-btn:hover {
-  background-color: #56B5B9;
+  background-color: #56b5b9;
 }
 
 /* Movie Library Styling */
@@ -116,7 +114,6 @@ header {
   color: white;
   text-decoration: none;
   font-family: "Chakra Petch", sans-serif;
-  
 }
 
 #movieLibraryContainer {
@@ -139,28 +136,6 @@ header {
   cursor: pointer;
 }
 
-/* Footer */
-footer {
-  background-color: #333; /* Dark background */
-  color: #fff; /* White text */
-  text-align: center; /* Center the text */
-  padding: 20px; /* Add some padding */
-  position: relative; /* Ensure it stays at the bottom */
-  margin-top: auto; /* This ensures the footer moves to the bottom */
-  width: 100%; /* Full width */
-}
-
-.footer-container {
-  max-width: 1200px; /* Limit the width */
-  margin: 0 auto; /* Center the container */
-  padding: 10px; /* Add some padding */
-}
-
-.footer-names p {
-  margin: 0; /* Remove default margin */
-  font-size: 16px; /* Adjust font size */
-  color: #fff; /* White text */
-}
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -178,7 +153,7 @@ footer {
     height: calc(100vh - 60px);
     justify-content: center;
     align-items: center;
-    display: none; 
+    display: none;
   }
 
   .navbar ul li {
@@ -186,7 +161,7 @@ footer {
   }
 
   .navbar ul.show {
-    display: flex; 
+    display: flex;
   }
 
   .loginForm {
@@ -247,7 +222,7 @@ footer {
 }
 
 .filter-btn:hover {
-  background-color: #56B5B9;
+  background-color: #56b5b9;
 }
 
 /* Movie Library Styling */
@@ -278,6 +253,7 @@ footer {
   transform: scale(1.1);
   cursor: pointer;
 }
+
 
 
   /* Button Container */
@@ -311,4 +287,27 @@ footer {
   
 
 
- 
+  /* Footer */
+footer {
+  background-color: #1A0D83; 
+  color: #fff; 
+  text-align: center; 
+  padding: 20px; 
+  position: relative; 
+  margin-top: auto; 
+  width: 100%; 
+  font-family: "Chakra Petch"
+}
+
+.footer-container {
+  max-width: 1200px; /* Limit the width */
+  margin: 0 auto; /* Center the container */
+  padding: 10px; /* Add some padding */
+}
+
+.footer-names p {
+  margin: 0; /* Remove default margin */
+  font-size: 16px; /* Adjust font size */
+  color: #fff; /* White text */
+}
+
