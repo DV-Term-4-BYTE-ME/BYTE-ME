@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width-device-width, initial-scale-1.0" />
-    <meta name="keywords" content="" />
+    <meta name="keywords" content="Frontier Login" />
     <meta
       name="author"
       content="Danae Swart, Cheslin Abrahams, Angie van Rooyen and Gaby Norris"
@@ -18,7 +18,6 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../css/login.css" />
-    <script src="../js/script.js"></script>
   </head>
   <body>
     <!-- Navigation Bar -->
@@ -26,18 +25,12 @@
       <div class="navbar">
         <div class="logo">
           <a href="../index.html"
-            ><img src="/assests/images/Logo.png" alt="Logo"
+            ><img src="../assests/images/Logo.png" alt="Logo"
           /></a>
         </div>
         <nav>
           <ul>
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="../pages/movieWatchlist.html">Watch List</a></li>
-            <li><a href="../pages/movieLibrary.html">Movies</a></li>
-            <li><a href="../pages/users.html">User</a></li>
-            <li>
-              <a href="../pages/signIn.html" class="loginButton">Login</a>
-            </li>
+            <li><a href="signUp.html" class="loginButton">Sign Up</a></li>
           </ul>
         </nav>
       </div>
@@ -59,27 +52,17 @@
           </div>
           <div class="sign-up-form-div">
             <input id="sign-up-Password-InputBox" type="password" required />
-
             <label>Password</label>
           </div>
           <div id="rememberForgot">
             <label><input type="checkbox" /> Remember Me</label>
             <label><a href="#">Forgot Password?</a></label>
           </div>
-
-          <input type="submit" value= "Login" id="loginButton-forValidation">
-          <a
-            href="/pages/users.html"
-            id="loginButton-forValidation"
-            class="button"
-            >Login</a
-          >
-          <p>
-            Don't have an account? <a href="../pages/signUp.html">Register</a>
-          </p>
+          <input type="submit" value="Login" id="loginButton-forValidation" />
+          <p>Don't have an account? <a href="signUp.html">Register</a></p>
         </form>
       </div>
     </div>
-    <!-- <script src="../js/signUp.js"></script> -->
+    <script src="../js/login.js"></script>
   </body>
 </html>

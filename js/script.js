@@ -1,7 +1,7 @@
 // login variables
 console.log("hello peeps");
 
-// declare variable for api data 
+// declare variable for api data
 
 // first api data --------------------------------------------------------
 
@@ -27,114 +27,116 @@ console.log("hello peeps");
 //     })
 //     .then(response => response.json())
 //     .then(data => {
-  
+
 //       //grap each item and push to array
-      
+
 //       data.results.forEach(item => {
 //       apiData.push(item);
 //      });
-     
+
 //     })
 //     console.log(apiData);
 
-    //--------------------------------------------- movie api
-    const options = {
-      method: 'GET',
-      headers: {
-        accept: 'application/json',
-        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwN2FhZDgxMDQ4YzlmMjNmZWI1ZGYzN2Y3YjA2ZmNiYyIsIm5iZiI6MTcyOTY5MDg3Mi43NTI1NDgsInN1YiI6IjY2ZWMxNjRkOWJkNDI1MDQzMDc0OWI4MiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.6MZErar8nBOsywfFcHUnUON9vcuqk-FxQuuMHjjq6pg'
-      }
-    };
+//--------------------------------------------- movie api
+const options = {
+  method: "GET",
+  headers: {
+    accept: "application/json",
+    Authorization:
+      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwN2FhZDgxMDQ4YzlmMjNmZWI1ZGYzN2Y3YjA2ZmNiYyIsIm5iZiI6MTcyOTY5MDg3Mi43NTI1NDgsInN1YiI6IjY2ZWMxNjRkOWJkNDI1MDQzMDc0OWI4MiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.6MZErar8nBOsywfFcHUnUON9vcuqk-FxQuuMHjjq6pg",
+  },
+};
 
+async function getApiData() {
+  await fetch(
+    "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc",
+    options
+  )
+    .then((res) => res.json())
+    .then((res) => mineData(res))
+    .catch((err) => console.error(err));
+}
+getApiData();
 
-    
-    async function getApiData() {
-      await fetch('https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc', options)
-      .then(res => res.json())
-      .then(res => mineData(res))
-      .catch(err => console.error(err));
-
-    }
-    getApiData();
-    
-  
 //-- tv api--------------------
 
-      // const options1 = {
-      //   method: 'GET',
-      //   headers: {
-      //     accept: 'application/json',
-      //     Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwN2FhZDgxMDQ4YzlmMjNmZWI1ZGYzN2Y3YjA2ZmNiYyIsIm5iZiI6MTcyOTY5MDg3Mi43NTI1NDgsInN1YiI6IjY2ZWMxNjRkOWJkNDI1MDQzMDc0OWI4MiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.6MZErar8nBOsywfFcHUnUON9vcuqk-FxQuuMHjjq6pg'
-      //   }
-      // };
-      
-      // fetch('https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=en-US&page=1&sort_by=popularity.desc', options)
-      //   .then(res => res.json())
-      //   .then(res => console.log(res))
-      //   .catch(err => console.error(err));
+// const options1 = {
+//   method: 'GET',
+//   headers: {
+//     accept: 'application/json',
+//     Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwN2FhZDgxMDQ4YzlmMjNmZWI1ZGYzN2Y3YjA2ZmNiYyIsIm5iZiI6MTcyOTY5MDg3Mi43NTI1NDgsInN1YiI6IjY2ZWMxNjRkOWJkNDI1MDQzMDc0OWI4MiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.6MZErar8nBOsywfFcHUnUON9vcuqk-FxQuuMHjjq6pg'
+//   }
+// };
 
+// fetch('https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=en-US&page=1&sort_by=popularity.desc', options)
+//   .then(res => res.json())
+//   .then(res => console.log(res))
+//   .catch(err => console.error(err));
 
+//- danae-------------- class for movie arr
 
-//- danae-------------- class for movie arr 
-
-class movie{
-
-  constructor(backdropImg, genreIdArr, movieTitle, overview,popularity,movieImg,voteAve,movieID){
-    this.movieTitle= movieTitle;
-    this.backdropImg= backdropImg;
-    this.genreIdArr= genreIdArr;
-    this.overview= overview;
-    this.popularity= popularity;
-    this.movieImg= movieImg;
-    this.voteAve= voteAve;
-    this.movieID= movieID;
+class movie {
+  constructor(
+    backdropImg,
+    genreIdArr,
+    movieTitle,
+    overview,
+    popularity,
+    movieImg,
+    voteAve,
+    movieID
+  ) {
+    this.movieTitle = movieTitle;
+    this.backdropImg = backdropImg;
+    this.genreIdArr = genreIdArr;
+    this.overview = overview;
+    this.popularity = popularity;
+    this.movieImg = movieImg;
+    this.voteAve = voteAve;
+    this.movieID = movieID;
   }
 
-  getTitle(){
-  
+  getTitle() {
     return this.movieTitle;
   }
-  getMovieImg(){
+  getMovieImg() {
     return this.movieImg;
   }
 
-  getID(){
+  getID() {
     return this.movieID;
   }
 
-  getBackdropImg(){
+  getBackdropImg() {
     return this.backdropImg;
   }
 
-  getPopularity(){
+  getPopularity() {
     return this.popularity;
   }
-  getGenreArr(){
+  getGenreArr() {
     return this.genreIdArr;
   }
 
-  getGenreForOutput(){
-    let output="";
-    output+= this.genreIdArr[0] ;
-    for(let i =1; i< this.genreIdArr.length; i++){
-      
-        output+= " | " + this.genreIdArr[i];
-      
+  getGenreForOutput() {
+    let output = "";
+    output += this.genreIdArr[0];
+    for (let i = 1; i < this.genreIdArr.length; i++) {
+      output += " | " + this.genreIdArr[i];
     }
     return output;
   }
 
-  getvoteAve(){
+  getvoteAve() {
     return this.voteAve;
   }
-  getOverview(){
+  getOverview() {
     return this.overview;
   }
-
-
 }
 
 //-------------------------- Code to extract api data danae  -------------------
+
 
 let movieObjArr= [];
 let tvObjArr=[];
@@ -235,19 +237,72 @@ localStorage.setItem('watchLisr',[]);
   
    
 
+
+    let movieTitle = data.results[i].title;
+    let overview = data.results[i].overview;
+    let popularity = data.results[i].popularity;
+    let movieImg = data.results[i].poster_path;
+    let voteAve = data.results[i].vote_average;
+    let movieID = i;
+
+    createMovieObj(
+      backdropImg,
+      genreIdArr,
+      movieTitle,
+      overview,
+      popularity,
+      movieImg,
+      voteAve,
+      movieID
+    );
+  }
 }
 
 //----------- code to save each obj into an array---------
 let arrPopulated = false;
-let count=0;
-  function createMovieObj(backdropImg,genreIdArr,movieTitle,overview,popularity,movieImg,voteAve,movieID){
-      movieObjArr.push( new movie(backdropImg,genreIdArr,movieTitle,overview,popularity,movieImg,voteAve,movieID));
-      count++;
-      if(count==20){
-        arrPopulated= true;
-      }
-     
+let count = 0;
+function createMovieObj(
+  backdropImg,
+  genreIdArr,
+  movieTitle,
+  overview,
+  popularity,
+  movieImg,
+  voteAve,
+  movieID
+) {
+  movieObjArr.push(
+    new movie(
+      backdropImg,
+      genreIdArr,
+      movieTitle,
+      overview,
+      popularity,
+      movieImg,
+      voteAve,
+      movieID
+    )
+  );
+  count++;
+  if (count == 20) {
+    arrPopulated = true;
   }
+}
+
+// console.log(movieObjArr);
+//populateHomePage();
+
+function checkIfDataLoaded() {
+  const interval = setInterval(() => {
+    if (movieObjArr.length == 20) {
+      // console.log('Data is done loading!');
+      clearInterval(interval); // Stop checking once the data is loaded
+      afterDataLoaded(); // Call the callback function after data is loaded
+    } else {
+      //console.log('Waiting for data to load...');
+    }
+  }, 100); // Check every 100 milliseconds
+}
 
 
  // console.log(movieObjArr);
@@ -309,6 +364,10 @@ let count=0;
   }
 
 
+function populateHomeScreen() {
+  //--------------------------------------------populate header section --------------------------------
+
+
 
     
   
@@ -326,6 +385,7 @@ let count=0;
 
 
       document.getElementById("homeHero").innerHTML= `
+
       <div id="overlaySlay">
         <img src= 'https://image.tmdb.org/t/p/original${movieObjArr[18].getBackdropImg()}' >
         
@@ -338,24 +398,24 @@ let count=0;
        
       </div>
       `;
-  
-  
-      
-      
-      
-       let topPickContainer= document.getElementById("top-picks");
-  
-       // loop through array values 0-9 ( 10 images) for top pics row
-       for( let i  =0; i<9; i++){
-      
-        let movieToAdd = `  <div class="movieContainerImg" onclick="openSingleView(${movieObjArr[i].getID()})">              
-                              <img src= 'https://image.tmdb.org/t/p/original${movieObjArr[i].getMovieImg()}'>
+
+  let topPickContainer = document.getElementById("top-picks");
+
+  // loop through array values 0-9 ( 10 images) for top pics row
+  for (let i = 0; i < 9; i++) {
+    let movieToAdd = `  <div class="movieContainerImg" onclick="openSingleView(${movieObjArr[
+      i
+    ].getID()})">              
+                              <img src= 'https://image.tmdb.org/t/p/original${movieObjArr[
+                                i
+                              ].getMovieImg()}'>
                              
                               <div class="title-with-button">
                                <h3>${movieObjArr[i].getTitle()}</h3>
                                 
                                 </div>
                             </div>`;
+
   
       topPickContainer.innerHTML+= movieToAdd;
        }
@@ -368,17 +428,16 @@ let count=0;
       
         let movieToAdd = `  <div class="movieContainerImg"  onclick="openSingleView(${movieObjArr[i].getID()})">              
                               <img src=  'https://image.tmdb.org/t/p/original${movieObjArr[i].getMovieImg()}' >
+
                               
                               <div class="title-with-button">
                               <h3>${movieObjArr[i].getTitle()}</h3>
                                
                                 </div>
                             </div>`;
-  
-      topMoviesContainer.innerHTML+= movieToAdd;
-  
-       
-       }
+
+    topMoviesContainer.innerHTML += movieToAdd;
+  }
 
 
       
@@ -411,7 +470,10 @@ let count=0;
       
     }
   
+
   }
+}
+
 
   //fires when added to watchlist
 
@@ -522,28 +584,30 @@ if(watchListData.length>0){
   
 
 
+  watchListContainer.innerHTML += movieAdd;
+}
 
- //addToWatchList(2);
-      //  for( let i  =0; i<watchList.length; i++){
-  
-      //   let movieToAdd = `  <div class="movieContainerImg" onclick="openSingleView(${watchList[i].getID()})">              
-      //                         <img src= ${watchList[i].getMovieImg()}>
-      //                         <h3>${watchList[i].getTitle()}</h3>
-      //                       </div>`;
-  
-      // watchListContainer.innerHTML+= movieToAdd;
-  
-       
-      //  }
+//addToWatchList(2);
+//  for( let i  =0; i<watchList.length; i++){
 
+//   let movieToAdd = `  <div class="movieContainerImg" onclick="openSingleView(${watchList[i].getID()})">
+//                         <img src= ${watchList[i].getMovieImg()}>
+//                         <h3>${watchList[i].getTitle()}</h3>
+//                       </div>`;
 
-   function openSingleView(id){
+// watchListContainer.innerHTML+= movieToAdd;
+
+//  }
+
 
     console.log("opended single view");
    
-   
 
- 
+
+  // trying to populate the single view class------------------------------------------------
+  // -- this next line of code opens the single view page.
+  localStorage.setItem("selectedMovieId", id);
+
 
     // trying to populate the single view class------------------------------------------------
 // -- this next line of code opens the single view page.
@@ -566,7 +630,9 @@ if(watchListData.length>0){
   
   }}
 
- 
+
+  console.log(genreOut);
+
 
   //--- function that displays single view data
   function displaySingleView(){
@@ -593,6 +659,7 @@ if(watchListData.length>0){
     let singleContainer = document.getElementById("singleViewContainer");
   
     let movieViewed = `
+
      <img id="backImgSingle" src=  'https://image.tmdb.org/t/p/original${movieObjArr[movieId].backdropImg}'>
       <p id="blurSingleBackground"></p>
     <div id= "movieDataSingle">
@@ -616,6 +683,7 @@ if(watchListData.length>0){
     </div>
 
     `;
+
     // <p class="genreSingleView">${movieObjArr[movieId].getGenreForOutput()}</p>
     singleContainer.innerHTML=movieViewed;
 
@@ -769,4 +837,3 @@ function displayLibraryFromArr(arr){
 
   
 
-  
