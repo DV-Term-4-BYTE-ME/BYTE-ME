@@ -74,9 +74,12 @@ Technologies Used
   - HTML5, CSS,  
   - Bootstrap & HTML
 
-- **Backend**:
+- Backend:
   - JavaScript
   - JQuery
 
 - External API:
   - The website pulls movie data from an external movie API.
+
+
+Github Link: https://github.com/DV-Term-4-BYTE-ME/BYTE-ME
