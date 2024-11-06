@@ -135,7 +135,7 @@ class movie {
   }
 }
 
-//-------------------------- Code to extract api data -------------------
+//-------------------------- Code to extract api data danae  -------------------
 
 
 let movieObjArr= [];
@@ -145,6 +145,7 @@ let watchList =[];
 // arrays for filter values
 let arrAll=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19];
 
+// arrays to capture filters for the movie page
 let arrAction=[];
 let arrAnimation =[];
 let arrComedy=[];
@@ -333,10 +334,6 @@ function checkIfDataLoaded() {
      // Store movieObjArr in localStorage
      localStorage.setItem('movieObjArr', JSON.stringify(movieObjArr));
 
-    //set hero image 
-   // displayLibraryFromArr(arrAll);
-   //fafter populateHomeScreen();
-   
     try {
       // First, try calling displayLibraryFromArr
       displayLibraryFromArr(arrAll);
@@ -377,7 +374,6 @@ function populateHomeScreen() {
     function populateHomeScreen(){
       
       //--------------------------------------------populate header section --------------------------------
-   //console.log("wy is this homenot piopulatindf");
    
     
       //- get local storrage for name selected 
@@ -482,7 +478,7 @@ function populateHomeScreen() {
   //fires when added to watchlist
 
   function addToWatchList(id){
-  // console.log(id);
+
 
    console.log(localStorage.getItem("watchList"));
    //console.log("data to display",JSON.parse(localStorage.getItem("watchList")));
@@ -707,7 +703,7 @@ if(watchListData.length>0){
       <img  src='https://image.tmdb.org/t/p/original${movieObjArr[i].movieImg}'   onclick="openSingleView(${movieObjArr[i].movieID})">
       <div class="title-with-button">
         <h3>${movieObjArr[i].movieTitle}</h3>
-        <button class="plus-icon-button">+</button>
+        
     </div>
     </div>
       
@@ -735,19 +731,6 @@ if(watchListData.length>0){
   }
  
 
-  //[-------------- watch list js ---------]
-
-
-  // create the filter sections --
-
-  // code for creating different filters 
-
-  // if(window.location.pathname.includes("movieLibrary.html")){
-  //   displayLibraryFromArr(movieObjArr);
-
-  // function to display on the library page from a given array 
-  //arr of arr ids
-  //- not wroin work on it tomorrow
 
 
 function displayLibraryFromArr(arr){
@@ -780,7 +763,7 @@ function displayLibraryFromArr(arr){
   //---------------code for watchFilter --
 
   function watchFilter(id){
-    console.log(id);
+    //console.log(id);
     if(id=="all"){
       displayWatchListOnPage();
     }else if(id=="recent"){
@@ -798,7 +781,7 @@ function displayLibraryFromArr(arr){
         newArr.push(arr[i].movieTitle);
       }
      newArr.sort();
-     console.log(newArr);
+     //console.log(newArr);
       let toLog=[];
      
       for(let i=0; i<newArr.length;i++){
@@ -811,7 +794,7 @@ function displayLibraryFromArr(arr){
         }
       }
       
-     console.log(toLog);
+     //console.log(toLog);
      displayChangesWatch(toLog);
 
     }
@@ -853,11 +836,4 @@ function displayLibraryFromArr(arr){
 
 
   
-
-  //-----------------------------------------------js for movie library-----------------------\
- // this function and the populate home page are ffighting -- gabs if you have a look 
- //at the console log on the home page and the movie library page youll see that the
- //innerHTml are fighting eachother and idk why --
-
-
 
