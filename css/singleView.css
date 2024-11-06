@@ -1,178 +1,193 @@
 body {
-  margin: 0;
-  padding: 0;
-
-  background-color: #000000;
-  background-size: cover;
-  background-position: center;
-  overflow: hidden;
-
-  color: white;
-  font-family: "Rubik", sans-serif;
-  overflow-y: scroll;
+    margin: 0;
+    padding: 0;
+  
+   background-color: #000000;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    
+    color: white;
+    font-family: "Rubik", sans-serif;
+    overflow-y: scroll;
 }
-html::-webkit-scrollbar,
-body::-webkit-scrollbar {
-  display: none; /* Hide scrollbar */
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+    display: none; /* Hide scrollbar */
 }
 header {
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 10px 50px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 10;
-  box-sizing: border-box;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+    box-sizing: border-box;
 }
 
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }
 
 .navbar ul {
-  list-style: none;
-  display: flex;
-  padding: 0;
-  margin: 0;
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
 }
 
 .navbar ul li {
-  margin: 0 15px;
+    margin: 0 15px;
 }
 
 .navbar ul li a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 18px;
-  transition: 0.3s;
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    transition: 0.3s;
 }
 
 .navbar ul li a:hover {
-  color: #56b5b9;
+    color: #56B5B9;
 }
 
-.logo img {
-  height: 50px;
-  width: 125px;
+.logo img{
+    height: 50px;
+    width: 125px;
 }
+
 
 /* --------------- danae css coding for single view page---------*/
-#singleViewContainer {
-  margin-top: 70px;
+#singleViewContainer{
+    margin-top: 70px;
+ 
+    width: 100%;
+    height: 600px;
+   /* Create a positioning context */
+ 
+    
+    
+   
+}
+#backImgSingle{
+    width: 100%;
+    height:620px ;
+   
 
-  width: 100%;
-  height: 600px;
-  /* Create a positioning context */
-}
-#backImgSingle {
-  width: 100%;
-  height: 620px;
 }
 
-#blurSingleBackground {
-  margin-top: 36px;
-  position: absolute;
-  /* Positioning relative to the container */
-  top: 50%; /* Center vertically */
-  left: 50%; /* Center horizontally */
-  transform: translate(-50%, -50%);
-  background-color: rgba(83, 3, 213, 0.1);
-  width: 100%;
-  height: 600px;
-  backdrop-filter: blur(10px);
-  padding: 20px;
+#blurSingleBackground{
+    margin-top: 36px;
+    position: absolute;
+     /* Positioning relative to the container */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%);
+    background-color: rgba(83, 3, 213, 0.1);
+    width: 100%;
+    height: 600px;
+    backdrop-filter: blur(10px); 
+    padding: 20px;
 }
-#movieDataSingle {
-  margin-top: 45px;
-  width: 100%;
+#movieDataSingle{
+    margin-top: 45px;
+  width:   100%;
   height: 600px;
   padding: 20px;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-
+  
   position: absolute;
   top: 50%; /* Center vertically */
   left: 50%; /* Center horizontally */
   transform: translate(-50%, -50%);
+
+
+  
 }
 
-.moviePosterSingle {
-  width: 100%;
-  padding: 20px;
-  margin-right: 1%;
-  flex: 4;
+
+
+.moviePosterSingle{
+    width:100%;
+    padding: 20px;
+    margin-right: 1%;
+    flex:4;
+   
+    
 }
 
-.moviePosterSingle img {
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
-  object-fit: cover;
+.moviePosterSingle img{
+    width: 100%;
+   height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+.movieDetails{
+
+    width: 100%;
+   
+    height: 80%;
+    padding: 4%;
+    margin: 2%;
+    padding-top: 1%;
+    padding-bottom: 2%;
+   
+    border-radius: 10px;
+    flex:8;
+
+    
+   
+    background-color: rgba(13, 0, 14, 0.7);
+    
+    
 }
 
-.movieDetails {
-  width: 100%;
-
-  height: 80%;
-  padding: 4%;
-  margin: 2%;
-  padding-top: 1%;
-  padding-bottom: 2%;
-
-  border-radius: 10px;
-  flex: 8;
-
-  border-radius: 10px;
-  flex: 6;
-
-  background-color: rgba(13, 0, 14, 0.7);
+.btnCon{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
 }
 
-.btnCon {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
+.movieDetails h1{
+    font-size: 50px;
+    margin-bottom: 30px;
+}
+.movieDetails h2{
+    margin-top: 8px;
+    font-size: 20px;
+    font-weight: 200;
+    line-height: 1.5;
 }
 
-.movieDetails h1 {
-  font-size: 50px;
-  margin-bottom: 30px;
-}
-.movieDetails h2 {
-  margin-top: 8px;
-  font-size: 20px;
-  font-weight: 200;
-  line-height: 1.5;
-}
-
-.movieDetails button {
-  background-color: #602585;
-  color: #fff;
-  padding: 10px 20px;
-  font-size: 20px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  width: 40%;
-  height: 50px;
-  font-family: "Rubik", sans-serif;
-  margin-right: 12px;
+ .movieDetails button{
+    background-color: #602585;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 40%;
+    height: 50px;
+    font-family: "Rubik", sans-serif;
+    margin-right: 12px;
+ 
 }
 
 .movieDetails button:hover {
-  background-color: #56b5b9;
-}
+    background-color: #56B5B9;
+  }
 
-.smallInfoSingleView {
-  font-size: 16px;
-  font-weight: 200;
+.smallInfoSingleView{
+     font-size: 16px;
+     font-weight: 200;
 }
 
 /*
@@ -277,92 +292,105 @@ header {
 
 /* Movie Section */
 
+
 .section-title {
-  margin-left: 40px;
-  font-size: 1.5em;
-  padding: 20px 0;
-  color: #fff; /* White text */
-  font-family: "Chakra Petch", sans-serif;
-}
+    margin-left: 40px;
+    font-size: 1.5em;
+    padding: 20px 0;
+    color: #fff; /* White text */
+    font-family: "Chakra Petch", sans-serif;
+  }
+  
+  .movie-row {
+    display: flex;
+    overflow-x: auto;
+    height: 400px;
+    padding-left: 20px;
+    justify-content: space-around;
+    padding-top: 20px;
+    padding-left: 0px;
+    
+  }
+ 
+  .movieContainerImg{
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-left: 30px; /* Add spacing to the left side of each image container */
+  }
+  
+  .movieContainerImg h3{
+    color: white;
+    text-decoration: none;
+    font-family: "Rubik", sans-serif;
+    
+  }
+  
+  
+  .movie-row img {
+    margin-right: 10px;
+    border-radius: 8px;
+    width: 200px;
+    height: 300px;
+    transition: transform 0.3s ease;
+      margin-left: 10px;
+  }
+  
+  .movie-row img:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+  }
+  
+  .section {
+    margin-top: 20px; 
+    margin-bottom: 40px; /* Keeps the bottom margin for spacing between sections */
+    background-color: rgba(0, 0, 0, 0);
+    margin-left: 0px;
+    overflow-y: auto;
 
-.movie-row {
-  display: flex;
-  overflow-x: auto;
-  height: 400px;
-  padding-left: 20px;
-  justify-content: space-around;
-  padding-top: 20px;
-  padding-left: 0px;
-}
 
-.movieContainerImg {
-  padding-left: 5px;
-  padding-right: 5px;
-  margin-left: 30px; /* Add spacing to the left side of each image container */
-}
-
-.movieContainerImg h3 {
-  color: white;
-  text-decoration: none;
-  font-family: "Rubik", sans-serif;
-}
-
-.movie-row img {
-  margin-right: 10px;
-  border-radius: 8px;
-  width: 200px;
-  height: 300px;
-  transition: transform 0.3s ease;
-  margin-left: 10px;
-}
-
-.movie-row img:hover {
-  transform: scale(1.1);
-  cursor: pointer;
-}
-
-.section {
-  margin-top: 20px;
-  margin-bottom: 40px; /* Keeps the bottom margin for spacing between sections */
-  background-color: rgba(0, 0, 0, 0);
-  margin-left: 0px;
-  overflow-y: auto;
 }
 
 .plus-icon-button {
-  margin-left: 10px; /* Space between title and button */
-  background-color: #602585; /* Button background color */
-  color: #fff; /* Icon color */
-  border: none;
-  border-radius: 50%;
-  padding: 5px 10px;
-  font-size: 15px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  font-weight: 200;
-}
+    margin-left: 10px; /* Space between title and button */
+    background-color: #602585; /* Button background color */
+    color: #fff; /* Icon color */
+    border: none;
+    border-radius: 50%;
+    padding: 5px 10px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: 200;
 
-.plus-icon-button:hover {
-  background-color: #56b5b9;
-}
+  }
+  
+  .plus-icon-button:hover {
+    background-color: #56B5B9;
+  }
+  
+  .title-with-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
+    margin-left: 8%;
+   
+    align-items: center; /* Align title and button vertically */
+    margin-top: 5px; /* Adds spacing above the title and button */
 
-.title-with-button {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 90%;
-  margin-left: 8%;
+  }
+.title-with-button h3{
+    
+  }
 
-  align-items: center; /* Align title and button vertically */
-  margin-top: 5px; /* Adds spacing above the title and button */
-}
-.title-with-button h3 {
-}
+
+  
+
 
 .backButton {
-  margin-top: 20px;
-  font-size: 1rem;
-  font-weight: 500;
-  color: #fff;
-  background-color: #000000;
+    margin-top: 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #fff;
+    background-color: #000000;
 }
