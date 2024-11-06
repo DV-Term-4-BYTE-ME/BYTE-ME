@@ -1,160 +1,142 @@
 body {
-    margin: 0;
-    padding: 0;
-   background-image: url(../assests/images/619579db-2a19-4825-9e0b-15e0ddae83e7.jpeg);
-   background-color: #000000;
-    background-size: cover;
-    background-position: center;
-    overflow: hidden;
-    
-    color: white;
-    font-family: "Rubik", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url(../assests/images/619579db-2a19-4825-9e0b-15e0ddae83e7.jpeg);
+  background-color: #000000;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+
+  color: white;
+  font-family: "Rubik", sans-serif;
 }
 header {
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 10px 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 10;
-    box-sizing: border-box;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+  box-sizing: border-box;
 }
 
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
 .navbar ul {
-    list-style: none;
-    display: flex;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
 }
 
 .navbar ul li {
-    margin: 0 15px;
+  margin: 0 15px;
 }
 
 .navbar ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 18px;
-    transition: 0.3s;
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  transition: 0.3s;
 }
 
 .navbar ul li a:hover {
-    color: #56B5B9;
+  color: #56b5b9;
 }
 
-.logo img{
-    height: 50px;
-    width: 125px;
+.logo img {
+  height: 50px;
+  width: 125px;
 }
-
 
 /* --------------- danae css coding for single view page---------*/
-#singleViewContainer{
-    margin-top: 70px;
- 
-    width: 100%;
-    height: 600px;
-   /* Create a positioning context */
- 
-    
-    
-   
-}
-#backImgSingle{
-    width: 100%;
-    height:620px ;
-   
+#singleViewContainer {
+  margin-top: 70px;
 
+  width: 100%;
+  height: 600px;
+  /* Create a positioning context */
+}
+#backImgSingle {
+  width: 100%;
+  height: 620px;
 }
 
-#blurSingleBackground{
-    margin-top: 36px;
-    position: absolute;
-     /* Positioning relative to the container */
-    top: 50%; /* Center vertically */
-    left: 50%; /* Center horizontally */
-    transform: translate(-50%, -50%);
-    background-color: rgba(83, 3, 213, 0.1);
-    width: 100%;
-    height: 600px;
-    backdrop-filter: blur(10px); 
-    padding: 20px;
+#blurSingleBackground {
+  margin-top: 36px;
+  position: absolute;
+  /* Positioning relative to the container */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%);
+  background-color: rgba(83, 3, 213, 0.1);
+  width: 100%;
+  height: 600px;
+  backdrop-filter: blur(10px);
+  padding: 20px;
 }
-#movieDataSingle{
-    margin-top: 45px;
-  width:   100%;
+#movieDataSingle {
+  margin-top: 45px;
+  width: 100%;
   height: 600px;
   padding: 20px;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  
+
   position: absolute;
   top: 50%; /* Center vertically */
   left: 50%; /* Center horizontally */
   transform: translate(-50%, -50%);
-
-
-  
 }
 
-
-
-.moviePosterSingle{
-    width:100%;
-    padding: 20px;
-    margin-right: 60px;
-    flex:4;
-   
-    
+.moviePosterSingle {
+  width: 100%;
+  padding: 20px;
+  margin-right: 60px;
+  flex: 4;
 }
 
-.moviePosterSingle img{
-    width: 100%;
-   height: 100%;
-    border-radius: 10px;
-    object-fit: cover;
+.moviePosterSingle img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  object-fit: cover;
 }
-.movieDetails{
-    width: 100%;
-    margin: 60px;
-    padding: 70px;
-    padding-top: 40px;
-   
-    border-radius: 10px;
-    flex:6;
+.movieDetails {
+  width: 100%;
+  margin: 60px;
+  padding: 70px;
+  padding-top: 40px;
 
-    
-   
-    background-color: rgba(13, 0, 14, 0.7);
-    
-    
+  border-radius: 10px;
+  flex: 6;
+
+  background-color: rgba(13, 0, 14, 0.7);
 }
 
-.movieDetails h1{
-    font-size: 50px;
-    margin-bottom: 30px;
+.movieDetails h1 {
+  font-size: 50px;
+  margin-bottom: 30px;
 }
-.movieDetails h2{
-    margin-top: 8px;
-    font-size: 20px;
-    font-weight: 200;
-    line-height: 1.5;
+.movieDetails h2 {
+  margin-top: 8px;
+  font-size: 20px;
+  font-weight: 200;
+  line-height: 1.5;
 }
 
-.smallInfoSingleView{
-     font-size: 16px;
-     font-weight: 200;
+.smallInfoSingleView {
+  font-size: 16px;
+  font-weight: 200;
 }
 
 /*
@@ -259,64 +241,59 @@ header {
 
 /* Movie Section */
 
-
 .section-title {
-    margin-left: 40px;
-    font-size: 1.5em;
-    padding: 20px 0;
-    color: #fff; /* White text */
-    font-family: "Chakra Petch", sans-serif;
-  }
-  
-  .movie-row {
-    display: flex;
-    overflow-x: auto;
-    padding-left: 20px;
-    justify-content: space-around;
-    padding-top: 20px;
-    padding-left: 0px;
-    
-  }
-  .movieContainerImg{
-    padding-left: 5px;
-    padding-right: 5px;
-    margin-left: 30px; /* Add spacing to the left side of each image container */
-  }
-  
-  .movieContainerImg h3{
-    color: white;
-    text-decoration: none;
-    font-family: "Rubik", sans-serif;
-    
-  }
-  
-  
-  .movie-row img {
-    margin-right: 10px;
-    border-radius: 8px;
-    width: 200px;
-    height: 300px;
-    transition: transform 0.3s ease;
-      margin-left: 10px;
-  }
-  
-  .movie-row img:hover {
-    transform: scale(1.1);
-    cursor: pointer;
-  }
-  
-  .section {
-    margin-top: 0px; 
-    margin-bottom: 40px; /* Keeps the bottom margin for spacing between sections */
-    background-color: rgba(0, 0, 0, 0);
-    margin-left: 0px;
+  margin-left: 40px;
+  font-size: 1.5em;
+  padding: 20px 0;
+  color: #fff; /* White text */
+  font-family: "Chakra Petch", sans-serif;
 }
 
+.movie-row {
+  display: flex;
+  overflow-x: auto;
+  padding-left: 20px;
+  justify-content: space-around;
+  padding-top: 20px;
+  padding-left: 0px;
+}
+.movieContainerImg {
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-left: 30px; /* Add spacing to the left side of each image container */
+}
+
+.movieContainerImg h3 {
+  color: white;
+  text-decoration: none;
+  font-family: "Rubik", sans-serif;
+}
+
+.movie-row img {
+  margin-right: 10px;
+  border-radius: 8px;
+  width: 200px;
+  height: 300px;
+  transition: transform 0.3s ease;
+  margin-left: 10px;
+}
+
+.movie-row img:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.section {
+  margin-top: 0px;
+  margin-bottom: 40px; /* Keeps the bottom margin for spacing between sections */
+  background-color: rgba(0, 0, 0, 0);
+  margin-left: 0px;
+}
 
 .backButton {
-    margin-top: 20px;
-    font-size: 1rem;
-    font-weight: 500;
-    color: #fff;
-    background-color: #000000;
+  margin-top: 20px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #fff;
+  background-color: #000000;
 }

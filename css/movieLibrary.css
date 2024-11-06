@@ -1,301 +1,290 @@
 body {
-    margin: 0;
-    padding: 0;
-    font-family: "Rubik", sans-serif;
-    background: #0d001d; /* Black background for the body */
-    min-height: 100vh; /* Use min-height for the body */
-    display: flex;
-    flex-direction: column; /* Change to column layout */
+  margin: 0;
+  padding: 0;
+  font-family: "Rubik", sans-serif;
+  background: #0d001d; /* Black background for the body */
+  min-height: 100vh; /* Use min-height for the body */
+  display: flex;
+  flex-direction: column; /* Change to column layout */
 }
 
 /* danae added classes= --------------------*/
-#movieLibraryContainer{
-   
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        
-        overflow-x: hidden;
-        padding-left: 20px;
-        justify-content: flex-start;;
-        padding-top: 20px;
-        padding-left: 0px;
-        
-      
+#movieLibraryContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 
+  overflow-x: hidden;
+  padding-left: 20px;
+  justify-content: flex-start;
+  padding-top: 20px;
+  padding-left: 0px;
 }
 #movieLibraryContainer img {
-    margin-right: 10px;
-    border-radius: 8px;
-    width: 200px;
-    height: 300px;
-    transition: transform 0.3s ease;
-  }
-  
-  #movieLibraryContainer img:hover {
-    transform: scale(1.1);
-    cursor: pointer;
-  }
+  margin-right: 10px;
+  border-radius: 8px;
+  width: 200px;
+  height: 300px;
+  transition: transform 0.3s ease;
+}
 
-  .libraryMovie{
-    flex: 1 1 300px;
-    padding-left: 5px;
-    padding-right: 5px;
-   
-  }
-  
-  .libraryMovie h3{
-    color: white;
-    text-decoration: none;
-    font-family: "Chakra Petch", sans-serif;
-  }
+#movieLibraryContainer img:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.libraryMovie {
+  flex: 1 1 300px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.libraryMovie h3 {
+  color: white;
+  text-decoration: none;
+  font-family: "Chakra Petch", sans-serif;
+}
 
 /* end of -----danae added classes=--------------------*/
 
 /* Hero Section Background */
 .hero-section {
-    background: url(../assests/images/619579db-2a19-4825-9e0b-15e0ddae83e7.jpeg) no-repeat center center fixed;
-    background-size: cover;
-    height: 100vh; /* Full height for the hero section */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    color: #fff; /* White text */
+  background: url(../assests/images/619579db-2a19-4825-9e0b-15e0ddae83e7.jpeg)
+    no-repeat center center fixed;
+  background-size: cover;
+  height: 100vh; /* Full height for the hero section */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: #fff; /* White text */
 }
 
 .movieInfo p {
-    overflow: hidden; /* Hide overflow if text exceeds height */
-    align-items: left; /* Center the text vertically */
-    max-width: 700px; /* Set a maximum width for the text box */
-    margin-right: 500px;
+  overflow: hidden; /* Hide overflow if text exceeds height */
+  align-items: left; /* Center the text vertically */
+  max-width: 700px; /* Set a maximum width for the text box */
+  margin-right: 500px;
 }
 
 /* Nav Bar */
 header {
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 10px 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 10;
-    box-sizing: border-box;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+  box-sizing: border-box;
 }
 
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
 .navbar ul {
-    list-style: none;
-    display: flex;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
 }
 
 .navbar ul li {
-    margin: 0 15px;
+  margin: 0 15px;
 }
 
 .navbar ul li a {
-    color: #fff; /* White text */
-    text-decoration: none;
-    font-size: 18px;
-    transition: 0.3s;
+  color: #fff; /* White text */
+  text-decoration: none;
+  font-size: 18px;
+  transition: 0.3s;
 }
 
 .navbar ul li a:hover {
-    color: #56B5B9;
+  color: #56b5b9;
 }
 
 .logo {
-    font-size: 24px;
-    color: #fff; /* White text */
-    font-weight: bold;
+  font-size: 24px;
+  color: #fff; /* White text */
+  font-weight: bold;
 }
 
 /* Movie Section */
 /* Container Layout for Two Columns */
 .container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px; /* Adds space between elements */
-  }
-  
-  /* Column for Filter Buttons */
-  .filter-column {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 100px;
-    margin-bottom: 25px;
-    margin-left: 20px;
-  }
-  
-  .filter-btn {
-    background-color: #602585;
-    color: white;
-    padding: 15px 20px; /* Simplified padding */
-    font-size: 16px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .filter-btn:hover {
-    background-color: #56B5B9;
-  }
-  
-  /* Movie Library Styling */
-  #movieLibraryContainer {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0 20px;
-    flex: 1 1 600px; /* Adjusts to the parent container's size */
-    justify-content: flex-start;
-    margin-top: 100px;
-  }
-  
-  /* Individual Movie Container Style */
-  .libraryMovie {
-    flex: 1 1 22%; /* Sets the width of each movie item to around 22% */
-    margin-bottom: 20px; /* Adds space below each movie item */
-    box-sizing: border-box; /* Ensures padding/margin doesn't affect total width */
-  }
-  
-  #movieLibraryContainer img {
-    border-radius: 8px;
-    width: 100%; /* Makes image responsive to the container width */
-    height: auto; /* Maintains aspect ratio */
-    transition: transform 0.3s ease;
-  }
-  
-  #movieLibraryContainer img:hover {
-    transform: scale(1.1);
-    cursor: pointer;
-  }
-  
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Adds space between elements */
+}
 
+/* Column for Filter Buttons */
+.filter-column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 100px;
+  margin-bottom: 25px;
+  margin-left: 20px;
+}
+
+.filter-btn {
+  background-color: #602585;
+  color: white;
+  padding: 15px 20px; /* Simplified padding */
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.filter-btn:hover {
+  background-color: #56b5b9;
+}
+
+/* Movie Library Styling */
+#movieLibraryContainer {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 20px;
+  flex: 1 1 600px; /* Adjusts to the parent container's size */
+  justify-content: flex-start;
+  margin-top: 100px;
+}
+
+/* Individual Movie Container Style */
+.libraryMovie {
+  flex: 1 1 22%; /* Sets the width of each movie item to around 22% */
+  margin-bottom: 20px; /* Adds space below each movie item */
+  box-sizing: border-box; /* Ensures padding/margin doesn't affect total width */
+}
+
+#movieLibraryContainer img {
+  border-radius: 8px;
+  width: 100%; /* Makes image responsive to the container width */
+  height: auto; /* Maintains aspect ratio */
+  transition: transform 0.3s ease;
+}
+
+#movieLibraryContainer img:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
 
 /* Footer */
 footer {
-    background-color: #333; /* Dark background */
-    color: #fff; /* White text */
-    text-align: center; /* Center the text */
-    padding: 20px; /* Add some padding */
-    position: relative; /* Ensure it stays at the bottom */
-    margin-top: auto; /* This ensures the footer moves to the bottom */
-    width: 100%; /* Full width */
+  background-color: #333; /* Dark background */
+  color: #fff; /* White text */
+  text-align: center; /* Center the text */
+  padding: 20px; /* Add some padding */
+  position: relative; /* Ensure it stays at the bottom */
+  margin-top: auto; /* This ensures the footer moves to the bottom */
+  width: 100%; /* Full width */
 }
 
 .footer-container {
-    max-width: 1200px; /* Limit the width */
-    margin: 0 auto; /* Center the container */
-    padding: 10px; /* Add some padding */
+  max-width: 1200px; /* Limit the width */
+  margin: 0 auto; /* Center the container */
+  padding: 10px; /* Add some padding */
 }
 
 .footer-names p {
-    margin: 0; /* Remove default margin */
-    font-size: 16px; /* Adjust font size */
-    color: #fff; /* White text */
+  margin: 0; /* Remove default margin */
+  font-size: 16px; /* Adjust font size */
+  color: #fff; /* White text */
 }
 
 @media (max-width: 768px) {
-    header {
-        padding: 10px 20px;
-    }
+  header {
+    padding: 10px 20px;
+  }
 
-    .navbar ul {
-        flex-direction: column;
-        background: rgba(0, 0, 0, 0.8);
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        height: calc(100vh - 60px);
-        justify-content: center;
-        align-items: center;
-        display: none; 
-    }
+  .navbar ul {
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 60px);
+    justify-content: center;
+    align-items: center;
+    display: none;
+  }
 
-    .navbar ul li {
-        margin: 20px 0;
-    }
+  .navbar ul li {
+    margin: 20px 0;
+  }
 
-    .navbar ul.show {
-        display: flex; 
-    }
+  .navbar ul.show {
+    display: flex;
+  }
 
-    .loginForm {
-        width: 100%;
-        padding: 30px;
-        max-width: 350px;
-        color: #fff; /* White text */
-    }
+  .loginForm {
+    width: 100%;
+    padding: 30px;
+    max-width: 350px;
+    color: #fff; /* White text */
+  }
 }
 
 @media (max-width: 480px) {
-    .loginForm {
-        padding: 20px;
-        max-width: 300px;
-        color: #fff; /* White text */
-    }
+  .loginForm {
+    padding: 20px;
+    max-width: 300px;
+    color: #fff; /* White text */
+  }
 
-    .navbar ul li a {
-        font-size: 16px;
-    }
+  .navbar ul li a {
+    font-size: 16px;
+  }
 
-    .navbar ul li {
-        margin: 10px 0;
-    }
+  .navbar ul li {
+    margin: 10px 0;
+  }
 
-    .navbar .logo {
-        font-size: 20px;
-    }
+  .navbar .logo {
+    font-size: 20px;
+  }
 }
 
-.logo img{
-    height: 50px;
-    width: 125px;
-  }
+.logo img {
+  height: 50px;
+  width: 125px;
+}
 
-  /* Button Container */
+/* Button Container */
 .button-container {
-    display: flex;
-    justify-content: center; /* Center the button horizontally */
-    margin-top: 20px; /* Adjust spacing above the button container */
-  }
-  
-  /* Button Style */
-  .button {
+  display: flex;
+  justify-content: center; /* Center the button horizontally */
+  margin-top: 20px; /* Adjust spacing above the button container */
+}
 
-    background-color: #602585; /* Button background color */
-    color: #fff; /* Text color */
-    padding: 10px 20px; /* Padding for size and shape */
-    font-size: 18px; /* Font size */
-    border: none; /* Remove border */
-    border-radius: 10px; /* Rounded corners */
-    text-align: center; /* Center text */
-    font-family: "Rubik", sans-serif; /* Font style */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s ease; /* Smooth color transition */
-    margin-bottom: 50px;
-    margin-top: 50px;
-    align-items: center;
-  }
-  
-  /* Button Hover Effect */
-  .button:hover {
-    background-color: #56B5B9; /* Hover color */
-  }
-  
+/* Button Style */
+.button {
+  background-color: #602585; /* Button background color */
+  color: #fff; /* Text color */
+  padding: 10px 20px; /* Padding for size and shape */
+  font-size: 18px; /* Font size */
+  border: none; /* Remove border */
+  border-radius: 10px; /* Rounded corners */
+  text-align: center; /* Center text */
+  font-family: "Rubik", sans-serif; /* Font style */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease; /* Smooth color transition */
+  margin-bottom: 50px;
+  margin-top: 50px;
+  align-items: center;
+}
 
-
- 
+/* Button Hover Effect */
+.button:hover {
+  background-color: #56b5b9; /* Hover color */
+}
